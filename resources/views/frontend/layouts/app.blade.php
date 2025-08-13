@@ -71,9 +71,9 @@
       <script src="{{ asset('assets/js/lucide-icon.js') }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-            // }
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
         });
     </script>
      <script>
@@ -116,9 +116,9 @@
             }
               // Initialize Lucide icons after DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
-            // if (typeof lucide !== 'undefined') {
+            if (typeof lucide !== 'undefined') {
             lucide.createIcons();
-            // }
+            }
         });
 
         // Smooth scrolling for anchor links
