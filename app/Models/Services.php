@@ -34,38 +34,44 @@ class Services extends Model
     const STATUS_ACTIVE = 1;
     const STATUS_INACTIVE = 0;
 
-    public static function getStatusList(): array
-    {
-        return [
-            self::STATUS_ACTIVE => 'Active',
-            self::STATUS_INACTIVE => 'Inactive',
-            
-        ];
-    }
+  public static function getStatusList(): array
+{
+    return [
+        self::STATUS_ACTIVE => 'Active',
+        self::STATUS_INACTIVE => 'Inactive',
+    ];
+}
 
-    public function getStatusLabelAttribute()
-    {
-        return self::getStatusList()[$this->status];
-    }
+public function getStatusLabelAttribute(): string
+{
+    return self::getStatusList()[$this->status] ?? 'Unknown';
+}
 
-    public function getStatusColorAttribute()
-    {
-        return $this->status == self::STATUS_ACTIVE ? 'badge-success' : '';
-    }
+public function getStatusColorAttribute(): string
+{
+    
+    return $this->status == self::STATUS_ACTIVE ? 'badge-success' : 'badge-error';
+}
 
-    public function getStatusBtnLabelAttribute()
-    {
-        return $this->status == self::STATUS_ACTIVE ? self::getStatusList()[self::STATUS_INACTIVE] : self::getStatusList();
-    }
+public function getStatusBtnLabelAttribute(): string
+{
+    
+    return $this->status == self::STATUS_ACTIVE
+        ? self::getStatusList()[self::STATUS_INACTIVE]
+        : self::getStatusList()[self::STATUS_ACTIVE];
+}
 
-    public function getStatusBtnColorAttribute()
-    {
-        return $this->status == self::STATUS_ACTIVE ? 'btn-error' : 'btn-success';
-    }
+public function getStatusBtnColorAttribute(): string
+{
+    
+    return $this->status == self::STATUS_ACTIVE ? 'btn-error' : 'btn-success';
+}
 
-    public function getStatusBtnClassAttribute()
-    {
-        return $this->status == self::STATUS_INACTIVE ? 'btn-error' : 'btn-primary';
-    }
+public function getStatusBtnClassAttribute(): string
+{
+    
+    return $this->status == self::STATUS_INACTIVE ? 'btn-error' : 'btn-primary';
+}
+
     
 }
