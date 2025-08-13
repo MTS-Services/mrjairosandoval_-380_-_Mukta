@@ -43,7 +43,7 @@
 
 
                     <button @click="open = !open" class="avatar">
-                        <div class="w-10 h-10 border rounded-full">
+                        <div class="w-10 h-10 border border-gray-200 rounded-full">
                             <img src="{{ auth_storage_url(admin()->image) }}" alt=""
                                 class=" object-cover w-full h-full">
                         </div>
