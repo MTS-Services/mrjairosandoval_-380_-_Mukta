@@ -1,0 +1,64 @@
+:root {
+
+  /* Font families */
+  --font-family-base: 'Trajan Pro'; 
+  --font-family-secondary: 'Didot';
+  --font-family-heading: 'Poppins', sans-serif;
+
+  /* Font sizes */
+  --font-size-base: 70px;
+  --font-size-small: 16px;
+  --font-size-large: 20px;
+  --font-size-heading: 70px;
+
+  /* font weight */
+  --font-weight-base: 400;
+  --font-weight-bold: 700;
+  --font-weight-heading: 700;
+
+
+  /* Spacing */
+  --spacing-small: 10px;
+  --spacing-medium: 20px;
+  --spacing-large: 30px;
+
+  /* Line height */
+  --line-height-base: 130%;
+  --line-height-heading: 100%;
+  --line-height-small: 1.4;
+  --line-height-large: 1.8;
+
+
+  /* Letter spacing */
+  --letter-spacing-base: 1%;
+  --letter-spacing-heading: 0%;
+  --letter-spacing-small: 0.2px;
+  --letter-spacing-large: 1px;
+
+  /* Colors */
+  --primary-color: #7D0A0A;   /* Main brand color */
+  --secondary-color: #f59e0b; /* Accent color */
+  --text-color: #C19A6B;      /* Default text color */
+  --bg-color: #ffffff; 
+  --font-color: #E5E3E3;
+
+  /* Border radius */
+  --border-radius-base: 4px;
+  --border-radius-small: 2px;
+  --border-radius-large: 8px;
+
+  /* Box shadow */
+  --box-shadow-base: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --box-shadow-small: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --box-shadow-large: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  /* Transitions */
+  --transition-base: all 0.3s ease-in-out;
+  --transition-fast: all 0.1s ease-in-out;
+  --transition-slow: all 0.5s ease-in-out;
+  
+}
+
+
+
+

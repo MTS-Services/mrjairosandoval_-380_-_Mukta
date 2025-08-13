@@ -1,0 +1,136 @@
+@import url('root.css');
+@import url('fonts.css');
+
+@import url('https://fonts.cdnfonts.com/css/trajan-pro');
+@import url('https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap');
+
+
+
+/* Home Page CSS */
+body p{
+    color: var(--text-color);
+    font-family: var(--font-family-secondary);
+    font-style: regular;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%; 
+}
+
+.header, nav, a{
+    color: var(--text-color); 
+    font-family: var(--text-color);
+    font-style: regular;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%; 
+}
+
+.hero-section, h1{
+    color: var(--text-color);  
+    font-family: var(--font-family-base);
+    font-style: regular;
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 130%;
+    letter-spacing: 1%;
+    text-align: center;
+}
+
+.content-section, h3{
+    color: var(--text-color);
+    font-family: var(--font-family-base);
+    font-style: regular;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;  
+}
+
+#button_menu_toggles{
+    background-color: black;
+    font-weight: 400;
+    font-family: dibot;
+    font-size: 16px;
+    border: 1px solid #C19A6B;
+    border-radius: 10px;
+    color: #C19A6B;
+}
+
+#cta-section h2{
+    font-family: var(--font-family-base);
+    font-style: regular;
+    font-weight: 700;
+    letter-spacing: 0%;
+    text-align: center;
+    color: var(--text-color);
+}
+
+#cta-section p{
+    font-family: var(--font-family-secondary);
+    font-style: regular;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: var(--font-color);
+}
+
+#cta-section button{
+    background-color: #C19A6B;
+    font-weight: 400;
+    font-family: dibot;
+    font-size: 16px;
+    border: 1px solid #C19A6B;
+    border-radius: 10px;
+    color: #7D0A0A;
+    padding: 12px 15px;
+}
+
+
+/* Home Page CSS */
+
+
+
+/* About Page CSS  */
+
+.cta-section2nd{
+    font-family: var(--font-family-secondary);
+    font-style: regular;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+     width: 770px;
+     height: 81px;
+    color: var(--font-color);
+}
+
+/* Servoces Page CSS */
+
+.content-section, div, p{
+    font-family: var(--font-family-secondary);
+    font-style: regular;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: var(--font-color);
+}
+
+
+/* membership page css */
+
+#membership-bottom, h1{
+    font-family: var(--font-family-base);
+    font-style: regular;
+    font-weight: 400;
+    letter-spacing: 0%;
+    line-height: 100%;
+    text-align: center; 
+    color: var(--text-color);
+}
