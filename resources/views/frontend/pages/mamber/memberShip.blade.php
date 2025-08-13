@@ -2,16 +2,16 @@
     <x-slot name="title">Membership</x-slot>
     <x-slot name="page_slug">Membership</x-slot>
 
-   <!-- CTA -->
-  <!-- CTA -->
-    <section class="text-center pt-44  text-white  " id="cta-section ">
+    <!-- CTA -->
+    <!-- CTA -->
+    <section class="text-center pt-44  text-white  bg-black" id="cta-section ">
         <h2 class="text-2xl sm:text-4xl tracking-wide text-[#d4a75f]"> Not all appetites are equal. Our tiers
             reflect this.
         </h2>
     </section>
 
     <!-- Content Section -->
-    <section class="content-section">
+    <section class="content-section bg-black">
         <div class="container mx-auto flex flex-col justify-between">
             <!-- 3 Column Info -->
 

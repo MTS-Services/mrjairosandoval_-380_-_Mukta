@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
- <title>@yield('title'){{ config('app.name', 'Luxury Landing') }}</title>
+    <title>@yield('title'){{ config('app.name', 'Luxury Landing') }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
@@ -20,7 +20,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
- <script>
+    <script>
         // On page load, immediately apply theme from localStorage to prevent flash
         (function() {
             let theme = localStorage.getItem('theme') || 'system';
@@ -56,19 +56,19 @@
         @endisset
 
         <!-- Page Content -->
-        <main class="bg-black">
+        <main class="#">
             {{ $slot }}
         </main>
-<!--footer-->
+        <!--footer-->
 
-       <div class="bg-black">
-        <div class="py-8 max-w-[1600px] mx-auto px-6 sm:px-6 lg:px-8 text-[#E5E3E3] ">
-        @include('frontend.layouts.partials.footer')
-       </div>
-       </div>
+        <div class="bg-black">
+            <div class="py-8 max-w-[1600px] mx-auto px-6 sm:px-6 lg:px-8 text-[#E5E3E3] ">
+                @include('frontend.layouts.partials.footer')
+            </div>
+        </div>
 
     </div>
-      <script src="{{ asset('assets/js/lucide-icon.js') }}"></script>
+    <script src="{{ asset('assets/js/lucide-icon.js') }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // if (typeof lucide !== 'undefined') {
@@ -76,11 +76,11 @@
             // }
         });
     </script>
-     <script>
+    <script>
         function adminDashboard() {
             return {
 
-                 // Responsive state
+                // Responsive state
                 desktop: window.innerWidth >= 1024,
                 mobile: window.innerWidth <= 768,
                 tablet: window.innerWidth < 1024,
@@ -90,7 +90,7 @@
                 // App state
                 searchQuery: '',
                 darkMode: true,
-                 handleResize() {
+                handleResize() {
                     this.desktop = window.innerWidth >= 1024;
                     if (this.desktop) {
                         this.mobile_menu_open = false;
@@ -114,29 +114,28 @@
                     }
                 },
             }
-              // Initialize Lucide icons after DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-            // }
-        });
+            // Initialize Lucide icons after DOM is loaded
+            document.addEventListener('DOMContentLoaded', function() {
+                // if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+                // }
+            });
 
-        // Smooth scrolling for anchor links
-        document.addEventListener('click', function(e) {
-            if (e.target.matches('a[href^="#"]')) {
-                e.preventDefault();
-                const target = document.querySelector(e.target.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+            // Smooth scrolling for anchor links
+            document.addEventListener('click', function(e) {
+                if (e.target.matches('a[href^="#"]')) {
+                    e.preventDefault();
+                    const target = document.querySelector(e.target.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 }
-            }
-        });
+            });
 
         }
-        
     </script>
     @stack('js')
 </body>
