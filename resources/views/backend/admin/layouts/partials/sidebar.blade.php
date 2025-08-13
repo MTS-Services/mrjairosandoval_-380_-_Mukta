@@ -8,7 +8,7 @@
         'w-72 -translate-x-full': !desktop && !mobile_menu_open,
     }">
 
-    <div class="sidebar-glass-card bg-bg-white dark:bg-bg-black h-full custom-scrollbar rounded-xl overflow-y-auto">
+    <div class="sidebar-glass-card h-full custom-scrollbar rounded-xl overflow-y-auto">
         <!-- Sidebar Header -->
         <a href="{{ route('admin.dashboard') }}" class="p-4 border-b border-white/10 inline-block">
             <div class="flex items-center gap-4">
@@ -53,7 +53,7 @@
         </nav>
     </div>
      <!-- User Profile -->
-     <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200 dark:border-gray-700">
+     {{-- <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200 dark:border-gray-700">
          <div class="flex items-center space-x-3 transition-all duration-20 ease-in-out"
              :class="{ 'hidden': !sidebar_expanded }">
              <div>
@@ -65,5 +65,5 @@
                  <p class="text-xs text-gray-500 dark:text-gray-400">admin@company.com</p>
              </div>
          </div>
-     </div>
+     </div> --}}
  </aside>
