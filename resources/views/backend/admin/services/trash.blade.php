@@ -10,7 +10,7 @@
                 <h2 class="text-xl font-bold text-text-black dark:text-text-white">{{ __('Trash List') }}</h2>
                 <div class="flex items-center gap-2">
                     
-                    <x-admin.primary-link href="{{ route('sm.service.index') }}" icon="plus" permission="service-trash">
+                    <x-admin.primary-link href="{{ route('sm.service.index') }}" icon="plus" permission="service-trash" data-lucide="trash-2" class="w-4 h-4">
                         {{ __('Back') }}
                     </x-admin.primary-link>
                 </div>
