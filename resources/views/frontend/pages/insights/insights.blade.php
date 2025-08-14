@@ -9,7 +9,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-12">
                 <!-- Title -->
                 <h1
-                    class="pt-12 md:pt-20 text-center text-3xl sm:text-4xl md:text-5xl text-[#caa36b] font-semibold   tracking-wide m-6">
+                    class="pt-12 md:pt-20 text-center text-3xl sm:text-4xl md:text-5xl text-[#caa36b] font-semibold tracking-wide m-6">
                     THE UNWRITTEN CHRONICLES
                 </h1>
                 <p class="font-sans text-center text-gray-300 m-6 sm:m-12   mx-auto text-base sm:text-lg">

@@ -5,8 +5,9 @@
     <!-- CTA -->
     <div class="bg-black">
         <!-- CTA -->
-        <section class="text-center mt-44      " id="cta-section ">
-            <h2 class="text-2xl pb-6 mb-20 sm:text-4xl tracking-wide text-[#d4a75f]"> Not all appetites are equal. Our
+        <section class="text-center mt-44" id="cta-section ">
+            <h2 class="text-2xl  pb-36 lg:pb-6 mb-20 sm:text-4xl tracking-wide text-[#d4a75f]"> Not all appetites are
+                equal. Our
                 tiers
                 reflect this.
             </h2>
@@ -17,7 +18,7 @@
             <div class="container mx-auto flex flex-col justify-between">
                 <!-- 3 Column Info -->
 
-                <section class="  text-white min-h-screen flex items-center justify-center -mt-30">
+                <section class="  text-white min-h-screen flex items-center justify-center -mt-60">
                     <!-- This container is the main grid for the cards. -->
                     <!-- It uses a single column on small screens and automatically adjusts to two or three columns on larger screens. -->
                     <!-- The `gap-8` provides consistent spacing between the cards on all screen sizes. -->
