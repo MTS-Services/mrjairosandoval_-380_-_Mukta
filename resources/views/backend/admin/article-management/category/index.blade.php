@@ -8,11 +8,11 @@
             <div class="flex items-center justify-between">
                 <h2 class="text-xl font-bold text-text-black dark:text-text-white">{{ __('Article Category List') }}</h2>
                 <div class="flex items-center gap-2">
-                    <x-admin.primary-link secondary="true" href="{{ route('arm.category.trash') }}">
+                    <x-admin.primary-link secondary="true" href="{{ route('arm.article-category.trash') }}">
                         {{ __('Trash') }}
                         <i data-lucide="trash-2" class="w-4 h-4"></i>
                     </x-admin.primary-link>
-                    <x-admin.primary-link href="{{ route('arm.category.create') }}">
+                    <x-admin.primary-link href="{{ route('arm.article-category.create') }}">
                         {{ __('Add') }}
                         <i data-lucide="plus" class="w-4 h-4"></i>
                     </x-admin.primary-link>
@@ -58,7 +58,7 @@
                     table_columns: table_columns,
                     main_class: '.datatable',
                     displayLength: 10,
-                    main_route: "{{ route('arm.category.index') }}",
+                    main_route: "{{ route('arm.article-category.index') }}",
                     order_route: "{{ route('update.sort.order') }}",
                     export_columns: [0, 1, 2, 3, 4],
                     model: 'ArticleCategory',
@@ -72,7 +72,7 @@
             document.addEventListener('DOMContentLoaded', () => {
                 $(document).on('click', '.view', function() {
                     const id = $(this).data('id');
-                    const route = "{{ route('arm.category.show', ':id') }}";
+                    const route = "{{ route('arm.article-category.show', ':id') }}";
 
                     const details = [
                         {
