@@ -76,24 +76,29 @@
                     ],
                 ]" />
 
-                   <x-admin.navlink type="dropdown" icon="article" name="Articles" :page_slug="$active"
+            <x-admin.navlink type="dropdown" icon="file-text" name="Article Management" :page_slug="$active"
                 :items="[
                     [
+                        'name' => 'Article Category',
+                        'route' => route('arm.article-category.index'),
+                        'icon' => 'folder-open',
+                        'active' => 'article-category',
+                    ],
+                    [
                         'name' => 'Articles',
-                        'route' => route('am.article.index'),
-                        'icon' => 'article',
+                        'route' => route('arm.article.index'),
+                        'icon' => 'file-text',
                         'active' => 'article',
                     ],
                 ]" />
-                       <x-admin.navlink type="dropdown" icon="banner" name="Banners" :page_slug="$active"
-                :items="[
-                    [
-                        'name' => 'Banners',
-                        'route' => route('bm.banner.index'),
-                        'icon' => 'banner',
-                        'active' => 'banner',
-                    ],
-                ]" />
+            <x-admin.navlink type="dropdown" icon="banner" name="Banners" :page_slug="$active" :items="[
+                [
+                    'name' => 'Banners',
+                    'route' => route('bm.banner.index'),
+                    'icon' => 'banner',
+                    'active' => 'banner',
+                ],
+            ]" />
             <x-admin.navlink type="dropdown" icon="service" name="Services" :page_slug="$active" :items="[
                 [
                     'name' => 'Services',
@@ -103,7 +108,7 @@
                 ],
             ]" />
 
-           
+
         </nav>
     </div>
     <!-- User Profile -->

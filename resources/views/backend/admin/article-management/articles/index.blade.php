@@ -9,10 +9,10 @@
             <div class="flex items-center justify-between">
                 <h2 class="text-xl font-bold text-text-black dark:text-text-white">{{ __('Article List') }}</h2>
                 <div class="flex items-center gap-2">
-                    <x-admin.primary-link secondary="true" href="{{ route('am.article.trash') }}">{{ __('Trash') }} <i
+                    <x-admin.primary-link secondary="true" href="{{ route('arm.article.trash') }}">{{ __('Trash') }} <i
                             data-lucide="trash-2" class="w-4 h-4"></i>
                     </x-admin.primary-link>
-                    <x-admin.primary-link href="{{ route('am.article.create') }}" icon="plus"
+                    <x-admin.primary-link href="{{ route('arm.article.create') }}" icon="plus"
                         permission="article-create">
                         {{ __('Add') }}
                     </x-admin.primary-link>
@@ -61,7 +61,7 @@
                     table_columns: table_columns,
                     main_class: '.datatable',
                     displayLength: 10,
-                    main_route: "{{ route('am.article.index') }}",
+                    main_route: "{{ route('arm.article.index') }}",
                     order_route: "{{ route('update.sort.order') }}",
                     export_columns: [0, 1, 2, 3, 4, 5],
                     model: 'Articles',
@@ -76,7 +76,7 @@
 
                 $(document).on('click', '.view', function() {
                     const id = $(this).data('id');
-                    const route = "{{ route('am.article.show', ':id') }}";
+                    const route = "{{ route('arm.article.show', ':id') }}";
 
                     const details = [{
 
@@ -116,7 +116,7 @@
                         {
                             lavel: '{{ __('Auther Name') }}',
                             key: 'auther_name',
-                            
+
                         },
                         {
                             lavel: '{{ __('Published Date') }}',
@@ -142,7 +142,7 @@
                             lavel: '{{ __('Meta Keywords') }}',
                             key: 'meta_keywords',
                         },
-                   
+
                     ];
 
                     showDetailsModal(route, id, '{{ __('Service Details') }}', details);
