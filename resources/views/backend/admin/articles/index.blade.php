@@ -142,23 +142,7 @@
                             lavel: '{{ __('Meta Keywords') }}',
                             key: 'meta_keywords',
                         },
-                        {
-                            lavel: '{{ __('Created By') }}',
-                            key: 'created_by',
-                        },
-                        {
-                            lavel: '{{ __('Created Date') }}',
-                            key: 'created_at',
-                        },
-                        {
-                            lavel: '{{ __('Updated By') }}',
-                            key: 'updated_by',
-                        },
-                        {
-                            lavel: '{{ __('Updated Date') }}',
-                            key: 'updated_at',
-                        },
-
+                   
                     ];
 
                     showDetailsModal(route, id, '{{ __('Service Details') }}', details);

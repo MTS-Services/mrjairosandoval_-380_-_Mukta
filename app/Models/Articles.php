@@ -9,7 +9,6 @@ class Articles extends BaseModel
 {
 
     
-    protected $table = 'articles';
     protected $fillable = [
         'sort_order',
         'title',

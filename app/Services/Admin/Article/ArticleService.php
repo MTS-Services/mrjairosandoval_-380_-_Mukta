@@ -13,9 +13,9 @@ class ArticleService
 {
     use FileManagementTrait;
 
-    public function getArticles( $order = 'asc')
+    public function getArticles($orderBy = 'sort_order', $order = 'asc')
     {
-        return Articles::orderBy('sort_order', $order)->latest();
+        return Articles::orderBy($orderBy, $order)->latest();
     }
     public function getArticle(string $encryptedId): Articles|Collection
     {

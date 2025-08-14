@@ -49,14 +49,6 @@
                             <x-input-error class="mt-2" :messages="$errors->get('sub_title')" />
                         </div>
 
-                        <div class="space-y-2">
-                            <p class="label gap-2 mb-2">{{ __('Content') }}</p>
-                            <label class=" flex items-center gap-2">
-                                <textarea type="text" name="content" value="{{ old('content') }}" class="flex-1"></textarea>
-                            </label>
-                            <x-input-error class="mt-2" :messages="$errors->get('content')" />
-                        </div>
-                       
 
                         {{-- Author Name --}}
                         <div class="space-y-2">
@@ -96,6 +88,9 @@
                             <x-input-error class="mt-2" :messages="$errors->get('views')" />
                         </div>
 
+
+
+
                         {{-- Meta Title --}}
                         <div class="space-y-2">
                             <p class="label">{{ __('Meta Title') }}</p>
@@ -106,11 +101,19 @@
                             <x-input-error class="mt-2" :messages="$errors->get('meta_title')" />
                         </div>
 
+                        <div class="space-y-2">
+                            <p class="label gap-2 mb-2">{{ __('Content') }}</p>
+                            <label class=" flex items-center gap-2">
+                                <textarea type="text" name="content" value="{{ old('content') }}" class="flex-1 textarea"></textarea>
+                            </label>
+                            <x-input-error class="mt-2" :messages="$errors->get('content')" />
+                        </div>
+
                         {{-- Meta Description --}}
                         <div class="space-y-2">
                             <p class="label">{{ __('Meta Description') }}</p>
                             <label class=" flex items-center gap-2">
-                                <textarea name="meta_description" class="flex-1">{{ old('meta_description') }}</textarea>
+                                <textarea name="meta_description" class="flex-1 textarea">{{ old('meta_description') }}</textarea>
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('meta_description')" />
                         </div>
@@ -119,7 +122,7 @@
                         <div class="space-y-2">
                             <p class="label">{{ __('Meta Keywords') }}</p>
                             <label class=" flex items-center gap-2">
-                                <textarea name="meta_keywords" class="flex-1">{{ old('meta_keywords') }}</textarea>
+                                <textarea name="meta_keywords" class="flex-1 textarea">{{ old('meta_keywords') }}</textarea>
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('meta_keywords')" />
                         </div>
@@ -143,8 +146,9 @@
 
         </div>
     </section>
- @push('js')
+    @push('js')
         <script src="{{ asset('assets/js/filepond.js') }}"></script>
+        {{-- <script src="{{ asset('assets/js/ckEditor5.js')}}"></script> --}}
         <script>
             document.addEventListener('DOMContentLoaded', function() {
 
