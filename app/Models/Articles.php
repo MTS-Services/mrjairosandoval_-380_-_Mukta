@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\BaseModel;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Articles extends Model
+class Articles extends BaseModel
 {
 
-    use SoftDeletes;
+    
     protected $table = 'articles';
     protected $fillable = [
         'sort_order',
@@ -36,7 +36,13 @@ class Articles extends Model
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
-        $this->appends = array_merge(parent::getAppends(), []);
+        $this->appends = array_merge(parent::getAppends(), [
+            'status_label',
+            'status_color',
+            'status_btn_label',
+            'status_btn_color',
+            'status_btn_class',
+        ]);
     }
 
     const STATUS_ACTIVE = 1;

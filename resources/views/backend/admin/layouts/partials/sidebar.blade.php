@@ -51,13 +51,28 @@
                     ],
                 ]" />
 
-                 <x-admin.navlink type="dropdown" icon="service" name="Services" :page_slug="$active"
+            <x-admin.navlink type="dropdown" icon="users" name="User Management" :page_slug="$active"
                 :items="[
                     [
-                        'name' => 'Services',
-                        'route' => route('sm.service.index'),
-                        'icon' => 'service',
-                        'active' => 'service',
+                        'name' => 'User',
+                        'route' => route('um.user.index'),
+                        'icon' => 'user',
+                        'active' => 'user',
+                    ],
+                ]" />
+            <x-admin.navlink type="dropdown" icon="group" name="Membership Management" :page_slug="$active"
+                :items="[
+                    [
+                        'name' => 'Features',
+                        'route' => route('mm.feature.index'),
+                        'icon' => 'sparkles', // Lucide sparkles icon
+                        'active' => 'feature',
+                    ],
+                    [
+                        'name' => 'Membership',
+                        'route' => route('mm.membership.index'),
+                        'icon' => 'id-card', // Lucide ID card icon
+                        'active' => 'membership',
                     ],
                 ]" />
 
@@ -79,10 +94,27 @@
                         'active' => 'banner',
                     ],
                 ]" />
+            <x-admin.navlink type="dropdown" icon="service" name="Services" :page_slug="$active" :items="[
+                [
+                    'name' => 'Services',
+                    'route' => route('sm.service.index'),
+                    'icon' => 'service',
+                    'active' => 'service',
+                ],
+            ]" />
+
+            <x-admin.navlink type="dropdown" icon="article" name="Articles" :page_slug="$active" :items="[
+                [
+                    'name' => 'Articles',
+                    'route' => route('am.article.index'),
+                    'icon' => 'article',
+                    'active' => 'article',
+                ],
+            ]" />
         </nav>
     </div>
-     <!-- User Profile -->
-     {{-- <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200 dark:border-gray-700">
+    <!-- User Profile -->
+    {{-- <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200 dark:border-gray-700">
          <div class="flex items-center space-x-3 transition-all duration-20 ease-in-out"
              :class="{ 'hidden': !sidebar_expanded }">
              <div>
@@ -95,4 +127,4 @@
              </div>
          </div>
      </div> --}}
- </aside>
+</aside>

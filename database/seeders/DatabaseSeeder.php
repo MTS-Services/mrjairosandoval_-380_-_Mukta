@@ -21,7 +21,9 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ServiceSeeder::class,
             ArticleSeeder::class,
-            BannerSeeder::class
+            BannerSeeder::class,
+            FeatureSeeder::class,
+            MemberShipSeeder::class,
 
         ]);
     }
