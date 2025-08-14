@@ -21,8 +21,8 @@
                    class="{{ request()->routeIs('f.about') ? 'text-[#caa36b] underline' : 'hover:underline' }}">
                     About Us
                 </a>
-                <a href="{{ route('f.servic') }}" 
-                   class="{{ request()->routeIs('f.servic') ? 'text-[#caa36b] underline' : 'hover:underline' }}">
+                <a href="{{ route('f.service') }}" 
+                   class="{{ request()->routeIs('f.service') ? 'text-[#caa36b] underline' : 'hover:underline' }}">
                     Our Services
                 </a>
                 <a href="{{ route('f.memberShip') }}" 
