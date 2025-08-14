@@ -15,7 +15,7 @@
     <script>
         // On page load, immediately apply theme from localStorage to prevent flash
         (function() {
-            let theme = localStorage.getItem('theme') || 'system';
+            let theme = localStorage.getItem('theme') || 'dark';
 
             // Apply theme immediately
             if (theme === 'system') {
