@@ -4,17 +4,18 @@
     <x-slot name="page_slug">article</x-slot>
 
 
- <section>
+    <section>
         <div class="glass-card rounded-2xl p-6 mb-6">
             <div class="flex items-center justify-between">
                 <h2 class="text-xl font-bold text-text-black dark:text-text-white">{{ __('Create Article') }}</h2>
-                <x-admin.primary-link href="{{ route('am.article.index') }}" icon="undo-2" type='info' permission="article-list">
+                <x-admin.primary-link href="{{ route('am.article.index') }}" icon="undo-2" type='info'
+                    permission="article-list">
                     {{ __('Back') }}
                 </x-admin.primary-link>
             </div>
         </div>
 
-       <div
+        <div
             class="grid grid-cols-1 gap-4 sm:grid-cols-1  {{ isset($documentation) && $documentation ? 'md:grid-cols-7' : '' }}">
             <!-- Form Section -->
             <div class="glass-card rounded-2xl p-6 md:col-span-5">
@@ -30,7 +31,7 @@
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('title')" />
                         </div>
-                         <div class="space-y-2 ">
+                        <div class="space-y-2 ">
                             <p class="label">{{ __('Slug') }}</p>
                             <label class="input flex items-center px-2 ">
                                 <input type="text" placeholder="slug" value="{{ old('slug') }}" name="slug"
@@ -43,29 +44,23 @@
                         <div class="space-y-2">
                             <p class="label">{{ __('Sub Title') }}</p>
                             <label class="input flex items-center gap-2">
-                                <input type="text" name="sub_title" value="{{ old('sub_title') }}"
-                                    class="flex-1" />
+                                <input type="text" name="sub_title" value="{{ old('sub_title') }}" class="flex-1" />
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('sub_title')" />
                         </div>
                         <div class="space-y-2">
                             <p class="label">{{ __('Content') }}</p>
                             <label class="input flex items-center gap-2">
-                                <input type="text" name="content" value="{{ old('content') }}"
-                                    class="flex-1" />
+                                <input type="text" name="content" value="{{ old('content') }}" class="flex-1" />
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('content')" />
                         </div>
 
-
-
-                           <div class="space-y-2">
-                            <p class="label">{{ __('Icon') }}</p>
-                            <label class="input flex items-center gap-2">
-                                <input type="file" name="icon" value="{{ old('icon') }}"
-                                    class="flex-1" />
-                            </label>
-                            <x-input-error class="mt-2" :messages="$errors->get('icon')" />
+                        <div class="space-y-2 ">
+                            <p class="label">{{ __('Image') }}</p>
+                            <input type="file" name="image" class="filepond" id="image"
+                                accept="image/jpeg, image/png, image/jpg, image/webp, image/svg">
+                            <x-input-error class="mt-2" :messages="$errors->get('image')" />
                         </div>
 
                     </div>

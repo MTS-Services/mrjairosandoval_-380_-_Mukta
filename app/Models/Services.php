@@ -10,7 +10,7 @@ class Services extends Model
        use SoftDeletes;
     protected $table = 'services';
     protected $fillable = [
-        'short_order',
+        'sort_order',
         'title', 
         'sub_title',
         'icon', 

@@ -14,7 +14,7 @@ class Service
 
     public function getServices( $order = 'asc')
     {
-        return Services::orderBy('short_order', $order)->latest();
+        return Services::orderBy('sort_order', $order)->latest();
     }
     public function getService(string $encryptedId): Services|Collection
     {

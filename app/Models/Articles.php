@@ -11,7 +11,7 @@ class Articles extends Model
     use SoftDeletes;
     protected $table = 'articles';
     protected $fillable = [
-        'short_order',
+        'sort_order',
         'title',
         'slug',
         'sub_title',

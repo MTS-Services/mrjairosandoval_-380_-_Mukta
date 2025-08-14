@@ -15,7 +15,7 @@ class ArticleService
 
     public function getArticles( $order = 'asc')
     {
-        return Articles::orderBy('short_order', $order)->latest();
+        return Articles::orderBy('sort_order', $order)->latest();
     }
     public function getArticle(string $encryptedId): Articles|Collection
     {

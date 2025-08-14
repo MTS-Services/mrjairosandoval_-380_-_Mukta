@@ -17,7 +17,7 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('short_order')->default(0);
+            $table->unsignedInteger('sort_order')->default(0);
             $table->string('title');
             $table->string('slug');
             $table->string('sub_title');
