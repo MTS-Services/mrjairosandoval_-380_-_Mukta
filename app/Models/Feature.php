@@ -3,37 +3,22 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Articles extends BaseModel
+class Feature extends BaseModel
 {
+    //
 
-    use SoftDeletes;
-    protected $table = 'articles';
     protected $fillable = [
-        'short_order',
-        'title',
-        'slug',
-        'sub_title',
-        'content',
-        'image',
-        'auther_name',
-        'published_data',
-        'read_time',
-        'views',
-        'meta_title',
-        'meta_description',
-        'meta_keywords',
+        'sort_order',
+        'name',
         'status',
 
         'created_by',
         'updated_by',
         'deleted_by',
-
-
     ];
 
-    public function __construct(array $attributes = [])
+   public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
         $this->appends = array_merge(parent::getAppends(), [
@@ -88,4 +73,5 @@ class Articles extends BaseModel
 
         return $this->status == self::STATUS_INACTIVE ? 'btn-error' : 'btn-primary';
     }
+     
 }

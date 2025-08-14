@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Http\Traits\AuditColumnsTrait;
-
+use App\Models\Feature;
 
 return new class extends Migration
 {
@@ -15,12 +15,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('{{ table }}', function (Blueprint $table) {
+        Schema::create('features', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('sort_order')->default(0);
+            $table->string('name')->unique();
+            $table->tinyInteger('status')->default(Feature::STATUS_ACTIVE)->comment(Feature::STATUS_ACTIVE . ': active' . Feature::STATUS_INACTIVE . ': inactive');
 
             $table->timestamps();
             $table->softDeletes();
+            $this->addAdminAuditColumns($table);
         });
     }
 
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('{{ table }}');
+        Schema::dropIfExists('features');
     }
 };

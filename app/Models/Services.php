@@ -9,7 +9,7 @@ use App\Models\BaseModel;
 class Services extends BaseModel
 {
     use SoftDeletes;
-    protected $table = 'services';
+  
     protected $fillable = [
         'sort_order',
         'title',
