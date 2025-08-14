@@ -43,7 +43,7 @@
 </head>
 
 <body class="font-sans antialiased bg-black">
-    <div class="min-h-screen bg-gray-100">
+    <div class="min-h-screen bg-black">
         @include('frontend.layouts.partials.header')
 
         <!-- Page Heading -->

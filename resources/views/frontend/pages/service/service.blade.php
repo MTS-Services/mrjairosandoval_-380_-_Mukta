@@ -3,7 +3,7 @@
     <x-slot name="page_slug">About</x-slot>
 
     <!-- Hero Section -->
-    <section class="relative h-96 bg-black" id="hero-section">
+    <section class="relative h-[350px] bg-black " id="hero-section">
 
         <div class="absolute inset-0 bg-black/50"></div>
         <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
@@ -21,7 +21,7 @@
 
 
     <!-- Content Section -->
-    <section class="content-section bg-black">
+    <section class="content-section bg-black lg:-mt-[60px]">
         <div class="container mx-auto pt-4 px-20 lg:py-16 flex flex-col justify-between">
             <!-- 3 Column Info -->
             <section class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8 mb-10">

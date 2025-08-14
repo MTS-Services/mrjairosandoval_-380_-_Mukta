@@ -3,9 +3,9 @@
     <x-slot name="page_slug">contact</x-slot>
 
 
-    <div class="  bg-black ">
+    <div class="bg-black">
 
-        <section class="bg-black text-white font-serif  min-screen lg:w-250 mx-auto mb-20">
+        <section class="bg-black text-white font-serif  min-screen lg:w-250 mx-auto mb-30">
             <div class="text-center ">
                 <!-- Heading -->
                 <h1
@@ -24,7 +24,7 @@
                             it
                             immediately)</label>
                         <input type="text" placeholder="Your ephemeral designation."
-                            class="m-2 w-full bg-transparent border border-gray-800 rounded-lg text-sm text-gray-300 px-6 py-3 focus:outline-none focus:border-[#caa36b]" />
+                            class="m-2 w-full bg-transparent border border-gray-800 rounded-lg text-sm text-[#E5E3E3] px-6 py-3 focus:outline-none focus:border-[#caa36b]" />
                     </div>
 
                     <!-- Who introduced -->
@@ -34,7 +34,7 @@
                             certain tastes? (If
                             none, lie.)</label>
                         <input type="text" placeholder="The whisper, rounded-lg the sign, the omen..."
-                            class="m-2 rounded-lg w-full bg-transparent border border-gray-800 text-sm text-gray-300 px-6 py-3 focus:outline-none focus:border-[#caa36b]" />
+                            class="m-2 rounded-lg w-full bg-transparent border border-gray-800 text-sm text-[#E5E3E3] px-6 py-3 focus:outline-none focus:border-[#caa36b]" />
                     </div>
 
                     <!-- Darkest virtue -->
@@ -45,7 +45,7 @@
                                 Patience)</span>
                         </label>
                         <input type="text" placeholder="The strength you conceal..."
-                            class="m-2 w-full bg-transparent rounded-lg border border-gray-800 text-sm text-gray-300 px-6 py-3 focus:outline-none focus:border-[#caa36b]" />
+                            class="m-2 w-full bg-transparent rounded-lg border border-gray-800 text-sm text-[#E5E3E3] px-6 py-3 focus:outline-none focus:border-[#caa36b]" />
                     </div>
 
                     <!-- Button -->
@@ -56,8 +56,8 @@
                 </form>
         </section>
 
-        <section class="bg-black text-white font-serif flex items-center justify-center pt-20 pb-12">
-            <div class="text-center max-w-2xl px-6">
+        <section class="bg-black text-white font-serif flex items-center justify-center pt-25 pb-35">
+            <div class="text-center  px-6">
 
                 <!-- Eye Icon -->
                 <div class="flex justify-center mb-6">
@@ -66,7 +66,7 @@
 
                 <!-- Heading -->
                 <h1
-                    class="text-[#caa36b] text-3xl md:text-4xl tracking-wide font-semibold mb-8 font-(family-name:--font-family-secondary) ">
+                    class="text-[#caa36b] text-4xl md:text-4xl tracking-wide font-semibold mb-8 font-(family-name:--font-family-secondary) ">
                     IF YOU'RE WORTHY, YOU'LL UNDERSTAND.
                 </h1>
 
@@ -90,6 +90,5 @@
             </div>
         </section>
     </div>
-
 
 </x-frontend::layout>
