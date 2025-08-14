@@ -18,7 +18,7 @@
             let theme = localStorage.getItem('theme') || 'dark';
 
             // Apply theme immediately
-            if (theme === 'system') {
+            if (theme === 'dark') {
                 const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
                 document.documentElement.classList.toggle('dark', systemPrefersDark);
                 document.documentElement.setAttribute('data-theme', systemPrefersDark ? 'dark' : 'light');
