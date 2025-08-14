@@ -44,7 +44,7 @@
                 </div>
             </section>
 
-            <section class="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-8  pb-30">
+            <section class="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-8  pb-40">
                 <div class="text-center  rounded-xl p-16 bg-black/20 ring-1 ring-[#d4a75f]">
 
                     <h3 class="text-xl sm:text-2xl">PROPERTY ACCESS</h3>
@@ -59,8 +59,8 @@
             </section>
 
             <!-- CTA -->
-            <section class="text-center lg:m-24" id="cta-section">
-                <h2 class="text-1xl sm:text-2xl mb-4 tracking-wide">"Taste is measured in refusals, not acquisitions."
+            <section class="text-center lg:m-20" id="cta-section">
+                <h2 class="text-1xl sm:text-2xl tracking-wide">"Taste is measured in refusals, not acquisitions."
                 </h2>
             </section>
 
