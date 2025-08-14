@@ -74,5 +74,10 @@ class MemberShip extends BaseModel
 
         return $this->status == self::STATUS_INACTIVE ? 'btn-error' : 'btn-primary';
     }
-     
+
+
+    public function membershipFeatures()
+    {
+        return $this->hasMany(MembershipFeature::class, 'membership_id', 'id');
+    }
 }
