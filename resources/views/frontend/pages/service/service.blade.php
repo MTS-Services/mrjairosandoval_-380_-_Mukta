@@ -23,46 +23,45 @@
     <!-- Content Section -->
     <section class="content-section bg-black lg:-mt-[60px]">
         <div class="container mx-auto pt-4 px-20 lg:py-16 flex flex-col justify-between">
-            <!-- 3 Column Info -->
-            <section class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8 mb-10">
-                <div class="text-center rounded-xl p-16 bg-black/20 ring-1 ring-[#d4a75f]">
 
-                    <h3 class="text-xl sm:text-2xl">TRAVEL</h3>
-                    <p class="text-sm sm:text-base mt-2 text-[#E5E3E3] ">Private jets, untraceable..</p>
-                </div>
+            @php
+                $firstThree = $services->take(3);
+                $remaining = $services->skip(3);
+            @endphp
 
-                <div class="text-center rounded-xl p-16 bg-black/20 ring-1 ring-[#d4a75f]">
-
-                    <h3 class="text-xl sm:text-2xl">DINING</h3>
-                    <p class="text-sm sm:text-base mt-2 text-[#E5E3E3] ">Custom tasting menus without limits...</p>
-                </div>
-
-                <div class="text-center rounded-xl p-16 bg-black/20 ring-1 ring-[#d4a75f]">
-
-                    <h3 class="lg:text-2xl sm:text-2xl">COMPANIONSHIP</h3>
-                    <p class="text-sm sm:text-base mt-2 text-[#E5E3E3] ">Discreet, refined, unforgettable...</p>
-                </div>
+            {{-- First 3 services --}}
+            <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
+                @forelse($firstThree as $service)
+                    <div class="text-center rounded-xl p-16 bg-black/20 ring-1 ring-[#d4a75f]">
+                        <h3 class="text-xl sm:text-2xl ">{{ ($service->title) }}</h3>
+                        <p class="text-sm sm:text-base mt-2 text-[#E5E3E3]">{{ $service->sub_title }}</p>
+                    </div>
+                @empty
+                    <p class="text-white">No services available.</p>
+                @endforelse
             </section>
 
-            <section class="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-8  pb-40">
-                <div class="text-center  rounded-xl p-16 bg-black/20 ring-1 ring-[#d4a75f]">
+            {{-- Remaining services --}}
+            @if ($remaining->count() > 0)
+                <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 pb-40">
+                    @foreach ($remaining as $service)
+                        <div class="text-center rounded-xl p-16 bg-black/20 ring-1 ring-[#d4a75f]">
+                            <h3 class="text-xl sm:text-2xl">{{ strtoupper($service->title) }}</h3>
+                            <p class="text-sm sm:text-base mt-2 text-[#E5E3E3]">{{ $service->sub_title }}</p>
+                        </div>
+                    @endforeach
+                </section>
+            @endif
 
-                    <h3 class="text-xl sm:text-2xl">PROPERTY ACCESS</h3>
-                    <p class="text-sm sm:text-base mt-2 text-[#E5E3E3] ">Historic villas, secret estates...</p>
-                </div>
-
-                <div class="text-center rounded-xl p-16 bg-black/20 ring-1 ring-[#d4a75f]">
-
-                    <h3 class="text-xl sm:text-2xl">EVENTS</h3>
-                    <p class="text-sm sm:text-base mt-2 text-[#E5E3E3] ">Masked affairs, tailored rituals...</p>
-                </div>
-            </section>
-
-            <!-- CTA -->
+            {{-- CTA --}}
             <section class="text-center lg:m-20" id="cta-section">
-                <h2 class="text-1xl sm:text-2xl tracking-wide">"Taste is measured in refusals, not acquisitions."
+                <h2 class="text-1xl sm:text-2xl tracking-wide">
+                    "Taste is measured in refusals, not acquisitions."
                 </h2>
             </section>
+
+        </div>
     </section>
+
 
 </x-frontend::layout>
