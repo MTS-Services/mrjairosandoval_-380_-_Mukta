@@ -29,10 +29,10 @@
                     class="p-2 rounded-xl hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
                     data-tooltip="Toggle theme"
                     :title="$store.theme.current.charAt(0).toUpperCase() + $store.theme.current.slice(1) + ' mode'">
-                    <i data-lucide="sun" x-show="!$store.theme.darkMode"
+                    {{-- <i data-lucide="sun" x-show="!$store.theme.darkMode"
                         class="w-5 h-5 text-text-light-primary dark:text-text-white"></i>
                     <i data-lucide="moon" x-show="$store.theme.darkMode"
-                        class="w-5 h-5 text-text-light-primary dark:text-text-white"></i>
+                        class="w-5 h-5 text-text-light-primary dark:text-text-white"></i> --}}
                 </button>
 
 
