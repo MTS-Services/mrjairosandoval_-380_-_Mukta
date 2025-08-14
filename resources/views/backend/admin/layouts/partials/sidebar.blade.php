@@ -102,8 +102,11 @@
                     'active' => 'service',
                 ],
             ]" />
-              <x-admin.navlink type="single" icon="Contact" name="contact" :route="route('cm.contact.index')"
+              <x-admin.navlink type="single" icon="Contact" name="Contact" :route="route('cm.contact.index')"
                 active="contact" :page_slug="$active" />
+
+                 <x-admin.navlink type="single" icon="Privacy" name="Privacy" :route="route('pm.privacy-policy.index')"
+                active="privacy" :page_slug="$active" />
            
         </nav>
     </div>

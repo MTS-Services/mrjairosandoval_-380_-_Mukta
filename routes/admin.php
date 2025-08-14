@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\Admin\Contact\ContactController;
 use App\Http\Controllers\Backend\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Backend\Admin\MemberShipManagment\FeatureController;
 use App\Http\Controllers\Backend\Admin\MemberShipManagment\MemberShipController;
+use App\Http\Controllers\Backend\Admin\Privacy\PrivacyPoliciController;
 use App\Http\Controllers\Backend\Admin\ServiceManagement\ServiceController;
 use App\Http\Controllers\Backend\Admin\UserManagement\UserController;
 use App\Services\Admin\Service\Service;
@@ -101,6 +102,18 @@ Route::group(['middleware' => ['auth:admin'], 'prefix' => 'admin'], function () 
       Route::get('/trash/bin', 'trash')->name('trash');
       Route::get('/restore/{contact}', 'restore')->name('restore');
       Route::delete('/permanent-delete/{contact}', 'permanentDelete')->name('permanent-delete');
+    });
+  });
+
+  //Privacy Policy Management
+  Route::group(['as' => 'pm.', 'prefix' => 'privacy-policy-management'], function () {
+    Route::resource('privacy-policy', PrivacyPoliciController::class);
+    Route::controller(PrivacyPoliciController::class)->name('privacy-policy.')->prefix('privacy-policy')->group(function () {
+      Route::post('/show/{privacyPolicy}', 'show')->name('show');
+      Route::get('/status/{privacyPolicy}', 'status')->name('status');
+      Route::get('/trash/bin', 'trash')->name('trash');
+      Route::get('/restore/{privacyPolicy}', 'restore')->name('restore');
+      Route::delete('/permanent-delete/{privacyPolicy}', 'permanentDelete')->name('permanent-delete');
     });
   });
 });

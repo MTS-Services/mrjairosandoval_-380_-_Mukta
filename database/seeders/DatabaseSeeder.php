@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Banner;
-use App\Models\User;
-use App\Services\Admin\Service\Service;
+
+
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -25,6 +24,7 @@ class DatabaseSeeder extends Seeder
             FeatureSeeder::class,
             MemberShipSeeder::class,
             ContactSeeder::class,
+            PrivacySeeder::class,
 
         ]);
     }
