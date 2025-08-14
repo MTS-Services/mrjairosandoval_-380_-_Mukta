@@ -102,7 +102,8 @@
                     'active' => 'service',
                 ],
             ]" />
-
+              <x-admin.navlink type="single" icon="Contact" name="contact" :route="route('cm.contact.index')"
+                active="contact" :page_slug="$active" />
            
         </nav>
     </div>

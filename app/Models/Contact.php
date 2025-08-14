@@ -14,11 +14,11 @@ class Contact extends BaseModel
     protected $table = 'contacts';
     protected $fillable = [
         'sort_order',
-        'first_name',
-        'last_name',
+        'name',
         'email',
-        'number',
-        'company',
+        'introducer',
+        'patience',
+        
        
 
         'created_by',
