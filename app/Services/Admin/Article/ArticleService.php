@@ -28,6 +28,7 @@ class ArticleService
 
     public function createArticle(array $data, $file = null): Articles
     {
+      
         return DB::transaction(function () use ($data, $file) {
             if ($file) {
                 $data['image'] = $this->handleFileUpload($file, 'articles');
