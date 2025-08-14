@@ -4,6 +4,7 @@ use App\Http\Controllers\Backend\Admin\AdminController;
 use App\Http\Controllers\Backend\Admin\Articles\ArticleController;
 use App\Http\Controllers\Backend\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Backend\Admin\ServiceManagement\ServiceController;
+use App\Http\Controllers\Backend\Admin\UserManagment\UserController;
 use App\Services\Admin\Service\Service;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +24,7 @@ Route::group(['middleware' => ['auth:admin'], 'prefix' => 'admin'], function () 
     });
   });
 
-  Route::group(['as'=> 'sm.', 'prefix' => 'service-management'], function () {
+  Route::group(['as' => 'sm.', 'prefix' => 'service-management'], function () {
     // Service Routes
     Route::resource('service', ServiceController::class);
     Route::controller(ServiceController::class)->name('service.')->prefix('service')->group(function () {
@@ -33,11 +34,20 @@ Route::group(['middleware' => ['auth:admin'], 'prefix' => 'admin'], function () 
       Route::get('/restore/{service}', 'restore')->name('restore');
       Route::delete('/permanent-delete/{service}', 'permanentDelete')->name('permanent-delete');
     });
-      
-  
+  });
+  // User Management
+  Route::group(['as' => 'um.', 'prefix' => 'user-management'], function () {
+    Route::resource('user', UserController::class);
+    Route::controller(UserController::class)->name('user.')->prefix('user')->group(function () {
+      Route::post('/show/{user}', 'show')->name('show');
+      Route::get('/status/{user}', 'status')->name('status');
+      Route::get('/trash/bin', 'trash')->name('trash');
+      Route::get('/restore/{user}', 'restore')->name('restore');
+      Route::delete('/permanent-delete/{user}', 'permanentDelete')->name('permanent-delete');
+    });
   });
   //Article Management
-  Route::group(['as'=> 'am.', 'prefix' => 'article-management'], function () {
+  Route::group(['as' => 'am.', 'prefix' => 'article-management'], function () {
     Route::resource('article', ArticleController::class);
     Route::controller(ArticleController::class)->name('article.')->prefix('article')->group(function () {
       Route::post('/show/{article}', 'show')->name('show');
@@ -46,8 +56,5 @@ Route::group(['middleware' => ['auth:admin'], 'prefix' => 'admin'], function () 
       Route::get('/restore/{article}', 'restore')->name('restore');
       Route::delete('/permanent-delete/{article}', 'permanentDelete')->name('permanent-delete');
     });
-    
   });
 });
-
-
