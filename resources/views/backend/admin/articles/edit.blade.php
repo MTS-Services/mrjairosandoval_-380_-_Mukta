@@ -19,14 +19,16 @@
             class="grid grid-cols-1 gap-4 sm:grid-cols-1  {{ isset($documentation) && $documentation ? 'md:grid-cols-7' : '' }}">
             <!-- Form Section -->
             <div class="glass-card rounded-2xl p-6 md:col-span-5">
-                <form action="{{ route('am.article.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('am.article.update', encrypt($article->id)) }}" id="updateArticleForm') }}"
+                    method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="grid grid-cols-1 gap-5 ">
                         <!-- title -->
                         <div class="space-y-2 ">
                             <p class="label">{{ __('Title') }}</p>
                             <label class="input flex items-center px-2 ">
-                                <input type="text" placeholder="Title" value="{{ old('title') }}" name="title"
+                                <input type="text" placeholder="Title" value="{{ $article->title }}" name="title"
                                     class="flex-1" />
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('title')" />
@@ -34,7 +36,7 @@
                         <div class="space-y-2 ">
                             <p class="label">{{ __('Slug') }}</p>
                             <label class="input flex items-center px-2 ">
-                                <input type="text" placeholder="slug" value="{{ old('slug') }}" name="slug"
+                                <input type="text" placeholder="slug" value="{{ $article->slug }}" name="slug"
                                     class="flex-1" />
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('slug')" />
@@ -44,17 +46,20 @@
                         <div class="space-y-2">
                             <p class="label">{{ __('Sub Title') }}</p>
                             <label class="input flex items-center gap-2">
-                                <input type="text" name="sub_title" value="{{ old('sub_title') }}" class="flex-1" />
+                                <input type="text" name="sub_title" value="{{ $article->sub_title }}"
+                                    class="flex-1" />
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('sub_title')" />
                         </div>
+
+
 
 
                         {{-- Author Name --}}
                         <div class="space-y-2">
                             <p class="label">{{ __('Author Name') }}</p>
                             <label class="input flex items-center gap-2">
-                                <input type="text" name="auther_name" value="{{ old('auther_name') }}"
+                                <input type="text" name="auther_name" value="{{ $article->auther_name }}"
                                     class="flex-1" />
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('auther_name')" />
@@ -64,8 +69,8 @@
                         <div class="space-y-2">
                             <p class="label">{{ __('Published Date') }}</p>
                             <label class="input flex items-center gap-2">
-                                <input type="datetime-local" name="published_data" value="{{ old('published_data') }}"
-                                    class="flex-1" />
+                                <input type="datetime-local" name="published_data"
+                                    value="{{ $article->published_data }}" class="flex-1" />
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('published_data')" />
                         </div>
@@ -74,7 +79,8 @@
                         <div class="space-y-2">
                             <p class="label">{{ __('Read Time (minutes)') }}</p>
                             <label class="input flex items-center gap-2">
-                                <input type="number" name="read_time" value="{{ old('read_time') }}" class="flex-1" />
+                                <input type="number" name="read_time" value="{{ $article->read_time }}"
+                                    class="flex-1" />
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('read_time')" />
                         </div>
@@ -83,28 +89,25 @@
                         <div class="space-y-2">
                             <p class="label">{{ __('Views') }}</p>
                             <label class="input flex items-center gap-2">
-                                <input type="number" name="views" value="{{ old('views') }}" class="flex-1" />
+                                <input type="number" name="views" value="{{ $article->views }}" class="flex-1" />
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('views')" />
                         </div>
-
-
-
 
                         {{-- Meta Title --}}
                         <div class="space-y-2">
                             <p class="label">{{ __('Meta Title') }}</p>
                             <label class="input flex items-center gap-2">
-                                <input type="text" name="meta_title" value="{{ old('meta_title') }}"
+                                <input type="text" name="meta_title" value="{{ $article->meta_title }}"
                                     class="flex-1" />
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('meta_title')" />
                         </div>
-
+                        {{-- content --}}
                         <div class="space-y-2">
                             <p class="label gap-2 mb-2">{{ __('Content') }}</p>
                             <label class=" flex items-center gap-2">
-                                <textarea type="text" name="content" value="{{ old('content') }}" class="flex-1 textarea"></textarea>
+                                <textarea type="text" name="content" value="{{ $article->content }}" class="flex-1 textarea"></textarea>
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('content')" />
                         </div>
@@ -113,7 +116,7 @@
                         <div class="space-y-2">
                             <p class="label">{{ __('Meta Description') }}</p>
                             <label class=" flex items-center gap-2">
-                                <textarea name="meta_description" class="flex-1 textarea">{{ old('meta_description') }}</textarea>
+                                <textarea name="meta_description" class="flex-1 textarea">{{ $article->meta_description }}</textarea>
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('meta_description')" />
                         </div>
@@ -122,7 +125,7 @@
                         <div class="space-y-2">
                             <p class="label">{{ __('Meta Keywords') }}</p>
                             <label class=" flex items-center gap-2">
-                                <textarea name="meta_keywords" class="flex-1 textarea">{{ old('meta_keywords') }}</textarea>
+                                <textarea name="meta_keywords" class="flex-1 textarea">{{ $article->meta_keywords }}</textarea>
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('meta_keywords')" />
                         </div>
@@ -148,11 +151,13 @@
     </section>
     @push('js')
         <script src="{{ asset('assets/js/filepond.js') }}"></script>
-        {{-- <script src="{{ asset('assets/js/ckEditor5.js')}}"></script> --}}
         <script>
             document.addEventListener('DOMContentLoaded', function() {
 
-                file_upload(["#image"], ["image/jpeg", "image/png", "image/jpg, image/webp, image/svg"]);
+                file_upload(["#image"], ["image/jpeg", "image/png", "image/jpg, image/webp, image/svg"], {
+                    "#image": "{{ $article->modified_image }}"
+                });
+
             });
         </script>
     @endpush

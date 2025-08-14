@@ -1,36 +1,33 @@
 <?php
 
-use App\Models\Services;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
 use App\Http\Traits\AuditColumnsTrait;
+
 
 return new class extends Migration
 {
-
     use SoftDeletes,AuditColumnsTrait;
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('sort_order')->default(0);
-            $table->string('title');
-            $table->string('sub_title');
-             $table->string('icon')->nullable();
-            $table->tinyInteger('status')->default(Services::STATUS_INACTIVE)->comment(Services::STATUS_INACTIVE . ': active' . Services::STATUS_INACTIVE . ': inactive');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('email');
+            $table->string('number');
+            $table->string('company');
 
-         
+
             $table->timestamps();
             $table->softDeletes();
             $this->addAdminAuditColumns($table);
-            
-            
         });
     }
 
@@ -39,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('contacts');
     }
 };

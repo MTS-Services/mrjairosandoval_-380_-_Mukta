@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Banner;
 use App\Models\User;
 use App\Services\Admin\Service\Service;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -20,6 +21,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ServiceSeeder::class,
             ArticleSeeder::class,
+            BannerSeeder::class,
             FeatureSeeder::class,
             MemberShipSeeder::class,
 

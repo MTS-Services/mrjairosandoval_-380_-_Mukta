@@ -22,26 +22,28 @@ class ArticleRequest extends FormRequest
      */
     public function rules(): array
     {
+     
         return [
             'title' => ['required', 'string', 'max:255'],
-            'slug' => ['required', 'string', 'max:255', 'unique:articles,slug,'.$this->id],
+             'slug' => 'required|string|max:255',
             'sub_title' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string'],
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp,svg|max:2048',
             'content' => ['required', 'string'],
             'auther_name' => ['required', 'string', 'max:255'],
-            'publiched_data' => ['required', 'date'],
+            'published_data' => ['required', 'date'],
             'read_time' => ['required', 'integer'],
-            'mata_title' => ['required', 'string', 'max:255'],
+            'views' => ['required', 'integer'],
+            'meta_title' => ['required', 'string', 'max:255'],
             'meta_description' => ['required', 'string'],
             'meta_keywords' => ['required', 'string'],
-        ]+ ($this->isMethod('POST') ? $this->store() : $this->update());
+            'image' => 'required|image|mimes:jpeg,png,jpg,webp,svg|max:2048',
+        ] + ($this->isMethod('POST') ? $this->store() : $this->update());
     }
 
     public function store(): array
     {
         return [
             'slug.unique' => 'Slug already exists',
+            
         ];
     }
 
@@ -50,6 +52,5 @@ class ArticleRequest extends FormRequest
         return [
             'slug.unique' => 'Slug already exists',
         ];
-    }   
-
+    }
 }

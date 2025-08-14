@@ -76,6 +76,24 @@
                     ],
                 ]" />
 
+                   <x-admin.navlink type="dropdown" icon="article" name="Articles" :page_slug="$active"
+                :items="[
+                    [
+                        'name' => 'Articles',
+                        'route' => route('am.article.index'),
+                        'icon' => 'article',
+                        'active' => 'article',
+                    ],
+                ]" />
+                       <x-admin.navlink type="dropdown" icon="banner" name="Banners" :page_slug="$active"
+                :items="[
+                    [
+                        'name' => 'Banners',
+                        'route' => route('bm.banner.index'),
+                        'icon' => 'banner',
+                        'active' => 'banner',
+                    ],
+                ]" />
             <x-admin.navlink type="dropdown" icon="service" name="Services" :page_slug="$active" :items="[
                 [
                     'name' => 'Services',
@@ -85,14 +103,7 @@
                 ],
             ]" />
 
-            <x-admin.navlink type="dropdown" icon="article" name="Articles" :page_slug="$active" :items="[
-                [
-                    'name' => 'Articles',
-                    'route' => route('am.article.index'),
-                    'icon' => 'article',
-                    'active' => 'article',
-                ],
-            ]" />
+           
         </nav>
     </div>
     <!-- User Profile -->

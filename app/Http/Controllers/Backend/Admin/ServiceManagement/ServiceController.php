@@ -257,7 +257,7 @@ class ServiceController extends Controller
             $service = Services::onlyTrashed()->findOrFail(decrypt($id));
 
             $this->service->restore($service, $id);
-            session()->flash('success', "Faq restored successfully");
+            session()->flash('success', "Service restored successfully");
         } catch (\Throwable $e) {
             session()->flash('Faq restore failed');
             throw $e;
@@ -275,9 +275,9 @@ class ServiceController extends Controller
             $this->service->deletePermanent($service, $id);
             $service->forceDelete();
 
-            session()->flash('success', 'Faq permanently deleted successfully!');
+            session()->flash('success', 'Service permanently deleted successfully!');
         } catch (\Throwable $e) {
-            session()->flash('error', 'Faq permanent delete failed');
+            session()->flash('error', 'Service permanent delete failed');
             throw $e;
         }
         return $this->redirectTrashed();

@@ -17,14 +17,14 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('short_order')->default(0);
+            $table->unsignedInteger('sort_order')->default(0);
             $table->string('title');
             $table->string('slug');
             $table->string('sub_title');
             $table->text('content');
             $table->string('image');
             $table->string('auther_name');
-            $table->tinyInteger('status')->default(Articles::STATUS_ACTIVE)->comment(Articles::STATUS_ACTIVE . ': active' . Articles::STATUS_INACTIVE . ': inactive');
+            $table->tinyInteger('status')->default(Articles::STATUS_INACTIVE)->comment(Articles::STATUS_INACTIVE . ': active' . Articles::STATUS_INACTIVE . ': inactive');
             $table->timestamp('published_data');
             $table->integer('read_time');
             $table->integer('views');

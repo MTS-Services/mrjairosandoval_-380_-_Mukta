@@ -2,27 +2,17 @@
 
 namespace App\Models;
 
-use App\Models\BaseModel;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Articles extends BaseModel
+class Banner extends Model
 {
-
-    
+     use SoftDeletes;
+    protected $table = 'banners';
     protected $fillable = [
         'sort_order',
         'title',
-        'slug',
-        'sub_title',
-        'content',
         'image',
-        'auther_name',
-        'published_data',
-        'read_time',
-        'views',
-        'meta_title',
-        'meta_description',
-        'meta_keywords',
         'status',
 
         'created_by',
@@ -35,19 +25,11 @@ class Articles extends BaseModel
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
-        $this->appends = array_merge(parent::getAppends(), [
-            'status_label',
-            'status_color',
-            'status_btn_label',
-            'status_btn_color',
-            'status_btn_class',
-        ]);
+        $this->appends = array_merge(parent::getAppends(), []);
     }
 
     const STATUS_ACTIVE = 1;
     const STATUS_INACTIVE = 0;
-
-   
 
     public static function getStatusList(): array
     {
@@ -86,5 +68,15 @@ class Articles extends BaseModel
     {
 
         return $this->status == self::STATUS_INACTIVE ? 'btn-error' : 'btn-primary';
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', self::STATUS_ACTIVE);
+    }
+
+    public function scopeInactive($query)
+    {
+        return $query->where('status', self::STATUS_INACTIVE);
     }
 }

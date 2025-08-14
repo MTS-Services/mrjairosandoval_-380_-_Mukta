@@ -13,9 +13,9 @@ class ArticleService
 {
     use FileManagementTrait;
 
-    public function getArticles( $order = 'asc')
+    public function getArticles($orderBy = 'sort_order', $order = 'asc')
     {
-        return Articles::orderBy('short_order', $order)->latest();
+        return Articles::orderBy($orderBy, $order)->latest();
     }
     public function getArticle(string $encryptedId): Articles|Collection
     {
@@ -28,11 +28,12 @@ class ArticleService
 
     public function createArticle(array $data, $file = null): Articles
     {
+      
         return DB::transaction(function () use ($data, $file) {
             if ($file) {
                 $data['image'] = $this->handleFileUpload($file, 'articles');
             }
-            $data['status'] = Articles::STATUS_ACTIVE;
+           
             $data['created_by'] = admin()->id;
             $article = Articles::create($data);
             return $article;
