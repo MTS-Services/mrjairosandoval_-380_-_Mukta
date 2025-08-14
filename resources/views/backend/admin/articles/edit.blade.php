@@ -19,7 +19,8 @@
             class="grid grid-cols-1 gap-4 sm:grid-cols-1  {{ isset($documentation) && $documentation ? 'md:grid-cols-7' : '' }}">
             <!-- Form Section -->
             <div class="glass-card rounded-2xl p-6 md:col-span-5">
-                <form action="{{ route('am.article.update', encrypt($article->id)) }}" id="updateArticleForm') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('am.article.update', encrypt($article->id)) }}" id="updateArticleForm') }}"
+                    method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="grid grid-cols-1 gap-5 ">
@@ -45,19 +46,14 @@
                         <div class="space-y-2">
                             <p class="label">{{ __('Sub Title') }}</p>
                             <label class="input flex items-center gap-2">
-                                <input type="text" name="sub_title" value="{{ $article->sub_title }}" class="flex-1" />
+                                <input type="text" name="sub_title" value="{{ $article->sub_title }}"
+                                    class="flex-1" />
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('sub_title')" />
                         </div>
 
-                        <div class="space-y-2">
-                            <p class="label gap-2 mb-2">{{ __('Content') }}</p>
-                            <label class=" flex items-center gap-2">
-                                <textarea type="text" name="content" value="{{ $article->content }}" class="flex-1"></textarea>
-                            </label>
-                            <x-input-error class="mt-2" :messages="$errors->get('content')" />
-                        </div>
-                       
+
+
 
                         {{-- Author Name --}}
                         <div class="space-y-2">
@@ -73,8 +69,8 @@
                         <div class="space-y-2">
                             <p class="label">{{ __('Published Date') }}</p>
                             <label class="input flex items-center gap-2">
-                                <input type="datetime-local" name="published_data" value="{{ $article->published_data }}"
-                                    class="flex-1" />
+                                <input type="datetime-local" name="published_data"
+                                    value="{{ $article->published_data }}" class="flex-1" />
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('published_data')" />
                         </div>
@@ -83,7 +79,8 @@
                         <div class="space-y-2">
                             <p class="label">{{ __('Read Time (minutes)') }}</p>
                             <label class="input flex items-center gap-2">
-                                <input type="number" name="read_time" value="{{ $article->read_time }}" class="flex-1" />
+                                <input type="number" name="read_time" value="{{ $article->read_time }}"
+                                    class="flex-1" />
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('read_time')" />
                         </div>
@@ -106,12 +103,20 @@
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('meta_title')" />
                         </div>
+                        {{-- content --}}
+                        <div class="space-y-2">
+                            <p class="label gap-2 mb-2">{{ __('Content') }}</p>
+                            <label class=" flex items-center gap-2">
+                                <textarea type="text" name="content" value="{{ $article->content }}" class="flex-1 textarea"></textarea>
+                            </label>
+                            <x-input-error class="mt-2" :messages="$errors->get('content')" />
+                        </div>
 
                         {{-- Meta Description --}}
                         <div class="space-y-2">
                             <p class="label">{{ __('Meta Description') }}</p>
                             <label class=" flex items-center gap-2">
-                                <textarea name="meta_description" class="flex-1">{{ $article->meta_description }}</textarea>
+                                <textarea name="meta_description" class="flex-1 textarea">{{ $article->meta_description }}</textarea>
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('meta_description')" />
                         </div>
@@ -120,7 +125,7 @@
                         <div class="space-y-2">
                             <p class="label">{{ __('Meta Keywords') }}</p>
                             <label class=" flex items-center gap-2">
-                                <textarea name="meta_keywords" class="flex-1">{{ $article->meta_keywords }}</textarea>
+                                <textarea name="meta_keywords" class="flex-1 textarea">{{ $article->meta_keywords }}</textarea>
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('meta_keywords')" />
                         </div>
@@ -144,16 +149,16 @@
 
         </div>
     </section>
-@push('js')
-            <script src="{{ asset('assets/js/filepond.js') }}"></script>
-            <script>
-                document.addEventListener('DOMContentLoaded', function() {
+    @push('js')
+        <script src="{{ asset('assets/js/filepond.js') }}"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
 
-                    file_upload(["#image"], ["image/jpeg", "image/png", "image/jpg, image/webp, image/svg"], {
-                        "#image": "{{ $article->modified_image }}"
-                    });
-
+                file_upload(["#image"], ["image/jpeg", "image/png", "image/jpg, image/webp, image/svg"], {
+                    "#image": "{{ $article->modified_image }}"
                 });
-            </script>
-        @endpush
+
+            });
+        </script>
+    @endpush
 </x-admin::layout>
