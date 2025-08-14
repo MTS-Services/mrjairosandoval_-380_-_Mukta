@@ -9,9 +9,9 @@
             <div class="flex items-center justify-between">
                 <h2 class="text-xl font-bold text-text-black dark:text-text-white">{{ __('Article List') }}</h2>
                 <div class="flex items-center gap-2">
-                   
-                      <x-admin.primary-link href="{{ route('am.article.index') }}">{{ __('Back') }} <i data-lucide="undo-2"
-                        class="w-4 h-4"></i> </x-admin.primary-link>
+
+                    <x-admin.primary-link href="{{ route('arm.article.index') }}">{{ __('Back') }} <i
+                            data-lucide="undo-2" class="w-4 h-4"></i> </x-admin.primary-link>
                 </div>
             </div>
         </div>
@@ -35,7 +35,7 @@
         </div>
     </section>
 
-  
+
 
 
     @push('js')
@@ -57,7 +57,7 @@
                     table_columns: table_columns,
                     main_class: '.datatable',
                     displayLength: 10,
-                    main_route: "{{ route('am.article.trash') }}",
+                    main_route: "{{ route('arm.article.trash') }}",
                     order_route: "{{ route('update.sort.order') }}",
                     export_columns: [0, 1, 2, 3, 4, 5],
                     model: 'Articles',
@@ -67,7 +67,6 @@
                 initializeDataTable(details);
             })
         </script>
-    
     @endpush
 
 

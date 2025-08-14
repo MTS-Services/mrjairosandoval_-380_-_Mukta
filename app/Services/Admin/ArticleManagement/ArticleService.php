@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Services\Admin\Article;
+namespace App\Services\Admin\ArticleManagement;
 
 use App\Http\Traits\FileManagementTrait;
-use App\Models\Articles;
+use App\Models\Articles;;
 
-;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 
@@ -28,12 +27,12 @@ class ArticleService
 
     public function createArticle(array $data, $file = null): Articles
     {
-      
+
         return DB::transaction(function () use ($data, $file) {
             if ($file) {
                 $data['image'] = $this->handleFileUpload($file, 'articles');
             }
-           
+
             $data['created_by'] = admin()->id;
             $article = Articles::create($data);
             return $article;
@@ -60,15 +59,15 @@ class ArticleService
         $article->delete();
     }
 
-     public function deletePermanent(Articles $article, $id): void
+    public function deletePermanent(Articles $article, $id): void
     {
         $article->delete();
     }
 
-   public function restore(Articles $article, $id): void
+    public function restore(Articles $article, $id): void
     {
         $article->restore();
-   }
+    }
 
     public function toggleStatus(Articles $article): void
     {
@@ -78,4 +77,3 @@ class ArticleService
         ]);
     }
 }
-

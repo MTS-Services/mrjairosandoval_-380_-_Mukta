@@ -8,7 +8,7 @@
         <div class="glass-card rounded-2xl p-6 mb-6">
             <div class="flex items-center justify-between">
                 <h2 class="text-xl font-bold text-text-black dark:text-text-white">{{ __('Create Article') }}</h2>
-                <x-admin.primary-link href="{{ route('am.article.index') }}" icon="undo-2" type='info'
+                <x-admin.primary-link href="{{ route('arm.article.index') }}" icon="undo-2" type='info'
                     permission="article-list">
                     {{ __('Back') }}
                 </x-admin.primary-link>
@@ -19,7 +19,7 @@
             class="grid grid-cols-1 gap-4 sm:grid-cols-1  {{ isset($documentation) && $documentation ? 'md:grid-cols-7' : '' }}">
             <!-- Form Section -->
             <div class="glass-card rounded-2xl p-6 md:col-span-5">
-                <form action="{{ route('am.article.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('arm.article.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="grid grid-cols-1 gap-5 ">
                         <!-- title -->

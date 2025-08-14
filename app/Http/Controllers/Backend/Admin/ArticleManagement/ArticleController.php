@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Backend\Admin\Articles;
+namespace App\Http\Controllers\Backend\Admin\ArticleManagement;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Article\ArticleRequest;
+use App\Http\Requests\Admin\ArticleManagement\ArticleRequest;
 use App\Http\Traits\AuditRelationTraits;
 use App\Models\Articles;
 use GuzzleHttp\Middleware;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
-use App\Services\Admin\Article\ArticleService;
+use App\Services\Admin\ArticleManagement\ArticleService;
 
 class ArticleController extends Controller
 {
@@ -21,18 +21,18 @@ class ArticleController extends Controller
     {
         $this->article = $article;
     }
-     protected function redirectIndex(): RedirectResponse
+    protected function redirectIndex(): RedirectResponse
     {
-        return redirect()->route('am.article.index');
+        return redirect()->route('arm.article.index');
     }
 
     protected function redirectTrashed(): RedirectResponse
     {
-        return redirect()->route('am.article.trash');
+        return redirect()->route('arm.article.trash');
     }
 
 
-     public static function middleware(): array
+    public static function middleware(): array
     {
         return [
             'auth:admin', // Applies 'auth:admin' to all methods
@@ -49,18 +49,18 @@ class ArticleController extends Controller
             //add more permissions if needed
         ];
     }
-  
+
     /**
      * Display a listing of the resource.
      */
-     public function index(Request $request)
+    public function index(Request $request)
     {
-         if ($request->ajax()) {
+        if ($request->ajax()) {
             $query = $this->article->getArticles();
             return DataTables::eloquent($query)
-            
+
                 ->editColumn('status', fn($article) => "<span class='badge badge-soft {$article->status_color}'>{$article->status_label}</span>")
-              
+
                 ->editColumn('created_by', function ($article) {
                     return $this->creater_name($article);
                 })
@@ -71,15 +71,15 @@ class ArticleController extends Controller
                     $menuItems = $this->menuItems($article);
                     return view('components.admin.action-buttons', compact('menuItems'))->render();
                 })
-                ->rawColumns(['status','action', 'created_by', 'created_at',])
+                ->rawColumns(['status', 'action', 'created_by', 'created_at',])
                 ->make(true);
         }
-        return view('backend.admin.articles.index');
+        return view('backend.admin.article-management.articles.index');
     }
 
-     
 
-      protected function menuItems($model): array
+
+    protected function menuItems($model): array
     {
         return [
             [
@@ -90,13 +90,13 @@ class ArticleController extends Controller
                 'permissions' => ['permission-list', 'permission-delete', 'permission-status']
             ],
             [
-                'routeName' => 'am.article.edit',
+                'routeName' => 'arm.article.edit',
                 'params' => [encrypt($model->id)],
                 'label' => 'Edit',
                 'permissions' => ['permission-edit']
             ],
             [
-                'routeName' => 'am.article.status',
+                'routeName' => 'arm.article.status',
                 'params' => [encrypt($model->id)],
                 'label' => $model->status ? 'Inactive' : 'Activate',
                 'status' => true,
@@ -104,7 +104,7 @@ class ArticleController extends Controller
             ],
 
             [
-                'routeName' => 'am.article.destroy',
+                'routeName' => 'arm.article.destroy',
                 'params' => [encrypt($model->id)],
                 'label' => 'Delete',
                 'delete' => true,
@@ -119,7 +119,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('backend.admin.articles.create');
+        return view('backend.admin.article-management.articles.create');
     }
 
     /**
@@ -127,7 +127,7 @@ class ArticleController extends Controller
      */
     public function store(ArticleRequest $request)
     {
-        
+
         try {
             $validated = $request->validated();
             $file = $request->validated('image') && $request->hasFile('image') ? $request->file('image') : null;
@@ -145,11 +145,11 @@ class ArticleController extends Controller
      */
     public function show(string $id)
     {
-         $data = $this->article->getArticle($id);
-         $data['status'] = $data->status ? 'Active' : 'Inactive';
+        $data = $this->article->getArticle($id);
+        $data['status'] = $data->status ? 'Active' : 'Inactive';
         $data['creater_name'] = $this->creater_name($data);
         $data['updater_name'] = $this->updater_name($data);
-       
+
         return response()->json($data);
     }
 
@@ -159,7 +159,7 @@ class ArticleController extends Controller
     public function edit(string $id)
     {
         $data['article'] = $this->article->getArticle($id);
-        return view('backend.admin.articles.edit',$data);
+        return view('backend.admin.article-management.articles.edit', $data);
     }
 
     /**
@@ -209,9 +209,9 @@ class ArticleController extends Controller
         return $this->redirectIndex();
     }
 
-     public function trash(Request $request)
+    public function trash(Request $request)
     {
-         if ($request->ajax()) {
+        if ($request->ajax()) {
             $query = $this->article->getArticles()->onlyTrashed();
             return DataTables::eloquent($query)
                 ->editColumn('status', fn($article) => "<span class='badge badge-soft {$article->status_color}'>{$article->status_label}</span>")
@@ -219,38 +219,38 @@ class ArticleController extends Controller
                     return $this->creater_name($article);
                 })
                 ->editColumn('created_at', fn($article) => $article->created_at_formatted)
-               ->editColumn('action', fn($article) => view('components.admin.action-buttons', [
+                ->editColumn('action', fn($article) => view('components.admin.action-buttons', [
                     'menuItems' => $this->menuItemsTrashed($article),
                 ])->render())
-                ->rawColumns(['status','action', 'deleted_by', 'created_at',])
+                ->rawColumns(['status', 'action', 'deleted_by', 'created_at',])
                 ->make(true);
         }
-        return view('backend.admin.articles.trash');
+        return view('backend.admin.article-management.articles.trash');
     }
 
-     
 
-      protected function menuItemsTrashed($model): array
+
+    protected function menuItemsTrashed($model): array
     {
         return [
-           [
-                'routeName' => 'am.article.restore',
+            [
+                'routeName' => 'arm.article.restore',
                 'params' => [encrypt($model->id)],
                 'label' => 'Restore',
             ],
             [
-                'routeName' => 'am.article.permanent-delete',
+                'routeName' => 'arm.article.permanent-delete',
                 'params' => [encrypt($model->id)],
                 'label' => 'Permanent Delete',
                 'p-delete' => true,
             ]
-           
+
 
         ];
     }
 
 
- public function restore(string $id): RedirectResponse
+    public function restore(string $id): RedirectResponse
     {
         try {
             $article = Articles::onlyTrashed()->findOrFail(decrypt($id));

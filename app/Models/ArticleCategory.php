@@ -4,14 +4,14 @@ namespace App\Models;
 
 use App\Models\BaseModel;
 
-class Feature extends BaseModel
+class ArticleCategory extends BaseModel
 {
-    
     //
 
-    protected $fillable = [
+   protected $fillable = [
         'sort_order',
         'name',
+        'slug',
         'status',
 
         'created_by',
@@ -76,9 +76,6 @@ class Feature extends BaseModel
     }
 
 
-    public function membershipFeatures()
-    {
-        return $this->hasMany(MembershipFeature::class, 'feature_id', 'id');
-    }
-
+    
+     
 }

@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\Backend\Admin\AdminController;
-use App\Http\Controllers\Backend\Admin\Articles\ArticleController;
+use App\Http\Controllers\Backend\Admin\ArticleManagement\ArticleCategoryController;
+use App\Http\Controllers\Backend\Admin\ArticleManagement\ArticleController;
 use App\Http\Controllers\Backend\Admin\BannerManagement\BannerController;
 use App\Http\Controllers\Backend\Admin\Contact\ContactController;
 use App\Http\Controllers\Backend\Admin\DashboardController as AdminDashboardController;
@@ -70,7 +71,16 @@ Route::group(['middleware' => ['auth:admin'], 'prefix' => 'admin'], function () 
     });
   });
   //Article Management
-  Route::group(['as' => 'am.', 'prefix' => 'article-management'], function () {
+  Route::group(['as' => 'arm.', 'prefix' => 'article-management'], function () {
+    Route::resource('article-category', ArticleCategoryController::class);
+    Route::controller(ArticleCategoryController::class)->name('article-category.')->prefix('article-category')->group(function () {
+      Route::post('/show/{articleCategory}', 'show')->name('show');
+      Route::get('/status/{articleCategory}', 'status')->name('status');
+      Route::get('/trash/bin', 'trash')->name('trash');
+      Route::get('/restore/{articleCategory}', 'restore')->name('restore');
+      Route::delete('/permanent-delete/{articleCategory}', 'permanentDelete')->name('permanent-delete');
+    });
+
     Route::resource('article', ArticleController::class);
     Route::controller(ArticleController::class)->name('article.')->prefix('article')->group(function () {
       Route::post('/show/{article}', 'show')->name('show');
@@ -82,7 +92,7 @@ Route::group(['middleware' => ['auth:admin'], 'prefix' => 'admin'], function () 
   });
 
   //Banner Management
-  Route::group(['as'=> 'bm.', 'prefix' => 'banner-management'], function () {
+  Route::group(['as' => 'bm.', 'prefix' => 'banner-management'], function () {
     Route::resource('banner', BannerController::class);
     Route::controller(BannerController::class)->name('banner.')->prefix('banner')->group(function () {
       Route::post('/show/{banner}', 'show')->name('show');

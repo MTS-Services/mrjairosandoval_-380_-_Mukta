@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Article;
+namespace App\Http\Requests\Admin\ArticleManagement;
 
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
@@ -22,10 +22,10 @@ class ArticleRequest extends FormRequest
      */
     public function rules(): array
     {
-     
+
         return [
             'title' => ['required', 'string', 'max:255'],
-             'slug' => 'required|string|max:255',
+            'slug' => 'required|string|max:255',
             'sub_title' => ['required', 'string', 'max:255'],
             'content' => ['required', 'string'],
             'auther_name' => ['required', 'string', 'max:255'],
@@ -43,7 +43,7 @@ class ArticleRequest extends FormRequest
     {
         return [
             'slug.unique' => 'Slug already exists',
-            
+
         ];
     }
 

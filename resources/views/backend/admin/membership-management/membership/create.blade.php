@@ -34,6 +34,16 @@
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('name')" />
                         </div>
+                        {{--  --}}
+                        <div class="space-y-2">
+                            <p class="label">{{ __('Slug') }}
+                                <span class="text-red-500">*</span>
+                            </p>
+                            <label class="input flex items-center gap-2">
+                                <input type="text" placeholder="Slug" value="{{ old('slug') }}" name="slug" class="flex-1" />
+                            </label>
+                            <x-input-error class="mt-2" :messages="$errors->get('slug')" />
+                        </div>
 
                        {{-- Tag --}}
                         <div class="space-y-2">
