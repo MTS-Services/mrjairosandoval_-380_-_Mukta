@@ -17,14 +17,29 @@ class ServiceSeeder extends Seeder
     public function run(): void
    {
        Services::create([
-           'title' => 'consultation',
+           'title' => 'TRAVEL',
            'sub_title' => 'get free consultation',
-           
+           'status' => Services::STATUS_ACTIVE
        ]);
        Services::create([
-           'title' => 'example',
+           'title' => 'DINING',
            'sub_title' => 'lorem ipsum dolor sit amet',
-           
+           'status' => Services::STATUS_ACTIVE
+       ]);
+       Services::create([
+           'title' => 'COMPANIONSHIP',
+           'sub_title' => 'build modern web applications',
+           'status' => Services::STATUS_ACTIVE
+       ]);
+       Services::create([
+           'title' => 'PROPERTY ACCESS',
+           'sub_title' => 'create stunning visuals',
+           'status' => Services::STATUS_ACTIVE
+       ]);
+       Services::create([
+           'title' => 'EVENTS',
+           'sub_title' => 'get free consultation',
+           'status' => Services::STATUS_ACTIVE
        ]);
     }
 }
