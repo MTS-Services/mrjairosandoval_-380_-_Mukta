@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Services;
 use Illuminate\Http\Request;
 use PhpOffice\PhpSpreadsheet\Calculation\Web\Service;
 
@@ -25,7 +26,9 @@ class HomeController extends Controller
 
   public function service()
   {
-    $data['service'] = Service::orderBy('sort_order', 'asc')->get();
+    $data['service'] = Services::orderBy('sort_order', 'asc')->active()->get();
+
+    dd($data['service']);
 
     return view('frontend.pages.service.service', $data);
   }
