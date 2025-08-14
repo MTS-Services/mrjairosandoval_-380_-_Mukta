@@ -19,7 +19,7 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('short_order')->default(0);
+            $table->unsignedInteger('sort_order')->default(0);
             $table->string('title');
             $table->string('sub_title');
              $table->string('icon')->nullable();
