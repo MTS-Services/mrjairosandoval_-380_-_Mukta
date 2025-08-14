@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\Admin\AdminController;
 use App\Http\Controllers\Backend\Admin\Articles\ArticleController;
 use App\Http\Controllers\Backend\Admin\BannerManagement\BannerController;
+use App\Http\Controllers\Backend\Admin\Contact\ContactController;
 use App\Http\Controllers\Backend\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Backend\Admin\MemberShipManagment\FeatureController;
 use App\Http\Controllers\Backend\Admin\MemberShipManagment\MemberShipController;
@@ -88,6 +89,18 @@ Route::group(['middleware' => ['auth:admin'], 'prefix' => 'admin'], function () 
       Route::get('/trash/bin', 'trash')->name('trash');
       Route::get('/restore/{banner}', 'restore')->name('restore');
       Route::delete('/permanent-delete/{banner}', 'permanentDelete')->name('permanent-delete');
+    });
+  });
+
+  //Contact Management
+  Route::group(['as' => 'cm.', 'prefix' => 'contact-management'], function () {
+    Route::resource('contact', ContactController::class);
+    Route::controller(ContactController::class)->name('contact.')->prefix('contact')->group(function () {
+      Route::post('/show/{contact}', 'show')->name('show');
+      Route::get('/status/{contact}', 'status')->name('status');
+      Route::get('/trash/bin', 'trash')->name('trash');
+      Route::get('/restore/{contact}', 'restore')->name('restore');
+      Route::delete('/permanent-delete/{contact}', 'permanentDelete')->name('permanent-delete');
     });
   });
 });
