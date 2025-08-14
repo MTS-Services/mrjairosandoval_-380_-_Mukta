@@ -60,6 +60,16 @@
                         'active' => 'service',
                     ],
                 ]" />
+
+                   <x-admin.navlink type="dropdown" icon="article" name="Articles" :page_slug="$active"
+                :items="[
+                    [
+                        'name' => 'Articles',
+                        'route' => route('am.article.index'),
+                        'icon' => 'article',
+                        'active' => 'article',
+                    ],
+                ]" />
         </nav>
     </div>
      <!-- User Profile -->

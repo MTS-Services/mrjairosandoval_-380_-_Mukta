@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\Admin\AdminController;
+use App\Http\Controllers\Backend\Admin\Articles\ArticleController;
 use App\Http\Controllers\Backend\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Backend\Admin\ServiceManagement\ServiceController;
 use App\Services\Admin\Service\Service;
@@ -34,6 +35,18 @@ Route::group(['middleware' => ['auth:admin'], 'prefix' => 'admin'], function () 
     });
       
   
+  });
+  //Article Management
+  Route::group(['as'=> 'am.', 'prefix' => 'article-management'], function () {
+    Route::resource('article', ArticleController::class);
+    Route::controller(ArticleController::class)->name('article.')->prefix('article')->group(function () {
+      Route::post('/show/{article}', 'show')->name('show');
+      Route::get('/status/{article}', 'status')->name('status');
+      Route::get('/trash/bin', 'trash')->name('trash');
+      Route::get('/restore/{article}', 'restore')->name('restore');
+      Route::delete('/permanent-delete/{article}', 'permanentDelete')->name('permanent-delete');
+    });
+    
   });
 });
 
