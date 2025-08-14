@@ -25,7 +25,8 @@ class HomeController extends Controller
 
   public function service()
   {
-    $data['service'] = Service::get();
+    $data['service'] = Service::orderBy('sort_order', 'asc')->get();
+
     return view('frontend.pages.service.service', $data);
   }
 
