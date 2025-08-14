@@ -4,16 +4,15 @@ namespace App\Models;
 
 use App\Models\BaseModel;
 
-class MemberShip extends BaseModel
+class ArticleCategory extends BaseModel
 {
     //
 
-    protected $fillable = [
+   protected $fillable = [
         'sort_order',
         'name',
         'slug',
         'status',
-        'tag',
 
         'created_by',
         'updated_by',
@@ -77,8 +76,6 @@ class MemberShip extends BaseModel
     }
 
 
-    public function membershipFeatures()
-    {
-        return $this->hasMany(MembershipFeature::class, 'membership_id', 'id');
-    }
+    
+     
 }
