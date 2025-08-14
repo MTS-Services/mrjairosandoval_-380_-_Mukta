@@ -63,5 +63,6 @@
                 <h2 class="text-1xl sm:text-2xl tracking-wide">"Taste is measured in refusals, not acquisitions."
                 </h2>
             </section>
+    </section>
 
 </x-frontend::layout>
