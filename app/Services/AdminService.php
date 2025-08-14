@@ -11,7 +11,7 @@ class AdminService
 {
     use FileManagementTrait;
 
-    public function getAdmins($orderBy = 'name', $order = 'asc')
+    public function getAdmins($orderBy = 'sort_order', $order = 'asc')
     {
         return Admin::orderBy($orderBy, $order)->latest();
     }

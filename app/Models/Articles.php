@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Articles extends BaseModel
 {
 
-    use SoftDeletes;
+    
     protected $table = 'articles';
     protected $fillable = [
         'short_order',

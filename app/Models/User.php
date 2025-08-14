@@ -7,8 +7,6 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 class User extends AuthBaseModel implements MustVerifyEmail
 {
-   
-
     /**
      * The attributes that are mass assignable.
      *

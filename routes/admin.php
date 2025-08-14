@@ -3,8 +3,9 @@
 use App\Http\Controllers\Backend\Admin\AdminController;
 use App\Http\Controllers\Backend\Admin\Articles\ArticleController;
 use App\Http\Controllers\Backend\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Backend\Admin\MemberShipManagment\FeatureController;
 use App\Http\Controllers\Backend\Admin\ServiceManagement\ServiceController;
-use App\Http\Controllers\Backend\Admin\UserManagment\UserController;
+use App\Http\Controllers\Backend\Admin\UserManagement\UserController;
 use App\Services\Admin\Service\Service;
 use Illuminate\Support\Facades\Route;
 
@@ -44,6 +45,16 @@ Route::group(['middleware' => ['auth:admin'], 'prefix' => 'admin'], function () 
       Route::get('/trash/bin', 'trash')->name('trash');
       Route::get('/restore/{user}', 'restore')->name('restore');
       Route::delete('/permanent-delete/{user}', 'permanentDelete')->name('permanent-delete');
+    });
+  });
+  Route::group(['as' => 'mm.', 'prefix' => 'membership-management'], function () {
+    Route::resource('feature', FeatureController::class);
+    Route::controller(FeatureController::class)->name('feature.')->prefix('feature')->group(function () {
+      Route::post('/show/{feature}', 'show')->name('show');
+      Route::get('/status/{feature}', 'status')->name('status');
+      Route::get('/trash/bin', 'trash')->name('trash');
+      Route::get('/restore/{feature}', 'restore')->name('restore');
+      Route::delete('/permanent-delete/{feature}', 'permanentDelete')->name('permanent-delete');
     });
   });
   //Article Management

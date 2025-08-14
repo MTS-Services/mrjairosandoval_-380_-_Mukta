@@ -6,6 +6,7 @@ use App\Models\BaseModel;
 
 class Feature extends BaseModel
 {
+    
     //
 
     protected $fillable = [

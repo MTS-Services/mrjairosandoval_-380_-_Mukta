@@ -1,10 +1,11 @@
 <?php
 
-namespace {{ namespace }};
+namespace App\Http\Requests\Admin\MemberShipManagement;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class {{ class }} extends FormRequest
+class FeatureRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +23,7 @@ class {{ class }} extends FormRequest
      public function rules(): array
     {
         return [
-            
+            'name' => ['required', 'string', 'min:3'],
         ] + ($this->isMethod('POST') ? $this->store() : $this->update());;
     }
     protected function store(): array

@@ -8,7 +8,7 @@ use App\Models\BaseModel;
 
 class Services extends BaseModel
 {
-    use SoftDeletes;
+   
   
     protected $fillable = [
         'sort_order',

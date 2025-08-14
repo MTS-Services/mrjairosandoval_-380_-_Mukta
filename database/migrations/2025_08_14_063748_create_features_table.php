@@ -19,7 +19,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedInteger('sort_order')->default(0);
             $table->string('name')->unique();
-            $table->tinyInteger('status')->default(Feature::STATUS_ACTIVE)->comment(Feature::STATUS_ACTIVE . ': active' . Feature::STATUS_INACTIVE . ': inactive');
+            $table->tinyInteger('status')->default(Feature::STATUS_INACTIVE)->comment(Feature::STATUS_ACTIVE . ': active' . Feature::STATUS_INACTIVE . ': inactive');
 
             $table->timestamps();
             $table->softDeletes();

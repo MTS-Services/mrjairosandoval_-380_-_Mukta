@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Backend\Admin\UserManagment;
+namespace App\Http\Controllers\Backend\Admin\UserManagement;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UserManagement\UserRequest;
@@ -35,7 +35,7 @@ class UserController extends Controller
     public static function middleware(): array
     {
         return [
-            'auth:admin', 
+            'auth:admin',
 
         ];
     }
@@ -48,7 +48,7 @@ class UserController extends Controller
 
         if ($request->ajax()) {
             $query = $this->userService->getUsers();
-            
+
             return DataTables::eloquent($query)
                 ->editColumn('email_verified_at', fn($user) => "<span class='badge badge-soft {$user->verify_color}'>{$user->verify_label}</span>")
                 ->editColumn('status', fn($user) => "<span class='badge badge-soft {$user->status_color}'>{$user->status_label}</span>")
@@ -113,7 +113,7 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
         try {
-            $validated = $request->validated();            
+            $validated = $request->validated();
             $file = $request->validated('image') && $request->hasFile('image') ? $request->file('image') : null;
             $this->userService->createUser($validated, $file);
             session()->flash('success', "User created successfully");
