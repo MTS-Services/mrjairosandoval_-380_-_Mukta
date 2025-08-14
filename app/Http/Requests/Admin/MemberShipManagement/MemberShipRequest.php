@@ -5,7 +5,7 @@ namespace App\Http\Requests\Admin\MemberShipManagement;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class FeatureRequest extends FormRequest
+class MemberShipRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,14 +29,15 @@ class FeatureRequest extends FormRequest
     protected function store(): array
     {
         return [
-            'name' => ['required', 'string', 'min:3', Rule::unique('features', 'name')],
+             'name' => ['required', 'string', 'min:3', Rule::unique('member_ships', 'name')],
+             'tag' => ['required', 'string', 'min:3', Rule::unique('member_ships', 'tag')],
         ];
     }
     public function update(): array
     {
         return [
-            'name' => ['required', 'string','min:3', Rule::unique('features', 'name')->ignore(decrypt($this->route('feature')))],
-
+            'name' => ['required', 'string','min:3', Rule::unique('member_ships', 'name')->ignore(decrypt($this->route('membership')))],
+            'tag' => ['required', 'string','min:3', Rule::unique('member_ships', 'tag')->ignore(decrypt($this->route('membership')))],
         ];
     }
 }

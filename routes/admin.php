@@ -4,6 +4,7 @@ use App\Http\Controllers\Backend\Admin\AdminController;
 use App\Http\Controllers\Backend\Admin\Articles\ArticleController;
 use App\Http\Controllers\Backend\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Backend\Admin\MemberShipManagment\FeatureController;
+use App\Http\Controllers\Backend\Admin\MemberShipManagment\MemberShipController;
 use App\Http\Controllers\Backend\Admin\ServiceManagement\ServiceController;
 use App\Http\Controllers\Backend\Admin\UserManagement\UserController;
 use App\Services\Admin\Service\Service;
@@ -55,6 +56,14 @@ Route::group(['middleware' => ['auth:admin'], 'prefix' => 'admin'], function () 
       Route::get('/trash/bin', 'trash')->name('trash');
       Route::get('/restore/{feature}', 'restore')->name('restore');
       Route::delete('/permanent-delete/{feature}', 'permanentDelete')->name('permanent-delete');
+    });
+    Route::resource('membership', MemberShipController::class);
+    Route::controller(MemberShipController::class)->name('membership.')->prefix('membership')->group(function () {
+      Route::post('/show/{membership}', 'show')->name('show');
+      Route::get('/status/{membership}', 'status')->name('status');
+      Route::get('/trash/bin', 'trash')->name('trash');
+      Route::get('/restore/{membership}', 'restore')->name('restore');
+      Route::delete('/permanent-delete/{membership}', 'permanentDelete')->name('permanent-delete');
     });
   });
   //Article Management
