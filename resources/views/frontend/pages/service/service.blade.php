@@ -3,15 +3,15 @@
     <x-slot name="page_slug">About</x-slot>
 
     <!-- Hero Section -->
-    <section class="relative h-[350px] bg-black " id="hero-section">
+    <section class="relative h-[45vh] bg-black " id="hero-section">
 
         <div class="absolute inset-0 bg-black/50"></div>
         <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
-            <h1 class="lg:text-6xl sm:text-4xl text-2xl md:text-4xl font-bold leading-snug ">
+            <h1 class="lg:text-6xl sm:text-4xl text-2xl md:text-4xl leading-snug ">
                 Services
             </h1>
 
-            <p class="text-sm sm:text-base mt-2 text-[#E5E3E3] ">Omertà Applied..</p>
+            <p class="text-sm sm:text-base my-4 text-[#E5E3E3] ">Omertà Applied..</p>
             <p class="text-sm sm:text-base mt-2 text-[#E5E3E3] ">Our services are designed not to impress the world —
                 but to
                 serve yours..</p>
