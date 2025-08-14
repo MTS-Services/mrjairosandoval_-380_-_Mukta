@@ -13,7 +13,7 @@
          <ul class="space-y-1">
              <li>
                  <a href="{{ route('user.dashboard') }}"
-                     class="flex items-center justify-between px-4 py-3 font-medium rounded-l-lg transition-colors hover:bg-gray-800 {{ Route::is('user.dashboard') ? 'bg-gray-800' : '' }} border-l-4 border-gold text-gold">
+                     class="flex items-center justify-between px-4 py-3 font-medium rounded-l-lg transition-colors hover:bg-gray-800 {{ request()->routeIs('user.dashboard') ? 'bg-gray-800' : '' }} border-l-4 border-gold text-gold">
                      <span class="flex items-center gap-3">
                          <i class="fas fa-tachometer-alt w-5 h-5"></i>
                          Dashboard
@@ -23,24 +23,24 @@
 
              <li>
                  <div class="flex items-center justify-between px-4 py-3 cursor-pointer hover:bg-gray-800 rounded-l-lg"
-                     onclick="document.getElementById('articlesMenu').classList.toggle('hidden')">
+                     onclick="document.getElementById('tab').classList.toggle('hidden')">
                      <span class="flex items-center gap-3">
                          <i class="fas fa-newspaper w-5 h-5"></i>
                          Tab
                      </span>
                      <i class="fas fa-chevron-down"></i>
                  </div>
-                 <ul id="articlesMenu" class="ml-6 mt-1 space-y-1 hidden">
+                 <ul id="tab" class="ml-6 mt-1 space-y-1 hidden">
                      <li>
                          <a href="/articles/create"
                              class="block px-4 py-2 rounded-l-lg transition-colors hover:bg-gray-700">
-                             Tab 1
+                             Tab Label 1
                          </a>
                      </li>
                      <li>
                          <a href="/articles/list"
                              class="block px-4 py-2 rounded-l-lg transition-colors hover:bg-gray-700">
-                             Tab 2
+                             Tab Label 2
                          </a>
                      </li>
                  </ul>
