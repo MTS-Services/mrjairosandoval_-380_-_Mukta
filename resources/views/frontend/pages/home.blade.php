@@ -67,9 +67,19 @@
           text-3xl (mobile) -> sm:text-4xl (small screens) -> md:text-5xl (medium) -> lg:text-6xl (large)
           We also replaced 'leading-24!' with the standard 'leading-tight' for better readability.
         -->
-            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-6xl mx-auto">
+            {{-- <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-7xl mx-auto">
                 CERTAIN DOORS DON’T APPEAR UNTIL YOU’RE READY TO KNOCK.
+            </h1> --}}
+
+            <h1
+                class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.4] max-w-7xl mx-auto text-center">
+                CERTAIN DOORS DON’T APPEAR <br> UNTIL YOU’RE READY TO KNOCK.
             </h1>
+
+
+
+
+
 
             <!--
           The button's top margin is now responsive. It's 'mt-8' on mobile and scales
