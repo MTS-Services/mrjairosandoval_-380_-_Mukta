@@ -31,7 +31,7 @@ class Service
             if ($file) {
                 $data['icon'] = $this->handleFileUpload($file, 'services');
             }
-            $data['status'] = Services::STATUS_ACTIVE;
+           
             $data['created_by'] = admin()->id;
             $service = Services::create($data);
             return $service;

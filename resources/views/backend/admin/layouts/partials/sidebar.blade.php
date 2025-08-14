@@ -70,6 +70,15 @@
                         'active' => 'article',
                     ],
                 ]" />
+                       <x-admin.navlink type="dropdown" icon="banner" name="Banners" :page_slug="$active"
+                :items="[
+                    [
+                        'name' => 'Banners',
+                        'route' => route('bm.banner.index'),
+                        'icon' => 'banner',
+                        'active' => 'banner',
+                    ],
+                ]" />
         </nav>
     </div>
      <!-- User Profile -->

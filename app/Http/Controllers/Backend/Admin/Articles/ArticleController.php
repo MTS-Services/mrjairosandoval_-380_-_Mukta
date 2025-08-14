@@ -146,6 +146,7 @@ class ArticleController extends Controller
     public function show(string $id)
     {
          $data = $this->article->getArticle($id);
+         $data['status'] = $data->status ? 'Active' : 'Inactive';
         $data['creater_name'] = $this->creater_name($data);
         $data['updater_name'] = $this->updater_name($data);
        

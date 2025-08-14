@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\Admin\AdminController;
 use App\Http\Controllers\Backend\Admin\Articles\ArticleController;
+use App\Http\Controllers\Backend\Admin\BannerManagement\BannerController;
 use App\Http\Controllers\Backend\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Backend\Admin\ServiceManagement\ServiceController;
 use App\Services\Admin\Service\Service;
@@ -47,6 +48,18 @@ Route::group(['middleware' => ['auth:admin'], 'prefix' => 'admin'], function () 
       Route::delete('/permanent-delete/{article}', 'permanentDelete')->name('permanent-delete');
     });
     
+  });
+
+  //Banner Management
+  Route::group(['as'=> 'bm.', 'prefix' => 'banner-management'], function () {
+    Route::resource('banner', BannerController::class);
+    Route::controller(BannerController::class)->name('banner.')->prefix('banner')->group(function () {
+      Route::post('/show/{banner}', 'show')->name('show');
+      Route::get('/status/{banner}', 'status')->name('status');
+      Route::get('/trash/bin', 'trash')->name('trash');
+      Route::get('/restore/{banner}', 'restore')->name('restore');
+      Route::delete('/permanent-delete/{banner}', 'permanentDelete')->name('permanent-delete');
+    });
   });
 });
 

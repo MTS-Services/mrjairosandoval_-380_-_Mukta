@@ -24,7 +24,7 @@ return new class extends Migration
             $table->text('content');
             $table->string('image');
             $table->string('auther_name');
-            $table->tinyInteger('status')->default(Articles::STATUS_ACTIVE)->comment(Articles::STATUS_ACTIVE . ': active' . Articles::STATUS_INACTIVE . ': inactive');
+            $table->tinyInteger('status')->default(Articles::STATUS_INACTIVE)->comment(Articles::STATUS_INACTIVE . ': active' . Articles::STATUS_INACTIVE . ': inactive');
             $table->timestamp('published_data');
             $table->integer('read_time');
             $table->integer('views');

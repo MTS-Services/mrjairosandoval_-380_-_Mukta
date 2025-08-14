@@ -33,7 +33,7 @@ class ArticleService
             if ($file) {
                 $data['image'] = $this->handleFileUpload($file, 'articles');
             }
-            $data['status'] = Articles::STATUS_ACTIVE;
+           
             $data['created_by'] = admin()->id;
             $article = Articles::create($data);
             return $article;
