@@ -4,66 +4,7 @@
 
     <div class="flex min-h-screen bg-gray-900 text-gray-300">
         <!-- Sidebar -->
-        <aside class="w-64 bg-black border-r border-gray-700 flex flex-col">
-    <div class="p-6 border-b border-gray-700 flex items-center gap-3">
-        <div class="w-8 h-8 bg-gold rounded-lg flex items-center justify-center">
-            <i class="fas fa-bolt text-black"></i>
-        </div>
-        <div>
-            <h1 class="text-lg font-bold text-gold">MakTech</h1>
-            <p class="text-sm text-gray-400">Dashboard</p>
-        </div>
-    </div>
-
-    <nav class="flex-1 py-4 overflow-y-auto">
-        <ul class="space-y-1">
-            <li>
-                <a href="/dashboard"
-                   class="flex items-center justify-between px-4 py-3 font-medium rounded-l-lg transition-colors hover:bg-gray-800 bg-gray-800 border-l-4 border-gold text-gold">
-                    <span class="flex items-center gap-3">
-                        <i class="fas fa-tachometer-alt w-5 h-5"></i>
-                        Dashboard
-                    </span>
-                </a>
-            </li>
-
-            <li>
-                <div class="flex items-center justify-between px-4 py-3 cursor-pointer hover:bg-gray-800 rounded-l-lg"
-                     onclick="document.getElementById('articlesMenu').classList.toggle('hidden')">
-                    <span class="flex items-center gap-3">
-                        <i class="fas fa-newspaper w-5 h-5"></i>
-                        Articles
-                    </span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <ul id="articlesMenu" class="ml-6 mt-1 space-y-1 hidden">
-                    <li>
-                        <a href="/articles/create"
-                           class="block px-4 py-2 rounded-l-lg transition-colors hover:bg-gray-700">
-                            Create Article
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/articles/list"
-                           class="block px-4 py-2 rounded-l-lg transition-colors hover:bg-gray-700">
-                            Manage Articles
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-            <li>
-                <a href="/profile"
-                   class="flex items-center justify-between px-4 py-3 font-medium rounded-l-lg transition-colors hover:bg-gray-800">
-                    <span class="flex items-center gap-3">
-                        <i class="fas fa-user w-5 h-5"></i>
-                        Profile
-                    </span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</aside>
+        @include('backend.user.layouts.partials.sidbar')
 
         <!-- Main Content -->
         <section class="flex-1 container mx-auto px-4 py-8 space-y-8">
@@ -75,10 +16,12 @@
                         <div class="flex items-center justify-between mb-4">
                             <h1 id="displayTitle" class="text-2xl font-bold text-gold"></h1>
                             <div class="flex gap-2">
-                                <button onclick="editCurrentArticle()" class="text-gold hover:text-gold-light transition-colors">
+                                <button onclick="editCurrentArticle()"
+                                    class="text-gold hover:text-gold-light transition-colors">
                                     <i class="fas fa-edit"></i>
                                 </button>
-                                <button onclick="deleteCurrentArticle()" class="text-red-400 hover:text-red-300 transition-colors">
+                                <button onclick="deleteCurrentArticle()"
+                                    class="text-red-400 hover:text-red-300 transition-colors">
                                     <i class="fas fa-trash"></i>
                                 </button>
                             </div>
@@ -106,6 +49,20 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Repeat card component for Total Orders, Membership, Rewards, Total Spent -->
                 <!-- Example: Total Orders Card -->
+                <div class="bg-black border border-gray-700 rounded-lg p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-400 text-sm">Total Orders</p>
+                            <p class="text-2xl font-bold text-gold">24</p>
+                        </div>
+                        <div class="bg-gold bg-opacity-20 p-3 rounded-full">
+                            <i class="fas fa-shopping-cart text-gold"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <span class="text-green-400 text-sm">+12% from last month</span>
+                    </div>
+                </div>
                 <div class="bg-black border border-gray-700 rounded-lg p-6">
                     <div class="flex items-center justify-between">
                         <div>
@@ -198,7 +155,8 @@
                         <div class="bg-black border border-gray-700 rounded-lg p-6">
                             <h2 class="text-xl font-bold text-gold mb-6">Profile Summary</h2>
                             <div class="text-center mb-6">
-                                <div class="w-20 h-20 bg-gold bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <div
+                                    class="w-20 h-20 bg-gold bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
                                     <i class="fas fa-user text-gold text-2xl"></i>
                                 </div>
                                 <h3 class="font-bold text-lg">John Doe</h3>
