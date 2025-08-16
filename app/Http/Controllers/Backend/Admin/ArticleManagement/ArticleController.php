@@ -170,8 +170,8 @@ class ArticleController extends Controller
         try {
             $article = $this->article->getArticle($id);
             $validated = $request->validated();
-            $file = $request->validated('image') && $request->hasFile('image') ? $request->file('image') : null;
-            $this->article->updateArticle($article, $validated, $file);
+            
+            $this->article->updateArticle($article, $validated);
             session()->flash('success', 'Article updated successfully!');
         } catch (\Throwable $e) {
             session()->flash('error', 'Article update failed!');

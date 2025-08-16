@@ -22,20 +22,23 @@ class ArticleCategoryRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [] + ($this->isMethod('POST') ? $this->store() : $this->update());;
+        return [
+
+
+        ] + ($this->isMethod('POST') ? $this->store() : $this->update());;
     }
     protected function store(): array
     {
         return [
-            'name' => ['required', 'string', 'min:3', Rule::unique('member_ships', 'name')],
-            'slug' => ['required', 'string', 'min:3', Rule::unique('member_ships', 'slug')],
+            'name' => ['required', 'string', 'min:3', Rule::unique('article_categories', 'name')],
+            'slug' => ['required', 'string', 'min:3', Rule::unique('article_categories', 'slug')],
         ];
     }
     public function update(): array
     {
         return [
-            'slug' => ['required', 'string', 'min:3', Rule::unique('member_ships', 'slug')->ignore(decrypt($this->route('membership')))],
-            'name' => ['required', 'string', 'min:3', Rule::unique('member_ships', 'name')->ignore(decrypt($this->route('membership')))],
+            'slug' => ['required', 'string', 'min:3', Rule::unique('article_categories', 'slug')->ignore(decrypt($this->route('article_category')))],
+            'name' => ['required', 'string', 'min:3', Rule::unique('article_categories', 'name')->ignore(decrypt($this->route('article_category')))],
         ];
     }
 }

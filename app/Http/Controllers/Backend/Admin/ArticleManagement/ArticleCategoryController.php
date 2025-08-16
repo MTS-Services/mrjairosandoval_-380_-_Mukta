@@ -23,12 +23,12 @@ class ArticleCategoryController extends Controller
 
     protected function redirectIndex(): RedirectResponse
     {
-        return redirect()->route('arm.category.index');
+        return redirect()->route('arm.article-category.index');
     }
 
     protected function redirectTrashed(): RedirectResponse
     {
-        return redirect()->route('arm.category.trash');
+        return redirect()->route('arm.article-category.trash');
     }
 
     public static function middleware(): array
@@ -70,17 +70,17 @@ class ArticleCategoryController extends Controller
                 'label' => 'Details',
             ],
             [
-                'routeName' => 'arm.category.edit',
+                'routeName' => 'arm.article-category.edit',
                 'params' => [encrypt($model->id)],
                 'label' => 'Edit',
             ],
             [
-                'routeName' => 'arm.category.status',
+                'routeName' => 'arm.article-category.status',
                 'params' => [encrypt($model->id)],
                 'label' => $model->status ? 'Inactive' : 'Activate',
             ],
             [
-                'routeName' => 'arm.category.destroy',
+                'routeName' => 'arm.article-category.destroy',
                 'params' => [encrypt($model->id)],
                 'label' => 'Delete',
                 'delete' => true,
@@ -103,8 +103,7 @@ class ArticleCategoryController extends Controller
     {
         try {
             $validated = $request->validated();
-            $file = $request->hasFile('image') ? $request->file('image') : null;
-            $this->articleCategoryService->createCategory($validated, $file);
+            $this->articleCategoryService->createCategory($validated);
             session()->flash('success', 'Category created successfully!');
         } catch (\Throwable $e) {
             session()->flash('error', 'Category creation failed!');
@@ -131,7 +130,7 @@ class ArticleCategoryController extends Controller
      */
     public function edit(string $id)
     {
-        $data['category'] = $this->articleCategoryService->getCategory($id);
+        $data['articleCategory'] = $this->articleCategoryService->getCategory($id);
         return view('backend.admin.article-management.category.edit', $data);
     }
 
@@ -140,11 +139,11 @@ class ArticleCategoryController extends Controller
      */
     public function update(ArticleCategoryRequest $request, string $id)
     {
+     
         try {
             $category = $this->articleCategoryService->getCategory($id);
             $validated = $request->validated();
-            $file = $request->hasFile('image') ? $request->file('image') : null;
-            $this->articleCategoryService->updateCategory($category, $validated, $file);
+            $this->articleCategoryService->updateCategory($category, $validated);
             session()->flash('success', 'Category updated successfully!');
         } catch (\Throwable $e) {
             session()->flash('error', 'Category update failed!');
@@ -200,12 +199,12 @@ class ArticleCategoryController extends Controller
     {
         return [
             [
-                'routeName' => 'arm.category.restore',
+                'routeName' => 'arm.article-category.restore',
                 'params' => [encrypt($model->id)],
                 'label' => 'Restore',
             ],
             [
-                'routeName' => 'arm.category.permanent-delete',
+                'routeName' => 'arm.article-category.permanent-delete',
                 'params' => [encrypt($model->id)],
                 'label' => 'Permanent Delete',
                 'p-delete' => true,
