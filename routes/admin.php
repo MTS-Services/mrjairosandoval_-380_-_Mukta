@@ -73,11 +73,11 @@ Route::group(['middleware' => ['auth:admin'], 'prefix' => 'admin'], function () 
   Route::group(['as' => 'arm.', 'prefix' => 'article-management'], function () {
     Route::resource('article-category', ArticleCategoryController::class);
     Route::controller(ArticleCategoryController::class)->name('article-category.')->prefix('article-category')->group(function () {
-      Route::post('/show/{articleCategory}', 'show')->name('show');
-      Route::get('/status/{articleCategory}', 'status')->name('status');
+      Route::post('/show/{article_category}', 'show')->name('show');
+      Route::get('/status/{article_category}', 'status')->name('status');
       Route::get('/trash/bin', 'trash')->name('trash');
-      Route::get('/restore/{articleCategory}', 'restore')->name('restore');
-      Route::delete('/permanent-delete/{articleCategory}', 'permanentDelete')->name('permanent-delete');
+      Route::get('/restore/{article_category}', 'restore')->name('restore');
+      Route::delete('/permanent-delete/{article_category}', 'permanentDelete')->name('permanent-delete');
     });
 
     Route::resource('article', ArticleController::class);

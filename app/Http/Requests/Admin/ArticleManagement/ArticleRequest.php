@@ -36,6 +36,7 @@ class ArticleRequest extends FormRequest
             'meta_description' => ['required', 'string'],
             'meta_keywords' => ['required', 'string'],
             'image' => 'required|image|mimes:jpeg,png,jpg,webp,svg|max:2048',
+            'category_id' => ['required', 'exists:article_categories,id'],
         ] + ($this->isMethod('POST') ? $this->store() : $this->update());
     }
 

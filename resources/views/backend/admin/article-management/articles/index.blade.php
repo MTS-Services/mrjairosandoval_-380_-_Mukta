@@ -26,6 +26,7 @@
                         <th width="5%">{{ __('SL') }}</th>
                         <th>{{ __('Title') }}</th>
                         <th>{{ __('Sub Title') }}</th>
+                        <th>{{ __('Category') }}</th>
                         <th>{{ __('Content') }}</th>
                         <th>{{ __('Status') }}</th>
                         <th>{{ __('Created By') }}</th>
@@ -51,6 +52,7 @@
                     //name and data, orderable, searchable
                     ['title', true, true],
                     ['sub_title', true, true],
+                    ['category_id', true, true],
                     ['content', true, true],
                     ['status', true, true],
                     ['created_by', true, true],
@@ -87,7 +89,10 @@
                             label: '{{ __('Slug') }}',
                             key: 'slug',
                         },
-
+                        {
+                            label: '{{ __('Category') }}',
+                            key: 'category_name',
+                        },
 
                         {
                             label: '{{ __('Sub Title') }}',
@@ -105,18 +110,13 @@
                         },
                         {
                             lavel: '{{ __('Image') }}',
-                            key: 'image',
-                            type: 'image',
-                        },
-                        {
-                            lavel: '{{ __('Modified Image') }}',
                             key: 'modified_image',
                             type: 'image',
                         },
                         {
                             lavel: '{{ __('Auther Name') }}',
                             key: 'auther_name',
-
+                            
                         },
                         {
                             lavel: '{{ __('Published Date') }}',

@@ -49,6 +49,21 @@
                             <x-input-error class="mt-2" :messages="$errors->get('sub_title')" />
                         </div>
 
+                        {{-- articleCategories --}}
+                        <div class="space-y-2">
+                            <p class="label">{{ __('Article Category') }}</p>
+                            <label class="input flex items-center select gap-2">
+                                <select name="category_id" class="flex-1">
+                                    <option value="" disabled selected>{{ __('Select Category') }}</option>
+                                    @foreach($articleCategories as $category)
+                                        <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                                            {{ $category->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </label>
+                            <x-input-error class="mt-2" :messages="$errors->get('category_id')" />
+                        </div>
 
                         {{-- Author Name --}}
                         <div class="space-y-2">

@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class ArticleCategory extends BaseModel
 {
     //
 
-   protected $fillable = [
+    protected $fillable = [
         'sort_order',
         'name',
         'slug',
@@ -19,7 +20,7 @@ class ArticleCategory extends BaseModel
         'deleted_by',
     ];
 
-   public function __construct(array $attributes = [])
+    public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
         $this->appends = array_merge(parent::getAppends(), [
@@ -34,7 +35,7 @@ class ArticleCategory extends BaseModel
     const STATUS_ACTIVE = 1;
     const STATUS_INACTIVE = 0;
 
-   
+
 
     public static function getStatusList(): array
     {
@@ -75,7 +76,13 @@ class ArticleCategory extends BaseModel
         return $this->status == self::STATUS_INACTIVE ? 'btn-error' : 'btn-primary';
     }
 
-
-    
+    public function scopeActive($query)
+    {
+        return $query->where('status', ArticleCategory::STATUS_ACTIVE);
+    }
      
+    public function articles(): HasMany
+    {
+        return $this->hasMany(Articles::class, 'category_id', 'id');
+    }
 }

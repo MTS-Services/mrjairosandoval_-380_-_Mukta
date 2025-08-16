@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Articles extends BaseModel
@@ -11,6 +12,7 @@ class Articles extends BaseModel
     
     protected $fillable = [
         'sort_order',
+        'category_id',
         'title',
         'slug',
         'sub_title',
@@ -41,6 +43,7 @@ class Articles extends BaseModel
             'status_btn_label',
             'status_btn_color',
             'status_btn_class',
+            'modified_image'
         ]);
     }
 
@@ -86,5 +89,13 @@ class Articles extends BaseModel
     {
 
         return $this->status == self::STATUS_INACTIVE ? 'btn-error' : 'btn-primary';
+    }
+    public function articleCategory() :BelongsTo
+    {
+        return $this->belongsTo(ArticleCategory::class, 'category_id', 'id');
+    }
+     public function getModifiedImageAttribute()
+    {
+        return auth_storage_url($this->image);
     }
 }

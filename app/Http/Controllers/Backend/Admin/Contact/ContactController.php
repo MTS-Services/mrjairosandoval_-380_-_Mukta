@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Admin\Contact;
 
 use App\Http\Controllers\Controller;
+use App\Http\Traits\AuditRelationTraits;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
