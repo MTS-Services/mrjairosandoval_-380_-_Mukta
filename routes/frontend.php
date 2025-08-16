@@ -12,9 +12,9 @@ Route::group(['as' => 'f.'], function () {
 
     Route::get('/about', [HomeController::class, 'about'])->name('about');
 
-    Route::get('/servic', [HomeController::class, 'servic'])->name('servic');
+    Route::get('/service', [HomeController::class, 'service'])->name('service');
 
-    Route::get('/mamberShip', [HomeController::class, 'memberShip'])->name('memberShip');
+    Route::get('/memberShip', [HomeController::class, 'memberShip'])->name('memberShip');
 
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 

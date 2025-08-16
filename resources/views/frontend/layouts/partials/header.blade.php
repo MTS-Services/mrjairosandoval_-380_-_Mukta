@@ -21,8 +21,8 @@
                    class="{{ request()->routeIs('f.about') ? 'text-[#caa36b] underline' : 'hover:underline' }}">
                     About Us
                 </a>
-                <a href="{{ route('f.servic') }}" 
-                   class="{{ request()->routeIs('f.servic') ? 'text-[#caa36b] underline' : 'hover:underline' }}">
+                <a href="{{ route('f.service') }}" 
+                   class="{{ request()->routeIs('f.service') ? 'text-[#caa36b] underline' : 'hover:underline' }}">
                     Our Services
                 </a>
                 <a href="{{ route('f.memberShip') }}" 
@@ -68,7 +68,7 @@
                 </li>
                 <a href="/" class="{{ request()->routeIs('home') ? 'text-[#caa36b] underline' : 'hover:underline' }} p-2">Home</a>
                 <a href="{{ route('f.about') }}" class="{{ request()->routeIs('f.about') ? 'text-[#caa36b] underline' : 'hover:underline' }} p-2">About Us</a>
-                <a href="{{ route('f.servic') }}" class="{{ request()->routeIs('f.servic') ? 'text-[#caa36b] underline' : 'hover:underline' }} p-2">Our Services</a>
+                <a href="{{ route('f.service') }}" class="{{ request()->routeIs('f.service') ? 'text-[#caa36b] underline' : 'hover:underline' }} p-2">Our Services</a>
                 <a href="{{ route('f.memberShip') }}" class="{{ request()->routeIs('f.memberShip') ? 'text-[#caa36b] underline' : 'hover:underline' }} p-2">Membership</a>
                 <a href="{{ route('f.insight') }}" class="{{ request()->routeIs('f.insight') ? 'text-[#caa36b] underline' : 'hover:underline' }} p-2">Insights</a>
                 <a href="{{ route('f.contact') }}" class="{{ request()->routeIs('f.contact') ? 'text-[#caa36b] underline' : 'hover:underline' }} p-2">Contact</a>
