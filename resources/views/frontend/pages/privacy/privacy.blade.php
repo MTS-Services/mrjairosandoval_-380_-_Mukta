@@ -2,7 +2,7 @@
     <x-slot name="title">Membership</x-slot>
     <x-slot name="page_slug">Membership</x-slot>
 
-    <div class="bg-black text-[#d4c3a2] min-h-screen flex flex-col items-center justify-center pt-25">
+    <div class="bg-black text-[#d4c3a2] min-h-screen flex flex-col items-center justify-center pt-25" id="hero-section">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-40 px-4 sm:px-8 lg:px-52">
             <div class="border border-[#C19A6B] rounded-lg  text-center pb-3">
                 <img class="mx-auto p-4 max-w-[120px] w-full" src="{{ asset('frontend/assetes/image/image 92.png') }}"
@@ -55,10 +55,10 @@
             <h2 class="text-center font-bold text-xl sm:text-2xl text-[#caa36b] mb-4 sm:mb-6">
                 "Velluto Nero does not exist. But if it did, it would still honor your silence."
             </h2>
-            <button
+            <a href="#hero-section"
                 class="mt-4 sm:mt-6 bg-[#caa36b] text-[#7D0A0A] px-4 py-2 sm:px-6 sm:py-3 rounded-md hover:bg-[#b58d57] transition text-sm sm:text-base">
                 Enter the Atrium
-            </button>
+            </a>
         </div>
     </div>
     </div>
