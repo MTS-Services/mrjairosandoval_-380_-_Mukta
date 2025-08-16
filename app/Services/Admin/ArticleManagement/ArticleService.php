@@ -32,7 +32,7 @@ class ArticleService
             if ($file) {
                 $data['image'] = $this->handleFileUpload($file, 'articles');
             }
-
+            $data['category_id'] = $data['category_id'] ?? null;
             $data['created_by'] = admin()->id;
             $article = Articles::create($data);
             return $article;
@@ -46,6 +46,7 @@ class ArticleService
                 $data['image'] = $this->handleFileUpload($file, 'articles',);
                 $this->fileDelete($article->image);
             }
+            $data['category_id'] = $data['category_id'] ?? null;
             $data['status'] = $data['status'] ?? $article->status;
             $data['updated_by'] = admin()->id;
             $article->update($data);

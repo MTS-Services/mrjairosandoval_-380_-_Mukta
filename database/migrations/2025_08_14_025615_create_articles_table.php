@@ -18,6 +18,7 @@ return new class extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('sort_order')->default(0);
+            $table->unsignedBigInteger('category_id');
             $table->string('title');
             $table->string('slug');
             $table->string('sub_title');
@@ -36,6 +37,8 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
             $this->addAdminAuditColumns($table);
+
+            $table->foreign('category_id')->references('id')->on('article_categories')->onDelete('cascade')->onUpdate('cascade');
 
         });
     }

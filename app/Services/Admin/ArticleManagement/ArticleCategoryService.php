@@ -40,7 +40,6 @@ class ArticleCategoryService
     public function createCategory(array $data): ArticleCategory
     {
 
-
         $data['created_by'] = admin()->id;
         return ArticleCategory::create($data);
     }
@@ -50,8 +49,8 @@ class ArticleCategoryService
      */
     public function updateCategory(ArticleCategory $category, array $data): ArticleCategory
     {
+ 
 
-        $data['status'] = $data['status'] ?? $category->status;
         $data['updated_by'] = admin()->id;
         $category->update($data);
 

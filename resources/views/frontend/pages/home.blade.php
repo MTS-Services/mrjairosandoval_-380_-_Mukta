@@ -85,16 +85,16 @@
           The button's top margin is now responsive. It's 'mt-8' on mobile and scales
           up to 'sm:mt-12' and 'lg:mt-16' on larger screens for better visual balance.
         -->
-            <button
+            <a href="#cta-section" 
                 class="mt-8 sm:mt-12 lg:mt-16 bg-[#caa36b] text-[#7D0A0A] px-6 py-3 rounded-md hover:bg-[#b58d57] transition text-sm sm:text-base font-semibold">
                 Enter the Atrium
-            </button>
+            </a>
         </div>
     </section>
 
 
     <!-- Content Section -->
-    <section class="content-section bg-black pt-10">
+    <section class="content-section bg-black pt-10" #cta-section>
         <div class="container mx-auto px-4 py-4 lg:py-[150px] flex flex-col justify-between">
             <!-- 3 Column Info -->
             <section class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8 mb-24">
@@ -137,10 +137,10 @@
                 <p class="m-8 text-sm sm:text-base">Membership is by invitation only. Submit your
                     consideration and await our response.</p>
 
-                <button
+                <a href="#hero-section"
                     class="btn-gold font-sans rounded-lg px-6 sm:px-10 py-3 sm:py-4 text-sm sm:text-base bg-[#caa36b] hover:bg-[#b58d57] transition">
                     SUBMIT FOR CONSIDERATION
-                </button>
+                </a>
 
             </section>
 

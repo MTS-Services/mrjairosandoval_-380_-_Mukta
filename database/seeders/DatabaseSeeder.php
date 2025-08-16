@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             MemberShipSeeder::class,
             ContactSeeder::class,
             PrivacySeeder::class,
+            ArticleCategorySeeder::class,
 
         ]);
     }

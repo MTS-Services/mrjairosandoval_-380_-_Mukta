@@ -23,6 +23,8 @@ return new class extends Migration
             $table->tinyInteger('status')->default(ArticleCategory::STATUS_INACTIVE)->comment(ArticleCategory::STATUS_ACTIVE . ': active' . ArticleCategory::STATUS_INACTIVE . ': inactive');
             $table->timestamps();
             $table->softDeletes();
+
+            $this->addAdminAuditColumns($table);
         });
     }
 

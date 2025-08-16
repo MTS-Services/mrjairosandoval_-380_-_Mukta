@@ -4,7 +4,7 @@
 
     <div class="bg-black text-white font-serif min-h-screen">
 
-        <section class="bg-black text-white">
+        <section class="bg-black text-white" id="insightsSection">
             <!-- Main Container -->
             <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-12">
                 <!-- Title -->
@@ -78,11 +78,11 @@
                 These chronicles are written for those who understand that the most valuable knowledge is never shared
                 freely..
             </p>
-            <button
+            <a href="#insightsSection"
                 class="text-[#7D0A0A] mt-4 mb-24 sm:mb-40  font-sans rounded-lg px-6 sm:px-10 py-3 sm:py-4 text-sm sm:text-base bg-[#caa36b] hover:bg-[#caa36b] transition"
-                id="insightsSection">
+                >
                 VIEW ARCHIVE
-            </button>
+            </a>
         </section>
 
 

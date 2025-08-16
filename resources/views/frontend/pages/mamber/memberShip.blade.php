@@ -44,10 +44,10 @@
                                     Quarterly temptation dossiers
                                 </li>
                             </ul>
-                            <button
+                            <a href="#cta-section"
                                 class="mt-8 w-full bg-[#caa36b] text-[#7D0A0A] py-3 rounded-xl transition hover:bg-[#b18e55] font-semibold text-lg uppercase tracking-wider shadow-md mb-[100px]">
                                 Get Stated
-                            </button>
+                            </a>
                         </div> --}}
 
                         <div
@@ -71,10 +71,10 @@
                                     Black Book Access
                                 </li>
                             </ul>
-                            <button
+                            <a href="#cta-section"
                                 class="mt-8 w-full bg-[#caa36b] text-[#7D0A0A] py-3 rounded-xl transition hover:bg-[#b18e55] font-semibold text-lg uppercase tracking-wider shadow-md mb-[100px]">
                                 Get Stated
-                            </button>
+                            </a>
                         </div>
 
                         <!-- Card 2 -->
@@ -100,10 +100,10 @@
                                     Black Book Access
                                 </li>
                             </ul>
-                            <button
+                            <a href="#cta-section"
                                 class="mt-8 w-full bg-[#caa36b] text-[#7D0A0A] py-3 rounded-xl transition hover:bg-[#b18e55] font-semibold text-lg uppercase tracking-wider shadow-md mb-[100px]">
                                 Get Stated
-                            </button>
+                            </a>
                         </div>
 
                         <!-- Card 3 -->
