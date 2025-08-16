@@ -93,6 +93,7 @@ class ArticleCategoryController extends Controller
      */
     public function create()
     {
+        
         return view('backend.admin.article-management.category.create');
     }
 
