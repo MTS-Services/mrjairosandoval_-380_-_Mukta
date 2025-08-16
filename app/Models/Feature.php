@@ -6,7 +6,7 @@ use App\Models\BaseModel;
 
 class Feature extends BaseModel
 {
-    
+
     //
 
     protected $fillable = [
@@ -19,7 +19,7 @@ class Feature extends BaseModel
         'deleted_by',
     ];
 
-   public function __construct(array $attributes = [])
+    public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
         $this->appends = array_merge(parent::getAppends(), [
@@ -34,7 +34,7 @@ class Feature extends BaseModel
     const STATUS_ACTIVE = 1;
     const STATUS_INACTIVE = 0;
 
-   
+
 
     public static function getStatusList(): array
     {
@@ -80,5 +80,4 @@ class Feature extends BaseModel
     {
         return $this->hasMany(MembershipFeature::class, 'feature_id', 'id');
     }
-
 }

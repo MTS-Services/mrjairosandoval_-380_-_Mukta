@@ -20,7 +20,7 @@ class MemberShip extends BaseModel
         'deleted_by',
     ];
 
-   public function __construct(array $attributes = [])
+    public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
         $this->appends = array_merge(parent::getAppends(), [
@@ -35,7 +35,7 @@ class MemberShip extends BaseModel
     const STATUS_ACTIVE = 1;
     const STATUS_INACTIVE = 0;
 
-   
+
 
     public static function getStatusList(): array
     {
@@ -76,6 +76,10 @@ class MemberShip extends BaseModel
         return $this->status == self::STATUS_INACTIVE ? 'btn-error' : 'btn-primary';
     }
 
+    public function scopeActive($query)
+    {
+        return $query->where('status', self::STATUS_ACTIVE);
+    }
 
     public function membershipFeatures()
     {

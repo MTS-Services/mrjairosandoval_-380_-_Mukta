@@ -30,9 +30,7 @@
                                 <p class="text-gray-300 mb-4 text-left">
                                     {{ $article->sub_title }}
                                 </p>
-
                                 <p class="text-sm text-gray-500 text-left">{{ $article->published_data }}</p>
-
                             </div>
                         </div>
                     @endforeach
@@ -87,6 +85,7 @@
                             <p class="text-sm text-gray-500 text-left">5 min read</p>
                         </div>
                     </div> --}}
+
 
                 </div>
             </div>

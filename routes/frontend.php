@@ -9,7 +9,6 @@ Route::group(['as' => 'f.'], function () {
 
     Route::get('/home-login', [HomeController::class, 'login'])->name('login');
 
-
     Route::get('/about', [HomeController::class, 'about'])->name('about');
 
     Route::get('/service', [HomeController::class, 'service'])->name('service');
@@ -21,6 +20,4 @@ Route::group(['as' => 'f.'], function () {
     Route::get('/insight', [HomeController::class, 'insight'])->name('insight');
 
     Route::get(';/privacy-policy', [HomeController::class, 'privacyPolicy'])->name('privacy-policy');
-
-
 });

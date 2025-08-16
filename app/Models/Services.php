@@ -8,8 +8,8 @@ use App\Models\BaseModel;
 
 class Services extends BaseModel
 {
-   
-  
+
+
     protected $fillable = [
         'sort_order',
         'title',

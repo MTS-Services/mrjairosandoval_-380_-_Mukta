@@ -33,7 +33,7 @@
             <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
                 @forelse($firstThree as $service)
                     <div class="text-center rounded-xl p-16 bg-black/20 ring-1 ring-[#d4a75f]">
-                        <h3 class="text-xl sm:text-2xl ">{{ ($service->title) }}</h3>
+                        <h3 class="text-xl sm:text-2xl ">{{ $service->title }}</h3>
                         <p class="text-sm sm:text-base mt-2 text-[#E5E3E3]">{{ $service->sub_title }}</p>
                     </div>
                 @empty

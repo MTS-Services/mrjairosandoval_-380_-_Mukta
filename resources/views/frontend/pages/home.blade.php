@@ -76,16 +76,11 @@
                 CERTAIN DOORS DON’T APPEAR <br> UNTIL YOU’RE READY TO KNOCK.
             </h1>
 
-
-
-
-
-
             <!--
           The button's top margin is now responsive. It's 'mt-8' on mobile and scales
           up to 'sm:mt-12' and 'lg:mt-16' on larger screens for better visual balance.
         -->
-            <a href="#cta-section" 
+            <a href="#cta-section"
                 class="mt-8 sm:mt-12 lg:mt-16 bg-[#caa36b] text-[#7D0A0A] px-6 py-3 rounded-md hover:bg-[#b58d57] transition text-sm sm:text-base font-semibold">
                 Enter the Atrium
             </a>
@@ -143,8 +138,6 @@
                 </a>
 
             </section>
-
-
         </div>
     </section>
 
