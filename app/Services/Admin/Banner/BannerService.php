@@ -49,7 +49,7 @@ class BannerService
                 $data['image'] = $this->handleFileUpload($file, 'banners',);
                 $this->fileDelete($banner->image);
             }
-            $data['status'] = $data['status'] ?? $banner->status;
+            
             $data['updated_by'] = admin()->id;
             $banner->update($data);
             return $banner;
@@ -72,12 +72,22 @@ class BannerService
         $banner->restore();
    }
 
-    public function toggleStatus(Banner $banner): void
-    {
-        $banner->update([
-            'status' => !$banner->status,
-            'updated_by' => admin()->id
+   public function toggleStatus(Banner $banner): void
+{
+    // If the banner is being activated (status is currently false)
+    if (!$banner->status) {
+        // Deactivate all other banners
+        Banner::where('id', '!=', $banner->id)->update([
+            'status' => false,
+            'updated_by' => admin()->id // assuming 'admin()->id' gives you the authenticated user's ID
         ]);
     }
+
+    // Toggle the status of the selected banner
+    $banner->update([
+        'status' => !$banner->status,
+        'updated_by' => admin()->id
+    ]);
+}
 }
 
