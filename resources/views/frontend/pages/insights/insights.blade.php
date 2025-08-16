@@ -23,15 +23,20 @@
                             <img src="{{ $article->modified_image }}" alt="{{ $article->title }}"
                                 class="w-full h-48 object-cover">
                             <div class="p-6">
-                                <p class="uppercase text-xs tracking-wider text-gray-400 mb-1 text-left">{{ $article->articleCategory->name }}</p>
-                                <h2 class="text-xl font-semibold text-[#caa36b] mb-2 text-left">{{ $article->title }}</h2>
+                                <p class="uppercase text-xs tracking-wider text-gray-400 mb-1 text-left">
+                                    {{ $article->articleCategory->name }}</p>
+                                <h2 class="text-xl font-semibold text-[#caa36b] mb-2 text-left">{{ $article->title }}
+                                </h2>
                                 <p class="text-gray-300 mb-4 text-left">
                                     {{ $article->sub_title }}
                                 </p>
-                                 <p class="text-sm text-gray-500 text-left">7 min read</p>
+
+                                <p class="text-sm text-gray-500 text-left">{{ $article->published_data }}</p>
+
                             </div>
                         </div>
                     @endforeach
+
                     <!-- Card 1 -->
                     {{-- <div class="bg-[#111] rounded-lg overflow-hidden p-4">
                         <!-- Placeholder image to make the code runnable -->
@@ -82,6 +87,7 @@
                             <p class="text-sm text-gray-500 text-left">5 min read</p>
                         </div>
                     </div> --}}
+
                 </div>
             </div>
         </section>
@@ -92,8 +98,7 @@
                 freely..
             </p>
             <a href="#insightsSection"
-                class="text-[#7D0A0A] mt-4 mb-24 sm:mb-40  font-sans rounded-lg px-6 sm:px-10 py-3 sm:py-4 text-sm sm:text-base bg-[#caa36b] hover:bg-[#caa36b] transition"
-                >
+                class="text-[#7D0A0A] mt-4 mb-24 sm:mb-40  font-sans rounded-lg px-6 sm:px-10 py-3 sm:py-4 text-sm sm:text-base bg-[#caa36b] hover:bg-[#caa36b] transition">
                 VIEW ARCHIVE
             </a>
         </section>

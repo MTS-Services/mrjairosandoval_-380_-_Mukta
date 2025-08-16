@@ -33,13 +33,11 @@ return new class extends Migration
             $table->longText('meta_description');
             $table->text('meta_keywords');
 
-
             $table->timestamps();
             $table->softDeletes();
             $this->addAdminAuditColumns($table);
 
             $table->foreign('category_id')->references('id')->on('article_categories')->onDelete('cascade')->onUpdate('cascade');
-
         });
     }
 

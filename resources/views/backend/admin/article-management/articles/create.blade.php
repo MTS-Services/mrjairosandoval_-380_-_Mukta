@@ -55,8 +55,9 @@
                             <label class="input flex items-center select gap-2">
                                 <select name="category_id" class="flex-1">
                                     <option value="" disabled selected>{{ __('Select Category') }}</option>
-                                    @foreach($articleCategories as $category)
-                                        <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                                    @foreach ($articleCategories as $category)
+                                        <option value="{{ $category->id }}"
+                                            {{ old('category_id') == $category->id ? 'selected' : '' }}>
                                             {{ $category->name }}
                                         </option>
                                     @endforeach
