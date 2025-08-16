@@ -1,6 +1,6 @@
 <x-admin::layout>
-    <x-slot name="title">{{ __('Article Create') }}</x-slot>
-    <x-slot name="breadcrumb">{{ __('Article Create') }}</x-slot>
+    <x-slot name="title">{{ __('Article Edit') }}</x-slot>
+    <x-slot name="breadcrumb">{{ __('Article Edit') }}</x-slot>
     <x-slot name="page_slug">article</x-slot>
 
 
@@ -52,7 +52,22 @@
                             <x-input-error class="mt-2" :messages="$errors->get('sub_title')" />
                         </div>
 
+                        {{-- articleCategories --}}
+                        <div class="space-y-2">
+                            <p class="label">{{ __('Article Category') }}</p>
+                            <label class="input flex items-center select gap-2">
+                                <select name="category_id" class="flex-1">
+                                    <option value="" disabled selected>{{ __('Select Category') }}</option>
+                                    @foreach ($articleCategories as $category)
+                                        <option value="{{ $category->id }}"
+                                            {{ $article->category_id == $category->id ? 'selected' : '' }}>
+                                            {{ $category->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </label>
 
+                        </div>
 
 
                         {{-- Author Name --}}
@@ -107,7 +122,7 @@
                         <div class="space-y-2">
                             <p class="label gap-2 mb-2">{{ __('Content') }}</p>
                             <label class=" flex items-center gap-2">
-                                <textarea type="text" name="content" value="{{ $article->content }}" class="flex-1 textarea"></textarea>
+                                <textarea type="text" name="content" value="{{ $article->content }}" class="flex-1 textarea px-3!">{{ $article->content }}</textarea>
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('content')" />
                         </div>
@@ -116,7 +131,7 @@
                         <div class="space-y-2">
                             <p class="label">{{ __('Meta Description') }}</p>
                             <label class=" flex items-center gap-2">
-                                <textarea name="meta_description" class="flex-1 textarea">{{ $article->meta_description }}</textarea>
+                                <textarea name="meta_description" class="flex-1 textarea px-3!">{{ $article->meta_description }}</textarea>
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('meta_description')" />
                         </div>
@@ -125,7 +140,7 @@
                         <div class="space-y-2">
                             <p class="label">{{ __('Meta Keywords') }}</p>
                             <label class=" flex items-center gap-2">
-                                <textarea name="meta_keywords" class="flex-1 textarea">{{ $article->meta_keywords }}</textarea>
+                                <textarea name="meta_keywords" class="flex-1 textarea px-3!">{{ $article->meta_keywords }}</textarea>
                             </label>
                             <x-input-error class="mt-2" :messages="$errors->get('meta_keywords')" />
                         </div>
@@ -140,7 +155,7 @@
 
                     </div>
                     <div class="flex justify-end mt-5">
-                        <x-admin.primary-button>{{ __('Create') }}</x-admin.primary-button>
+                        <x-admin.primary-button>{{ __('Update') }}</x-admin.primary-button>
                     </div>
                 </form>
             </div>

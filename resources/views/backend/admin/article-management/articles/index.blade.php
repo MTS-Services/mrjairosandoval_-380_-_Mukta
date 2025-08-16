@@ -89,7 +89,10 @@
                             label: '{{ __('Slug') }}',
                             key: 'slug',
                         },
-
+                        {
+                            label: '{{ __('Category') }}',
+                            key: 'category_name',
+                        },
 
                         {
                             label: '{{ __('Sub Title') }}',
@@ -107,18 +110,13 @@
                         },
                         {
                             lavel: '{{ __('Image') }}',
-                            key: 'image',
-                            type: 'image',
-                        },
-                        {
-                            lavel: '{{ __('Modified Image') }}',
                             key: 'modified_image',
                             type: 'image',
                         },
                         {
                             lavel: '{{ __('Auther Name') }}',
                             key: 'auther_name',
-
+                            
                         },
                         {
                             lavel: '{{ __('Published Date') }}',

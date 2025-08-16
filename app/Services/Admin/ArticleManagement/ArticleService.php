@@ -28,8 +28,11 @@ class ArticleService
     public function createArticle(array $data, $file = null): Articles
     {
 
-        return DB::transaction(function () use ($data) {
-
+        return DB::transaction(function () use ($data, $file) {
+            if ($file) {
+                $data['image'] = $this->handleFileUpload($file, 'articles');
+            }
+            $data['category_id'] = $data['category_id'] ?? null;
             $data['created_by'] = admin()->id;
             $article = Articles::create($data);
             return $article;
@@ -38,8 +41,12 @@ class ArticleService
 
     public function updateArticle(Articles $article, array $data, $file = null): Articles
     {
-        return DB::transaction(function () use ($article, $data) {
-
+        return DB::transaction(function () use ($article, $data, $file) {
+            if ($file) {
+                $data['image'] = $this->handleFileUpload($file, 'articles',);
+                $this->fileDelete($article->image);
+            }
+            $data['category_id'] = $data['category_id'] ?? null;
             $data['status'] = $data['status'] ?? $article->status;
             $data['updated_by'] = admin()->id;
             $article->update($data);

@@ -72,7 +72,7 @@ class ArticleController extends Controller
                     $menuItems = $this->menuItems($article);
                     return view('components.admin.action-buttons', compact('menuItems'))->render();
                 })
-                ->rawColumns(['status','category_id', 'action', 'created_by', 'created_at',])
+                ->rawColumns(['status', 'category_id', 'action', 'created_by', 'created_at',])
                 ->make(true);
         }
         return view('backend.admin.article-management.articles.index');
@@ -149,6 +149,7 @@ class ArticleController extends Controller
     {
         $data = $this->article->getArticle($id);
         $data['status'] = $data->status ? 'Active' : 'Inactive';
+        $data['category_name'] = $data->articleCategory->name ?? 'N/A';
         $data['creater_name'] = $this->creater_name($data);
         $data['updater_name'] = $this->updater_name($data);
 
@@ -160,6 +161,7 @@ class ArticleController extends Controller
      */
     public function edit(string $id)
     {
+        $data['articleCategories'] = ArticleCategory::active()->get();
         $data['article'] = $this->article->getArticle($id);
         return view('backend.admin.article-management.articles.edit', $data);
     }
@@ -172,8 +174,8 @@ class ArticleController extends Controller
         try {
             $article = $this->article->getArticle($id);
             $validated = $request->validated();
-            
-            $this->article->updateArticle($article, $validated);
+            $file = $request->validated('image') && $request->hasFile('image') ? $request->file('image') : null;
+            $this->article->updateArticle($article, $validated, $file);
             session()->flash('success', 'Article updated successfully!');
         } catch (\Throwable $e) {
             session()->flash('error', 'Article update failed!');
@@ -216,6 +218,7 @@ class ArticleController extends Controller
         if ($request->ajax()) {
             $query = $this->article->getArticles()->onlyTrashed();
             return DataTables::eloquent($query)
+                ->editColumn('category_id', fn($article) => $article->articleCategory->name)
                 ->editColumn('status', fn($article) => "<span class='badge badge-soft {$article->status_color}'>{$article->status_label}</span>")
                 ->editColumn('deleted_by', function ($article) {
                     return $this->creater_name($article);
@@ -224,7 +227,7 @@ class ArticleController extends Controller
                 ->editColumn('action', fn($article) => view('components.admin.action-buttons', [
                     'menuItems' => $this->menuItemsTrashed($article),
                 ])->render())
-                ->rawColumns(['status', 'action', 'deleted_by', 'created_at',])
+                ->rawColumns(['status','category_id', 'action', 'deleted_by', 'created_at',])
                 ->make(true);
         }
         return view('backend.admin.article-management.articles.trash');
@@ -283,7 +286,4 @@ class ArticleController extends Controller
         }
         return $this->redirectTrashed();
     }
-
-
-    
 }

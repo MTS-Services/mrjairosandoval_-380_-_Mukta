@@ -43,6 +43,7 @@ class Articles extends BaseModel
             'status_btn_label',
             'status_btn_color',
             'status_btn_class',
+            'modified_image'
         ]);
     }
 
@@ -92,5 +93,9 @@ class Articles extends BaseModel
     public function articleCategory() :BelongsTo
     {
         return $this->belongsTo(ArticleCategory::class, 'category_id', 'id');
+    }
+     public function getModifiedImageAttribute()
+    {
+        return auth_storage_url($this->image);
     }
 }
