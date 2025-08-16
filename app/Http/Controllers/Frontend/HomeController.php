@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Articles;
 use App\Models\Services;
 use Illuminate\Http\Request;
 use PhpOffice\PhpSpreadsheet\Calculation\Web\Service;
@@ -44,7 +45,8 @@ class HomeController extends Controller
 
   public function insight()
   {
-    return view('frontend.pages.insights.insights');
+    $data['articles'] = Articles::orderBy('sort_order', 'asc')->with('articleCategory')->active()->latest()->get();
+    return view('frontend.pages.insights.insights', $data);
   }
 
   public function privacyPolicy()

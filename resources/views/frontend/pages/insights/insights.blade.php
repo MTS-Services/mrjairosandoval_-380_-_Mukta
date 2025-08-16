@@ -18,9 +18,22 @@
 
                 <!-- Cards Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
+                    @foreach ($articles as $article)
+                        <div class="bg-[#111] rounded-lg overflow-hidden p-4">
+                            <img src="{{ $article->modified_image }}" alt="{{ $article->title }}"
+                                class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <p class="uppercase text-xs tracking-wider text-gray-400 mb-1 text-left">{{ $article->articleCategory->name }}</p>
+                                <h2 class="text-xl font-semibold text-[#caa36b] mb-2 text-left">{{ $article->title }}</h2>
+                                <p class="text-gray-300 mb-4 text-left">
+                                    {{ $article->sub_title }}
+                                </p>
+                                 <p class="text-sm text-gray-500 text-left">7 min read</p>
+                            </div>
+                        </div>
+                    @endforeach
                     <!-- Card 1 -->
-                    <div class="bg-[#111] rounded-lg overflow-hidden p-4">
+                    {{-- <div class="bg-[#111] rounded-lg overflow-hidden p-4">
                         <!-- Placeholder image to make the code runnable -->
                         <img src="{{ asset('frontend/assetes/image/Rectangle 1.png') }}" alt="mask"
                             class="w-full h-48 object-cover">
@@ -34,10 +47,10 @@
                             </p>
                             <p class="text-sm text-gray-500 text-left">3 min read</p>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <!-- Card 2 -->
-                    <div class="bg-[#111] rounded-lg overflow-hidden p-4">
+                    {{-- <div class="bg-[#111] rounded-lg overflow-hidden p-4">
                         <!-- Placeholder image to make the code runnable -->
                         <img src="{{ asset('frontend/assetes/image/Rectangle 1 (2).png') }}" alt="hallway"
                             class="w-full h-48 object-cover">
@@ -52,10 +65,10 @@
                             </p>
                             <p class="text-sm text-gray-500 text-left">7 min read</p>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <!-- Card 3 -->
-                    <div class="bg-[#111] rounded-lg overflow-hidden p-4">
+                    {{-- <div class="bg-[#111] rounded-lg overflow-hidden p-4">
                         <!-- Placeholder image to make the code runnable -->
                         <img src="{{ asset('frontend/assetes/image/Rectangle 1 (1).png') }}" alt="modern art"
                             class="w-full h-48 object-cover">
@@ -68,7 +81,7 @@
                             </p>
                             <p class="text-sm text-gray-500 text-left">5 min read</p>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </section>

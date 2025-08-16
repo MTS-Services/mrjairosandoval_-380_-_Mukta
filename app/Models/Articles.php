@@ -94,6 +94,10 @@ class Articles extends BaseModel
     {
         return $this->belongsTo(ArticleCategory::class, 'category_id', 'id');
     }
+     public function scopeActive($query)
+    {
+        return $query->where('status', Articles::STATUS_ACTIVE);
+    }
      public function getModifiedImageAttribute()
     {
         return auth_storage_url($this->image);
