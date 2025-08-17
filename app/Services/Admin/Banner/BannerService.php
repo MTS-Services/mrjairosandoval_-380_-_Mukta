@@ -4,9 +4,8 @@ namespace App\Services\Admin\Banner;
 
 use App\Http\Traits\FileManagementTrait;
 
-use App\Models\Banner;
+use App\Models\Banner;;
 
-;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 
@@ -14,7 +13,7 @@ class BannerService
 {
     use FileManagementTrait;
 
-    public function getBanners( $order = 'asc')
+    public function getBanners($order = 'asc')
     {
         return Banner::orderBy('sort_order', $order)->latest();
     }
@@ -29,12 +28,12 @@ class BannerService
 
     public function createBanner(array $data, $file = null): Banner
     {
-      
+
         return DB::transaction(function () use ($data, $file) {
             if ($file) {
                 $data['image'] = $this->handleFileUpload($file, 'banners');
             }
-           
+
             $data['created_by'] = admin()->id;
             $banner = Banner::create($data);
             return $banner;
@@ -49,7 +48,7 @@ class BannerService
                 $data['image'] = $this->handleFileUpload($file, 'banners',);
                 $this->fileDelete($banner->image);
             }
-            $data['status'] = $data['status'] ?? $banner->status;
+
             $data['updated_by'] = admin()->id;
             $banner->update($data);
             return $banner;
@@ -62,22 +61,29 @@ class BannerService
         $banner->delete();
     }
 
-     public function deletePermanent(Banner $banner, $id): void
+    public function deletePermanent(Banner $banner, $id): void
     {
         $banner->delete();
     }
 
-   public function restore(Banner $banner, $id): void
+    public function restore(Banner $banner, $id): void
     {
         $banner->restore();
-   }
+    }
 
     public function toggleStatus(Banner $banner): void
     {
+      
+        if (!$banner->status) {
+            Banner::where('id', '!=', $banner->id)->update([
+                'status' => false,
+                'updated_by' => admin()->id
+            ]);
+        }
+
         $banner->update([
             'status' => !$banner->status,
             'updated_by' => admin()->id
         ]);
     }
 }
-
