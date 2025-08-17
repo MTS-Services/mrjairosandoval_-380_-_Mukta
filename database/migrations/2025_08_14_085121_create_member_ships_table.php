@@ -19,7 +19,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedInteger('sort_order')->default(0);
             $table->string('name')->unique();
-            $table->string('tag')->unique();
+            $table->string('tag')->unique()->nullable();
             $table->string('slug')->unique();
             $table->tinyInteger('status')->default(MemberShip::STATUS_INACTIVE)->comment(MemberShip::STATUS_ACTIVE . ': active' . MemberShip::STATUS_INACTIVE . ': inactive');
 

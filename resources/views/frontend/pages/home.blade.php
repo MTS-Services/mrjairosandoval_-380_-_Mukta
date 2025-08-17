@@ -44,54 +44,56 @@
 
     <!-- Hero Section -->
     <section class="relative bg-black h-screen w-full" id="hero-section">
-        <!-- Background image -->
-        <!--
+        @foreach ($home as $item)
+            <!-- Background image -->
+            <!--
       We added 'object-cover' to ensure the image always fills the entire container,
       preventing any empty space on different screen sizes and aspect ratios.
     -->
-        {{-- <img class="absolute inset-0 w-full h-full object-cover object-center" src="{{ $home->modified_image }}"
+            {{-- <img class="absolute inset-0 w-full h-full object-cover object-center" src="{{ $home->modified_image }}"
             alt="Luxury Car"> --}}
 
-        <img class="absolute inset-0 w-full h-full object-cover object-center"
-            src="{{ asset('frontend/assetes/image/car2.png') }}" alt="Luxury Car">
+            <img class="absolute inset-0 w-full h-full object-cover object-center"
+                src="{{ $item->modified_image }}" alt="Luxury Car">
 
 
 
-        <!-- Overlay -->
-        <!-- The semi-transparent overlay remains to ensure the text is readable. -->
-        <div class="absolute inset-0 bg-[#0000001f]"></div>
+            <!-- Overlay -->
+            <!-- The semi-transparent overlay remains to ensure the text is readable. -->
+            <div class="absolute inset-0 bg-[#0000001f]"></div>
 
-        <!-- Content -->
-        <!--
+            <!-- Content -->
+            <!--
       We added 'p-4' for padding on all sides. This ensures the text and button
       don't touch the edges of the screen on smaller devices.
     -->
-        <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-4 text-white">
-            <!--
+            <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-4 text-white">
+                <!--
           The heading now uses a smoother responsive font size scale:
           text-3xl (mobile) -> sm:text-4xl (small screens) -> md:text-5xl (medium) -> lg:text-6xl (large)
           We also replaced 'leading-24!' with the standard 'leading-tight' for better readability.
         -->
-            {{-- <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-7xl mx-auto">
+                {{-- <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-7xl mx-auto">
                 CERTAIN DOORS DON’T APPEAR UNTIL YOU’RE READY TO KNOCK.
             </h1> --}}
 
-            @foreach ($home as $item)
+
                 <h1
                     class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.4] max-w-7xl mx-auto text-center">
-                    {{ $item->title }}
-                </h1>
-            @endforeach ()
 
-            <!--
+                </h1>
+        @endforeach ()
+
+        <!--
           The button's top margin is now responsive. It's 'mt-8' on mobile and scales
           up to 'sm:mt-12' and 'lg:mt-16' on larger screens for better visual balance.
         -->
-            <a href="#cta-section"
-                class="mt-8 sm:mt-12 lg:mt-16 bg-[#caa36b] text-[#7D0A0A] px-6 py-3 rounded-md hover:bg-[#b58d57] transition text-sm sm:text-base font-semibold">
-                Enter the Atrium
-            </a>
+        <a href="#cta-section"
+            class="mt-8 sm:mt-12 lg:mt-16 bg-[#caa36b] text-[#7D0A0A] px-6 py-3 rounded-md hover:bg-[#b58d57] transition text-sm sm:text-base font-semibold">
+            Enter the Atrium
+        </a>
         </div>
+        {{ $item->title }}
     </section>
 
 

@@ -14,25 +14,21 @@ class MemberShipSeeder extends Seeder
     public function run(): void
     {
         MemberShip::create([
-            'name' => 'Basic Membership',
-            'slug' => 'basic-membership',
-            'tag' => 'basic',
+            'name' => 'Priority access',
+            'slug' => 'priority-access',
              'status' => MemberShip::STATUS_ACTIVE,
-            'created_by' => 1,
         ]);
         MemberShip::create([
-            'name' => 'Basic Membership 2',
-            'slug' => 'basic-membership-2',
-            'tag' => 'basic 2',
+            'name' => 'Cavalieri Premier',
+            'slug' => 'cavalieri-premier',
+            'tag' => 'Premier',
              'status' => MemberShip::STATUS_INACTIVE,
-            'created_by' => 1,
         ]);
         MemberShip::create([
-            'name' => 'Basic Membership 3',
-            'slug' => 'basic-membership-3',
-            'tag' => 'basic 3',
+            'name' => 'Cavalieri Ottimale',
+            'slug' => 'cavalieri-ottimale',
+            'tag' => 'Premierr',
              'status' => MemberShip::STATUS_ACTIVE,
-            'created_by' => 1,
         ]);
     }
 }

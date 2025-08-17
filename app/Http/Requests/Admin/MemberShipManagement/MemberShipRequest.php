@@ -31,7 +31,7 @@ class MemberShipRequest extends FormRequest
         return [
              'name' => ['required', 'string', 'min:3', Rule::unique('member_ships', 'name')],
              'slug' => ['required', 'string', 'min:3', Rule::unique('member_ships', 'slug')],
-             'tag' => ['required', 'string', 'min:3', Rule::unique('member_ships', 'tag')],
+             'tag' => ['nullable', 'string', 'min:3', Rule::unique('member_ships', 'tag')],
         ];
     }
     public function update(): array
@@ -39,7 +39,7 @@ class MemberShipRequest extends FormRequest
         return [
             'slug' => ['required', 'string','min:3', Rule::unique('member_ships', 'slug')->ignore(decrypt($this->route('membership')))],
             'name' => ['required', 'string','min:3', Rule::unique('member_ships', 'name')->ignore(decrypt($this->route('membership')))],
-            'tag' => ['required', 'string','min:3', Rule::unique('member_ships', 'tag')->ignore(decrypt($this->route('membership')))],
+            'tag' => ['nullable', 'string','min:3', Rule::unique('member_ships', 'tag')->ignore(decrypt($this->route('membership')))],
         ];
     }
 }

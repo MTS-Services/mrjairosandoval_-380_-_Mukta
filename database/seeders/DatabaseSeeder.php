@@ -20,11 +20,11 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             UserSeeder::class,
             ServiceSeeder::class,
+            ArticleCategorySeeder::class,
             ArticleSeeder::class,
             BannerSeeder::class,
             FeatureSeeder::class,
             MemberShipSeeder::class,
-            ArticleCategorySeeder::class,
 
         ]);
     }

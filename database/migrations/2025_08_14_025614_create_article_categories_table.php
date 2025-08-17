@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedInteger('sort_order')->default(0);
             $table->string('name')->unique();
             $table->string('slug')->unique();
-            $table->tinyInteger('status')->default(ArticleCategory::STATUS_INACTIVE)->comment(ArticleCategory::STATUS_ACTIVE . ': active' . ArticleCategory::STATUS_INACTIVE . ': inactive');
+            $table->tinyInteger('status')->default(ArticleCategory::STATUS_INACTIVE);
             $table->timestamps();
             $table->softDeletes();
 

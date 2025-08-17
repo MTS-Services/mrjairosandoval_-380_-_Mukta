@@ -16,30 +16,23 @@ class ArticleCategorySeeder extends Seeder
         $categories = [
             [
 
-                'name' => 'Technology',
-                'slug' => 'technology',
+                'name' => 'Philosophy',
+                'slug' => 'philosophy',
                 'status' => ArticleCategory::STATUS_ACTIVE,
             ],
 
             [
 
-                'name' => 'Health',
-                'slug' => 'health',
+                'name' => 'Hidden Histories',
+                'slug' => 'hidden-histories',
                 'status' => ArticleCategory::STATUS_ACTIVE,
             ],
 
             [
 
-                'name' => 'Business',
-                'slug' => 'business',
+                'name' => 'Observations',
+                'slug' => 'observations',
                 'status' => ArticleCategory::STATUS_ACTIVE,
-            ],
-
-            [
-
-                'name' => 'Lifestyle',
-                'slug' => 'lifestyle',
-                'status' => ArticleCategory::STATUS_INACTIVE,
             ],
         ];
 
