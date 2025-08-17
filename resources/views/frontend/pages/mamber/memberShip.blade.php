@@ -18,7 +18,7 @@
             <div class="container mx-auto flex flex-col justify-between">
                 <!-- 3 Column Info -->
 
-                <section class="  text-white min-h-screen flex items-center justify-center -mt-60">
+                <section class="  text-white  flex items-center justify-center ">
 
                     <div
                         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl mx-auto p-10 lg:p-0">
