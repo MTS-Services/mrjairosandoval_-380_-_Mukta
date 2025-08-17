@@ -18,27 +18,27 @@ class ServiceSeeder extends Seeder
    {
        Services::create([
            'title' => 'TRAVEL',
-           'sub_title' => 'get free consultation',
+           'sub_title' => 'Private jets, untraceable.',
            'status' => Services::STATUS_ACTIVE
        ]);
        Services::create([
            'title' => 'DINING',
-           'sub_title' => 'lorem ipsum dolor sit amet',
+           'sub_title' => 'Custom tasting menus without limits.',
            'status' => Services::STATUS_ACTIVE
        ]);
        Services::create([
            'title' => 'COMPANIONSHIP',
-           'sub_title' => 'build modern web applications',
+           'sub_title' => 'Discreet, refined, unforgettable.',
            'status' => Services::STATUS_ACTIVE
        ]);
        Services::create([
            'title' => 'PROPERTY ACCESS',
-           'sub_title' => 'create stunning visuals',
+           'sub_title' => 'Historic villas, secret estates.',
            'status' => Services::STATUS_ACTIVE
        ]);
        Services::create([
            'title' => 'EVENTS',
-           'sub_title' => 'get free consultation',
+           'sub_title' => 'Masked affairs, tailored rituals.',
            'status' => Services::STATUS_ACTIVE
        ]);
     }

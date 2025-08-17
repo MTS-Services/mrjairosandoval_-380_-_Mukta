@@ -13,9 +13,9 @@ class BannerService
 {
     use FileManagementTrait;
 
-    public function getBanners($order = 'asc')
+    public function getBanners($orderBy = 'sort_order', $order = 'asc')
     {
-        return Banner::orderBy('sort_order', $order)->latest();
+        return Banner::orderBy($orderBy, $order)->latest();
     }
     public function getBanner(string $encryptedId): Banner|Collection
     {

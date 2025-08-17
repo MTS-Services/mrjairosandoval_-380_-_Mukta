@@ -19,8 +19,9 @@
             class="grid grid-cols-1 gap-4 sm:grid-cols-1  {{ isset($documentation) && $documentation ? 'md:grid-cols-7' : '' }}">
             <!-- Form Section -->
             <div class="glass-card rounded-2xl p-6 md:col-span-5">
-                <form action="{{ route('bm.banner.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('bm.banner.update', encrypt($banner->id)) }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="grid grid-cols-1 gap-5 ">
                         <!-- title -->
                         <div class="space-y-2 ">
@@ -41,7 +42,7 @@
 
                     </div>
                     <div class="flex justify-end mt-5">
-                        <x-admin.primary-button>{{ __('Create') }}</x-admin.primary-button>
+                        <x-admin.primary-button>{{ __('Update') }}</x-admin.primary-button>
                     </div>
                 </form>
             </div>

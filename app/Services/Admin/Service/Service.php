@@ -12,9 +12,9 @@ class Service
 {
     use FileManagementTrait;
 
-    public function getServices( $order = 'asc')
+    public function getServices($orderBy = 'sort_order', $order = 'asc')
     {
-        return Services::orderBy('sort_order', $order)->latest();
+        return Services::orderBy($orderBy, $order)->latest();
     }
     public function getService(string $encryptedId): Services|Collection
     {
