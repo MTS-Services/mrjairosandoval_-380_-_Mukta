@@ -14,12 +14,17 @@ class FeatureSeeder extends Seeder
     public function run(): void
     {
         Feature::create([
-            'name' => 'Feature 1',
+            'name' => '24/7 Shadow Concierge',
             'status' => Feature::STATUS_ACTIVE,
         ]);
 
         Feature::create([
-            'name' => 'Feature 2',
+            'name' => 'Use of Medici Villas',
+            'status' => Feature::STATUS_ACTIVE,
+        ]);
+
+        Feature::create([
+            'name' => 'Black Book Access',
             'status' => Feature::STATUS_ACTIVE,
         ]);
     }

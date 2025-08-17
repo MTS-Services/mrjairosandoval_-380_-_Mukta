@@ -19,65 +19,39 @@
                 <!-- 3 Column Info -->
 
                 <section class="  text-white min-h-screen flex items-center justify-center -mt-60">
-                    <!-- This container is the main grid for the cards. -->
-                    <!-- It uses a single column on small screens and automatically adjusts to two or three columns on larger screens. -->
-                    <!-- The `gap-8` provides consistent spacing between the cards on all screen sizes. -->
+
                     <div
                         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl mx-auto p-10 lg:p-0">
                         @foreach ($memberShips as $memberShip)
-                            <!-- Card 1 -->
-                            {{-- <div
-                            class="relative bg-[#0a0a0a] border border-[#caa36b] rounded-2xl  flex flex-col justify-between shadow-lg transition-transform duration-300 sm:p-10">
-                            <h2 class="text-[#caa36b] font-serif text-3xl uppercase tracking-wide mb-4">Bambino Viziato
-                            </h2>
-                            <hr class="border-gray-700 my-4">
-                            <ul class="text-gray-300 font-light pt-8 space-y-4 text-left">
-                                <li class="pl-4 relative">
-                                    <span class="absolute left-0 top-0 text-[#caa36b] text-xl">•</span>
-                                    Priority access
-                                </li>
-                                <li class="pl-4 relative">
-                                    <span class="absolute left-0 top-0 text-[#caa36b] text-xl">•</span>
-                                    Basic companionship clearance
-                                </li>
-                                <li class="pl-4 relative">
-                                    <span class="absolute left-0 top-0 text-[#caa36b] text-xl">•</span>
-                                    Quarterly temptation dossiers
-                                </li>
-                            </ul>
-                            <a href="#cta-section"
-                                class="mt-8 w-full bg-[#caa36b] text-[#7D0A0A] py-3 rounded-xl transition hover:bg-[#b18e55] font-semibold text-lg uppercase tracking-wider shadow-md mb-[100px]">
-                                Get Stated
-                            </a>
-                        </div> --}}
-
                             <div
-                                class="relative bg-[#0a0a0a] border border-[#caa36b] rounded-2xl p-8 flex flex-col justify-between shadow-lg transition-transform duration-300 sm:p-10 ">
-
-                                <h2
-                                    class="text-[#caa36b] font-serif text-2xl uppercase tracking-wide mb-4 pr-22 text-nowrap">
-                                    {{ $memberShip->name }}
-                                </h2>
-                                <span
-                                    class="lg:mr-60 top-4 p-2 right-2 bg-[#caa36b] text-[#7D0A0A] uppercase font-serif text-xs   rounded-full font-bold">{{ $memberShip->tag }}</span>
+                                class="relative bg-[#0a0a0a] border border-[#caa36b] rounded-2xl p-8 flex flex-col justify-between shadow-lg transition-transform duration-300 sm:p-8 ">
+                                <h2 class="text-[#caa36b] font-serif text-3xl uppercase tracking-wide mb-4 ">
+                                    {{ $memberShip->name }}</h2>
+                                @if ($memberShip->tag)
+                                    <span
+                                        class="lg:mr-60 top-4 p-2 right-2 bg-[#caa36b] text-[#7D0A0A] uppercase font-serif text-xs   rounded-full font-bold">{{ $memberShip->tag }}</span>
+                                @endif
                                 <hr class="border-gray-700 my-4">
                                 <ul class="text-gray-300 font-light pt-8 space-y-4 text-left">
                                     <li class="pl-4 relative">
                                         <span class="absolute left-0 top-0 text-[#caa36b] text-xl">•</span>
-                                        {{ $memberShip->description }}
+                                        24/7 Shadow Concierge
+                                    </li>
+                                    <li class="pl-4 relative">
+                                        <span class="absolute left-0 top-0 text-[#caa36b] text-xl">•</span>
+                                        Use of Medici Villas
+                                    </li>
+                                    <li class="pl-4 relative">
+                                        <span class="absolute left-0 top-0 text-[#caa36b] text-xl">•</span>
+                                        Black Book Access
                                     </li>
                                 </ul>
                                 <a href="#cta-section"
                                     class="mt-8 w-full bg-[#caa36b] text-[#7D0A0A] py-3 rounded-xl transition hover:bg-[#b18e55] font-semibold text-lg uppercase tracking-wider shadow-md mb-[100px]">
                                     Get Stated
                                 </a>
-
-
                             </div>
                         @endforeach
-
-
-
                         <!-- Card 2 -->
                         {{-- <div
                             class="relative bg-[#0a0a0a] border border-[#caa36b] rounded-2xl p-8 flex flex-col justify-between shadow-lg transition-transform duration-300 sm:p-10 ">
@@ -135,10 +109,9 @@
                                 class="mt-8  w-full bg-[#caa36b] text-[#7D0A0A] py-3 rounded-xl transition hover:bg-[#b18e55] font-semibold text-lg uppercase tracking-wider shadow-md mb-[100px]">
                                 Get Stated
                             </button>
-                        </div>
-                    </div> --}}
+                        </div> --}}
 
-
+                    </div>
                 </section>
 
                 <section class="text-center -mt-40" id="cta-section">

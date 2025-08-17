@@ -22,7 +22,7 @@ class MemberShipSeeder extends Seeder
             'name' => 'Cavalieri Premier',
             'slug' => 'cavalieri-premier',
             'tag' => 'Premier',
-             'status' => MemberShip::STATUS_INACTIVE,
+             'status' => MemberShip::STATUS_ACTIVE,
         ]);
         MemberShip::create([
             'name' => 'Cavalieri Ottimale',
