@@ -14,17 +14,20 @@ class MemberShipSeeder extends Seeder
     public function run(): void
     {
         MemberShip::create([
+            'sort_order' => 0,
             'name' => 'Priority access',
             'slug' => 'priority-access',
              'status' => MemberShip::STATUS_ACTIVE,
         ]);
         MemberShip::create([
+            'sort_order' => 1,
             'name' => 'Cavalieri Premier',
             'slug' => 'cavalieri-premier',
             'tag' => 'Premier',
              'status' => MemberShip::STATUS_ACTIVE,
         ]);
         MemberShip::create([
+            'sort_order' => 2,
             'name' => 'Cavalieri Ottimale',
             'slug' => 'cavalieri-ottimale',
             'tag' => 'Premierr',
