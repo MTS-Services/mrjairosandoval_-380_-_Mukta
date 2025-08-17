@@ -81,3 +81,5 @@ EXPOSE 80
 # ----------------------------------------
 # 12. Start all services
 CMD ["/usr/bin/supervisord", "-n"]
+
+

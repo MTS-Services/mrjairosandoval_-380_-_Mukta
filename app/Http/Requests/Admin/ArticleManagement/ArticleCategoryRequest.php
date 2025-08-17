@@ -22,10 +22,7 @@ class ArticleCategoryRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-
-
-        ] + ($this->isMethod('POST') ? $this->store() : $this->update());;
+        return [] + ($this->isMethod('POST') ? $this->store() : $this->update());;
     }
     protected function store(): array
     {

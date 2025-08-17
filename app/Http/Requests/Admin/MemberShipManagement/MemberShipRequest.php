@@ -20,26 +20,24 @@ class MemberShipRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-     public function rules(): array
+    public function rules(): array
     {
-        return [
-            
-        ] + ($this->isMethod('POST') ? $this->store() : $this->update());;
+        return [] + ($this->isMethod('POST') ? $this->store() : $this->update());;
     }
     protected function store(): array
     {
         return [
-             'name' => ['required', 'string', 'min:3', Rule::unique('member_ships', 'name')],
-             'slug' => ['required', 'string', 'min:3', Rule::unique('member_ships', 'slug')],
-             'tag' => ['nullable', 'string', 'min:3', Rule::unique('member_ships', 'tag')],
+            'name' => ['required', 'string', 'min:3', Rule::unique('member_ships', 'name')],
+            'slug' => ['required', 'string', 'min:3', Rule::unique('member_ships', 'slug')],
+            'tag' => ['nullable', 'string', 'min:3', Rule::unique('member_ships', 'tag')],
         ];
     }
     public function update(): array
     {
         return [
-            'slug' => ['required', 'string','min:3', Rule::unique('member_ships', 'slug')->ignore(decrypt($this->route('membership')))],
-            'name' => ['required', 'string','min:3', Rule::unique('member_ships', 'name')->ignore(decrypt($this->route('membership')))],
-            'tag' => ['nullable', 'string','min:3', Rule::unique('member_ships', 'tag')->ignore(decrypt($this->route('membership')))],
+            'slug' => ['required', 'string', 'min:3', Rule::unique('member_ships', 'slug')->ignore(decrypt($this->route('membership')))],
+            'name' => ['required', 'string', 'min:3', Rule::unique('member_ships', 'name')->ignore(decrypt($this->route('membership')))],
+            'tag' => ['nullable', 'string', 'min:3', Rule::unique('member_ships', 'tag')->ignore(decrypt($this->route('membership')))],
         ];
     }
 }

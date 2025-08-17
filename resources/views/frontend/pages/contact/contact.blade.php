@@ -1,8 +1,6 @@
 <x-frontend::layout>
     <x-slot name="title">Contact</x-slot>
     <x-slot name="page_slug">contact</x-slot>
-
-
     <div class="bg-black">
 
         <section class="bg-black text-white font-serif  min-screen lg:w-250 mx-auto mb-30">
@@ -17,36 +15,48 @@
                 </p>
 
                 <!-- Form -->
-                <form action="{{ route('f.contact.store') }}" enctype="multipart/form-data" method="POST" class="font-(family-name:--font-family-secondary)">
+                <form action="{{ route('f.contact.store') }}" enctype="multipart/form-data" method="POST"
+                    class="font-(family-name:--font-family-secondary)">
                     @csrf
                     <!-- Name -->
-                    <div class="text-left   ">
+                    <div class="text-left">
                         <label class="text-xs text[#E5E3E3] m-2 text-3xl font-serif font-semibold ">Name (we'll forget
                             it
                             immediately)</label>
-                        <input type="text" placeholder="Your ephemeral designation." name="first_name"
+                        <input type="text" placeholder="Your ephemeral designation."
+                            name="first_name"value="{{ old('first_name') }}"
                             class="m-2 w-full bg-transparent border border-gray-800 rounded-lg text-sm text-[#E5E3E3] px-6 py-3 focus:outline-none focus:border-[#caa36b]" />
+                        @error('first_name')
+                            <span style="color: #caa36b;">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <!-- Who introduced -->
-                    <div class="text-left  ">
-                        <label class="text-xs text[#E5E3E3]  m-2   text-3xl font-serif font-semibold">Who
+                    <div class="text-left">
+                        <label class="text-xs text[#E5E3E3] m-2 text-3xl font-serif font-semibold">Who
                             introduced you to...
                             certain tastes? (If
                             none, lie.)</label>
-                        <input type="text" placeholder="The whisper, rounded-lg the sign, the omen..." name="subject"
+                        <input type="text" placeholder="The whisper, rounded-lg the sign, the omen..."
+                            value="{{ old('subject') }}" name="subject"
                             class="m-2 rounded-lg w-full bg-transparent border border-gray-800 text-sm text-[#E5E3E3] px-6 py-3 focus:outline-none focus:border-[#caa36b]" />
+                        @error('subject')
+                            <span style="color: #caa36b;">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <!-- Darkest virtue -->
-                    <div class="text-left  ">
-                        <label class=" text-xs text[#E5E3E3] m-2   text-3xl font-serif font-semibold">Your
+                    <div class="text-left">
+                        <label class=" text-xs text[#E5E3E3] m-2 text-3xl font-serif font-semibold">Your
                             darkest virtue?
                             <span class="italic">(e.g.
                                 Patience)</span>
                         </label>
                         <input type="text" placeholder="The strength you conceal..." name="message"
                             class="m-2 w-full bg-transparent rounded-lg border border-gray-800 text-sm text-[#E5E3E3] px-6 py-3 focus:outline-none focus:border-[#caa36b]" />
+                        @error('message')
+                            <span style="color: #caa36b;">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <!-- Button -->
@@ -75,10 +85,12 @@
                 <p class="text-[#E5E3E3] text-sm md:text-base mb-4 font-(family-name:--font-family-base)">
                     Your submission has been received and will be reviewed by those who matter.
                 </p>
+
                 <p class="text-[#E5E3E3] text-sm md:text-base mb-4 font-(family-name:--font-family-base)">
                     If your answers demonstrate the required... discretion, you will be contacted through channels you
                     already know.
                 </p>
+
                 <p class="text-[#E5E3E3] text-xs mb-10 font-(family-name:--font-family-base)">
                     If you do not hear from us, you were never meant to.
                 </p>

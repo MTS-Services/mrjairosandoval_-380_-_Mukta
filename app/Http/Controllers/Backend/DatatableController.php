@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class DatatableController extends Controller
 {
-     public function updateSortOrder(DatatableRequest $request): JsonResponse
+    public function updateSortOrder(DatatableRequest $request): JsonResponse
     {
         try {
             $modelClass = '\\App\\Models\\' . $request->model;

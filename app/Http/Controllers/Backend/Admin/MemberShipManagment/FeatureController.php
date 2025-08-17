@@ -69,16 +69,19 @@ class FeatureController extends Controller
                 'className' => 'view',
                 'label' => 'Details',
             ],
+
             [
                 'routeName' => 'mm.feature.status',
                 'params' => [encrypt($model->id)],
                 'label' => $model->status_btn_label,
             ],
+
             [
                 'routeName' => 'mm.feature.edit',
                 'params' => [encrypt($model->id)],
                 'label' => 'Edit',
             ],
+
             [
                 'routeName' => 'mm.feature.destroy',
                 'params' => [encrypt($model->id)],
@@ -191,7 +194,7 @@ class FeatureController extends Controller
                 ->editColumn('action', fn($feature) => view('components.admin.action-buttons', [
                     'menuItems' => $this->trashedMenuItems($feature),
                 ])->render())
-                ->rawColumns(['status','deleted_by', 'deleted_at', 'action'])
+                ->rawColumns(['status', 'deleted_by', 'deleted_at', 'action'])
                 ->make(true);
         }
 

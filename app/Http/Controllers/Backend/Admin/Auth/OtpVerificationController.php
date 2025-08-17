@@ -11,6 +11,8 @@ use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Password;
 use Throwable;
 use Carbon\Carbon;
+use Illuminate\Contracts\Mail\Mailable;
+use Illuminate\Mail\Mailable as MailMailable;
 
 class OtpVerificationController extends Controller
 {

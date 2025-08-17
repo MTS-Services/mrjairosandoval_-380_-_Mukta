@@ -39,7 +39,7 @@ class NewPasswordController extends Controller
         // Here we will attempt to reset the admin's password. If it is successful we
         // will update the password on an actual admin model and persist it to the
         // database. Otherwise we will parse the error and return the response.
-       $status = Password::broker('admins')->reset(
+        $status = Password::broker('admins')->reset(
             $request->only('email', 'password', 'password_confirmation', 'token'),
             function (Admin $admin) use ($request) {
                 $admin->forceFill([

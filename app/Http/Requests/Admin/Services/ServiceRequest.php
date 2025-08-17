@@ -24,11 +24,11 @@ class ServiceRequest extends FormRequest
         return [
             'title' => ['required', 'string', 'max:255'],
             'sub_title' => ['required', 'string', 'max:255'],
-            
-        ]+ ($this->isMethod('POST') ? $this->store() : $this->update());
+
+        ] + ($this->isMethod('POST') ? $this->store() : $this->update());
     }
 
-   public function store(): array
+    public function store(): array
     {
         return [
             'icon' => 'required|image|mimes:jpeg,png,jpg,webp,svg|max:2048',

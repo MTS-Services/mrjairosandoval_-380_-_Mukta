@@ -32,7 +32,6 @@ class ArticleController extends Controller
         return redirect()->route('arm.article.trash');
     }
 
-
     public static function middleware(): array
     {
         return [
@@ -90,12 +89,14 @@ class ArticleController extends Controller
                 'label' => 'Details',
                 'permissions' => ['permission-list', 'permission-delete', 'permission-status']
             ],
+
             [
                 'routeName' => 'arm.article.edit',
                 'params' => [encrypt($model->id)],
                 'label' => 'Edit',
                 'permissions' => ['permission-edit']
             ],
+
             [
                 'routeName' => 'arm.article.status',
                 'params' => [encrypt($model->id)],
@@ -227,7 +228,7 @@ class ArticleController extends Controller
                 ->editColumn('action', fn($article) => view('components.admin.action-buttons', [
                     'menuItems' => $this->menuItemsTrashed($article),
                 ])->render())
-                ->rawColumns(['status','category_id', 'action', 'deleted_by', 'created_at',])
+                ->rawColumns(['status', 'category_id', 'action', 'deleted_by', 'created_at',])
                 ->make(true);
         }
         return view('backend.admin.article-management.articles.trash');

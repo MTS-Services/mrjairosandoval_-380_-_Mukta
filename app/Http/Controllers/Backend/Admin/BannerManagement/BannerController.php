@@ -17,14 +17,14 @@ class BannerController extends Controller
     /**
      * Display a listing of the resource.
      */
-      use AuditRelationTraits;
+    use AuditRelationTraits;
     protected BannerService $banner;
 
     public function __construct(BannerService $banner)
     {
         $this->banner = $banner;
     }
-     protected function redirectIndex(): RedirectResponse
+    protected function redirectIndex(): RedirectResponse
     {
         return redirect()->route('bm.banner.index');
     }
@@ -34,8 +34,7 @@ class BannerController extends Controller
         return redirect()->route('bm.banner.trash');
     }
 
-
-     public static function middleware(): array
+    public static function middleware(): array
     {
         return [
             'auth:admin', // Applies 'auth:admin' to all methods
@@ -52,18 +51,18 @@ class BannerController extends Controller
             //add more permissions if needed
         ];
     }
-  
+
     /**
      * Display a listing of the resource.
      */
-     public function index(Request $request)
+    public function index(Request $request)
     {
-         if ($request->ajax()) {
+        if ($request->ajax()) {
             $query = $this->banner->getBanners();
             return DataTables::eloquent($query)
-            
+
                 ->editColumn('status', fn($banner) => "<span class='badge badge-soft {$banner->status_color}'>{$banner->status_label}</span>")
-              
+
                 ->editColumn('created_by', function ($banner) {
                     return $this->creater_name($banner);
                 })
@@ -74,15 +73,15 @@ class BannerController extends Controller
                     $menuItems = $this->menuItems($banner);
                     return view('components.admin.action-buttons', compact('menuItems'))->render();
                 })
-                ->rawColumns(['status','action', 'created_by', 'created_at',])
+                ->rawColumns(['status', 'action', 'created_by', 'created_at',])
                 ->make(true);
         }
         return view('backend.admin.banners.index');
     }
 
-     
 
-      protected function menuItems($model): array
+
+    protected function menuItems($model): array
     {
         return [
             [
@@ -129,7 +128,7 @@ class BannerController extends Controller
      */
     public function store(BannerRequest $request)
     {
-         try {
+        try {
             $validated = $request->validated();
             $file = $request->validated('image') && $request->hasFile('image') ? $request->file('image') : null;
             $this->banner->createBanner($validated, $file);
@@ -146,11 +145,11 @@ class BannerController extends Controller
      */
     public function show(string $id)
     {
-          $data = $this->banner->getBanner($id);
-          $data['status'] = $data->status ? 'Active' : 'Inactive';
+        $data = $this->banner->getBanner($id);
+        $data['status'] = $data->status ? 'Active' : 'Inactive';
         $data['creater_name'] = $this->creater_name($data);
         $data['updater_name'] = $this->updater_name($data);
-       
+
         return response()->json($data);
     }
 
@@ -210,7 +209,7 @@ class BannerController extends Controller
 
     public function trash(Request $request)
     {
-         if ($request->ajax()) {
+        if ($request->ajax()) {
             $query = $this->banner->getBanners()->onlyTrashed();
             return DataTables::eloquent($query)
                 ->editColumn('status', fn($banner) => "<span class='badge badge-soft {$banner->status_color}'>{$banner->status_label}</span>")
@@ -218,21 +217,21 @@ class BannerController extends Controller
                     return $this->creater_name($banner);
                 })
                 ->editColumn('created_at', fn($banner) => $banner->created_at_formatted)
-               ->editColumn('action', fn($banner) => view('components.admin.action-buttons', [
+                ->editColumn('action', fn($banner) => view('components.admin.action-buttons', [
                     'menuItems' => $this->menuItemsTrashed($banner),
                 ])->render())
-                ->rawColumns(['status','action', 'deleted_by', 'created_at',])
+                ->rawColumns(['status', 'action', 'deleted_by', 'created_at',])
                 ->make(true);
         }
         return view('backend.admin.banners.trash');
     }
 
-     
 
-      protected function menuItemsTrashed($model): array
+
+    protected function menuItemsTrashed($model): array
     {
         return [
-           [
+            [
                 'routeName' => 'bm.banner.restore',
                 'params' => [encrypt($model->id)],
                 'label' => 'Restore',
@@ -243,13 +242,13 @@ class BannerController extends Controller
                 'label' => 'Permanent Delete',
                 'p-delete' => true,
             ]
-           
+
 
         ];
     }
 
 
- public function restore(string $id): RedirectResponse
+    public function restore(string $id): RedirectResponse
     {
         try {
             $banner = Banner::onlyTrashed()->findOrFail(decrypt($id));

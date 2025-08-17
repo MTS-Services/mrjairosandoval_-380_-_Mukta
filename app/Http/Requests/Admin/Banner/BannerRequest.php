@@ -27,17 +27,17 @@ class BannerRequest extends FormRequest
         ];
     }
 
-  public function store()
-  {
-      return [
-          'image.unique' => 'Image already exists',
-      ];
-  }
+    public function store()
+    {
+        return [
+            'image.unique' => 'Image already exists',
+        ];
+    }
 
-  public function update()
-  {
-      return [
-          'image.unique' => 'Image already exists',
-      ];
-  }
+    public function update()
+    {
+        return [
+            'image.unique' => 'Image already exists',
+        ];
+    }
 }

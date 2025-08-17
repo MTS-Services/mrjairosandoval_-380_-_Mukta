@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class FileManagementController extends Controller
 {
-    
+
     public function contentImageUpload(Request $request): JsonResponse
     {
         $request->validate([

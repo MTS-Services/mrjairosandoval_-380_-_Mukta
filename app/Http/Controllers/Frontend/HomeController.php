@@ -44,8 +44,6 @@ class HomeController extends Controller
         return view('frontend.pages.mamber.memberShip', $data);
     }
 
-    
-
     public function insight()
     {
         $data['articles'] = Articles::orderBy('sort_order', 'asc')->with('articleCategory')->active()->latest()->get();

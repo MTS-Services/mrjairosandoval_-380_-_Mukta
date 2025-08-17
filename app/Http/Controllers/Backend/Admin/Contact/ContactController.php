@@ -2,20 +2,24 @@
 
 namespace App\Http\Controllers\Backend\Admin\Contact;
 
+use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use App\Http\Traits\AuditRelationTraits;
-use Illuminate\Http\Request;
+use App\Services\Admin\Banner\BannerService;
+use Illuminate\Routing\Controllers\Middleware;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class ContactController extends Controller
 {
-     use AuditRelationTraits;
+    use AuditRelationTraits;
     protected BannerService $banner;
 
     public function __construct(BannerService $banner)
     {
         $this->banner = $banner;
     }
-     protected function redirectIndex(): RedirectResponse
+    protected function redirectIndex(): RedirectResponse
     {
         return redirect()->route('bm.banner.index');
     }
@@ -26,7 +30,7 @@ class ContactController extends Controller
     }
 
 
-     public static function middleware(): array
+    public static function middleware(): array
     {
         return [
             'auth:admin', // Applies 'auth:admin' to all methods
@@ -43,18 +47,18 @@ class ContactController extends Controller
             //add more permissions if needed
         ];
     }
-  
+
     /**
      * Display a listing of the resource.
      */
-     public function index(Request $request)
+    public function index(Request $request)
     {
-         if ($request->ajax()) {
+        if ($request->ajax()) {
             $query = $this->banner->getBanners();
             return DataTables::eloquent($query)
-            
+
                 ->editColumn('status', fn($banner) => "<span class='badge badge-soft {$banner->status_color}'>{$banner->status_label}</span>")
-              
+
                 ->editColumn('created_by', function ($banner) {
                     return $this->creater_name($banner);
                 })
@@ -65,15 +69,15 @@ class ContactController extends Controller
                     $menuItems = $this->menuItems($banner);
                     return view('components.admin.action-buttons', compact('menuItems'))->render();
                 })
-                ->rawColumns(['status','action', 'created_by', 'created_at',])
+                ->rawColumns(['status', 'action', 'created_by', 'created_at',])
                 ->make(true);
         }
         return view('backend.admin.banners.index');
     }
 
-     
 
-      protected function menuItems($model): array
+
+    protected function menuItems($model): array
     {
         return [
             [

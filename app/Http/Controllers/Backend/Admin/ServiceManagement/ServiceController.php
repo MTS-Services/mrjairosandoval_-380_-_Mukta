@@ -14,15 +14,15 @@ use Yajra\DataTables\Facades\DataTables;
 
 class ServiceController extends Controller
 {
-  
-     use AuditRelationTraits;
+
+    use AuditRelationTraits;
     protected Service $service;
 
     public function __construct(Service $service)
     {
         $this->service = $service;
     }
-     protected function redirectIndex(): RedirectResponse
+    protected function redirectIndex(): RedirectResponse
     {
         return redirect()->route('sm.service.index');
     }
@@ -33,7 +33,7 @@ class ServiceController extends Controller
     }
 
 
-     public static function middleware(): array
+    public static function middleware(): array
     {
         return [
             'auth:admin', // Applies 'auth:admin' to all methods
@@ -50,18 +50,18 @@ class ServiceController extends Controller
             //add more permissions if needed
         ];
     }
-  
+
     /**
      * Display a listing of the resource.
      */
-     public function index(Request $request)
+    public function index(Request $request)
     {
-         if ($request->ajax()) {
+        if ($request->ajax()) {
             $query = $this->service->getServices();
             return DataTables::eloquent($query)
-            
+
                 ->editColumn('status', fn($service) => "<span class='badge badge-soft {$service->status_color}'>{$service->status_label}</span>")
-              
+
                 ->editColumn('created_by', function ($service) {
                     return $this->creater_name($service);
                 })
@@ -72,15 +72,13 @@ class ServiceController extends Controller
                     $menuItems = $this->menuItems($service);
                     return view('components.admin.action-buttons', compact('menuItems'))->render();
                 })
-                ->rawColumns(['status','action', 'created_by', 'created_at',])
+                ->rawColumns(['status', 'action', 'created_by', 'created_at',])
                 ->make(true);
         }
         return view('backend.admin.services.index');
     }
 
-     
-
-      protected function menuItems($model): array
+    protected function menuItems($model): array
     {
         return [
             [
@@ -148,7 +146,7 @@ class ServiceController extends Controller
         $data = $this->service->getService($id);
         $data['creater_name'] = $this->creater_name($data);
         $data['updater_name'] = $this->updater_name($data);
-       
+
         return response()->json($data);
     }
 
@@ -209,9 +207,9 @@ class ServiceController extends Controller
         return $this->redirectIndex();
     }
 
-     public function trash(Request $request)
+    public function trash(Request $request)
     {
-         if ($request->ajax()) {
+        if ($request->ajax()) {
             $query = $this->service->getServices()->onlyTrashed();
             return DataTables::eloquent($query)
                 ->editColumn('status', fn($service) => "<span class='badge badge-soft {$service->status_color}'>{$service->status_label}</span>")
@@ -223,18 +221,18 @@ class ServiceController extends Controller
                     $menuItems = $this->menuItemsTrashed($service);
                     return view('components.admin.action-buttons', compact('menuItems'))->render();
                 })
-                ->rawColumns(['status','action', 'deleted_by', 'created_at',])
+                ->rawColumns(['status', 'action', 'deleted_by', 'created_at',])
                 ->make(true);
         }
         return view('backend.admin.services.trash');
     }
 
-     
 
-      protected function menuItemsTrashed($model): array
+
+    protected function menuItemsTrashed($model): array
     {
         return [
-           [
+            [
                 'routeName' => 'sm.service.restore',
                 'params' => [encrypt($model->id)],
                 'label' => 'Restore',
@@ -245,13 +243,13 @@ class ServiceController extends Controller
                 'label' => 'Permanent Delete',
                 'p-delete' => true,
             ]
-           
+
 
         ];
     }
 
 
- public function restore(string $id): RedirectResponse
+    public function restore(string $id): RedirectResponse
     {
         try {
             $service = Services::onlyTrashed()->findOrFail(decrypt($id));
@@ -282,5 +280,4 @@ class ServiceController extends Controller
         }
         return $this->redirectTrashed();
     }
-
 }

@@ -93,7 +93,7 @@ class ArticleCategoryController extends Controller
      */
     public function create()
     {
-        
+
         return view('backend.admin.article-management.category.create');
     }
 
@@ -140,7 +140,7 @@ class ArticleCategoryController extends Controller
      */
     public function update(ArticleCategoryRequest $request, string $id)
     {
-     
+
         try {
             $category = $this->articleCategoryService->getCategory($id);
             $validated = $request->validated();
