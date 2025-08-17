@@ -9,13 +9,14 @@ use App\Models\Services;
 use App\Models\memberShip;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Banner;
 use PhpOffice\PhpSpreadsheet\Calculation\Web\Service;
 
 class HomeController extends Controller
 {
     public function home()
     {
-        $data['home'] = Home::orderBy('sort_order', 'asc')->with('homeCategory')->active()->latest()->get();
+        $data['home'] = Banner::orderBy('sort_order', 'asc')->active()->latest()->get();
         return view('frontend.pages.home', $data);
     }
 

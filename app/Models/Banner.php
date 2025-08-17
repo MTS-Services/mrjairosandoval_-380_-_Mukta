@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Banner extends Model
 {
-     use SoftDeletes;
+    use SoftDeletes;
     protected $table = 'banners';
     protected $fillable = [
         'sort_order',
@@ -25,7 +25,15 @@ class Banner extends Model
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
-        $this->appends = array_merge(parent::getAppends(), []);
+        $this->appends = array_merge(parent::getAppends(), [
+            'status_label',
+            'status_color',
+            'status_btn_label',
+            'status_btn_color',
+            'status_btn_class',
+
+            'modified_image'
+        ]);
     }
 
     const STATUS_ACTIVE = 1;
@@ -78,5 +86,9 @@ class Banner extends Model
     public function scopeInactive($query)
     {
         return $query->where('status', self::STATUS_INACTIVE);
+    }
+    public function getModifiedImageAttribute()
+    {
+        return auth_storage_url($this->image);
     }
 }

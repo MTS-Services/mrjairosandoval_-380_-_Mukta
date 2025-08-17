@@ -49,8 +49,13 @@
       We added 'object-cover' to ensure the image always fills the entire container,
       preventing any empty space on different screen sizes and aspect ratios.
     -->
+        {{-- <img class="absolute inset-0 w-full h-full object-cover object-center" src="{{ $home->modified_image }}"
+            alt="Luxury Car"> --}}
+
         <img class="absolute inset-0 w-full h-full object-cover object-center"
             src="{{ asset('frontend/assetes/image/car2.png') }}" alt="Luxury Car">
+
+
 
         <!-- Overlay -->
         <!-- The semi-transparent overlay remains to ensure the text is readable. -->
@@ -71,10 +76,12 @@
                 CERTAIN DOORS DON’T APPEAR UNTIL YOU’RE READY TO KNOCK.
             </h1> --}}
 
-            <h1
-                class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.4] max-w-7xl mx-auto text-center">
-                CERTAIN DOORS DON’T APPEAR <br> UNTIL YOU’RE READY TO KNOCK.
-            </h1>
+            @foreach ($home as $item)
+                <h1
+                    class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.4] max-w-7xl mx-auto text-center">
+                    {{ $item->title }}
+                </h1>
+            @endforeach ()
 
             <!--
           The button's top margin is now responsive. It's 'mt-8' on mobile and scales
@@ -95,7 +102,9 @@
             <section class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8 mb-24">
                 <div class="text-center rounded-xl py-4 px-10 bg-black/20 ring-1 ring-[#d4a75f]">
                     <img class="mx-auto p-4" src="{{ asset('frontend/assetes/image/Line 1.png') }}" alt="">
-                    <h3 class="text-xl sm:text-2xl p-4">WHO WE ARE</h3>
+
+                    <h3 class="text-xl sm:text-2xl p-4"></h3>
+
                     <p class="text-sm sm:text-base mt-2 text-white pb-6">A secret
                         society of elite tastes, where discernment
                         meets
@@ -133,7 +142,7 @@
                     consideration and await our response.</p>
 
                 <a href="#hero-section"
-                    class="btn-gold font-sans rounded-lg px-6 sm:px-10 py-3 sm:py-4 text-sm sm:text-base bg-[#caa36b] hover:bg-[#b58d57] transition">
+                    class="btn-gold font-sans rounded-lg px-6 sm:px-10 py-3 sm:py-4 text-sm sm:text-base text-[#7D0A0A] bg-[#caa36b] hover:bg-[#b58d57] transition">
                     SUBMIT FOR CONSIDERATION
                 </a>
 

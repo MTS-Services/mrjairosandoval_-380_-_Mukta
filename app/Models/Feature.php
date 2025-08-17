@@ -80,4 +80,9 @@ class Feature extends BaseModel
     {
         return $this->hasMany(MembershipFeature::class, 'feature_id', 'id');
     }
+
+    public function Banner()
+    {
+        return $this->hasMany(Banner::class, 'feature_id', 'id');
+    }
 }
