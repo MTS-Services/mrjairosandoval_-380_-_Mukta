@@ -9,7 +9,7 @@ use App\Http\Traits\AuditColumnsTrait;
 
 return new class extends Migration
 {
-    use SoftDeletes,AuditColumnsTrait;
+    use SoftDeletes, AuditColumnsTrait;
     /**
      * Run the migrations.
      */
@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('email');
             $table->string('number');
             $table->string('company');
+            $table->string('subject')->nullable(); 
+            $table->text('message');
 
 
             $table->timestamps();
