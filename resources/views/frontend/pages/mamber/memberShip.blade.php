@@ -52,65 +52,6 @@
                                 </a>
                             </div>
                         @endforeach
-                        <!-- Card 2 -->
-                        {{-- <div
-                            class="relative bg-[#0a0a0a] border border-[#caa36b] rounded-2xl p-8 flex flex-col justify-between shadow-lg transition-transform duration-300 sm:p-10 ">
-                            <h2 class="text-[#caa36b] font-serif text-3xl uppercase tracking-wide mb-4 ">Cavalieri
-                                Premier
-                            </h2>
-                            <span
-                                class="lg:mr-60 top-4 p-2 right-2 bg-[#caa36b] text-[#7D0A0A] uppercase font-serif text-xs   rounded-full font-bold">Premier</span>
-                            <hr class="border-gray-700 my-4">
-                            <ul class="text-gray-300 font-light pt-8 space-y-4 text-left">
-                                <li class="pl-4 relative">
-                                    <span class="absolute left-0 top-0 text-[#caa36b] text-xl">•</span>
-                                    24/7 Shadow Concierge
-                                </li>
-                                <li class="pl-4 relative">
-                                    <span class="absolute left-0 top-0 text-[#caa36b] text-xl">•</span>
-                                    Use of Medici Villas
-                                </li>
-                                <li class="pl-4 relative">
-                                    <span class="absolute left-0 top-0 text-[#caa36b] text-xl">•</span>
-                                    Black Book Access
-                                </li>
-                            </ul>
-                            <a href="#cta-section"
-                                class="mt-8 w-full bg-[#caa36b] text-[#7D0A0A] py-3 rounded-xl transition hover:bg-[#b18e55] font-semibold text-lg uppercase tracking-wider shadow-md mb-[100px]">
-                                Get Stated
-                            </a>
-                        </div> --}}
-
-                        <!-- Card 3 -->
-                        {{-- <div
-                            class="relative bg-[#0a0a0a] border border-[#caa36b] rounded-2xl p-8 flex flex-col justify-between shadow-lg transition-transform duration-300 sm:p-8">
-
-                            <h2 class="text-[#caa36b] font-serif text-3xl uppercase tracking-wide mb-4">Cavalieri
-                                Ottimale
-                            </h2>
-                            <span
-                                class="lg:mr-60 top-4 p-2 right-2 bg-[#caa36b] text-[#7D0A0A] uppercase font-serif text-xs   rounded-full font-bold">Premier</span>
-                            <hr class="border-gray-700 my-4">
-                            <ul class="text-gray-300 font-light pt-8 space-y-4 text-left">
-                                <li class="pl-4 relative">
-                                    <span class="absolute left-0 top-0 text-[#caa36b] text-xl">•</span>
-                                    Custom fantasy architecture
-                                </li>
-                                <li class="pl-4 relative">
-                                    <span class="absolute left-0 top-0 text-[#caa36b] text-xl">•</span>
-                                    Nero Protocol (digital physical erasure)
-                                </li>
-                                <li class="pl-4 relative">
-                                    <span class="absolute left-0 top-0 text-[#caa36b] text-xl">•</span>
-                                    Bloodline Perpetuity
-                                </li>
-                            </ul>
-                            <button
-                                class="mt-8  w-full bg-[#caa36b] text-[#7D0A0A] py-3 rounded-xl transition hover:bg-[#b18e55] font-semibold text-lg uppercase tracking-wider shadow-md mb-[100px]">
-                                Get Stated
-                            </button>
-                        </div> --}}
-
                     </div>
                 </section>
 
