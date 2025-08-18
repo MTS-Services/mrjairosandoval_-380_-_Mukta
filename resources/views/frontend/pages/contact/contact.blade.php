@@ -38,7 +38,7 @@
                             certain tastes? (If
                             none, lie.)</label>
                         <input type="text" placeholder="The whisper, rounded-lg the sign, the omen..."
-                            value="{{ old('subject') }}" name="subject"
+                            name="subject"value="{{ old('subject') }}"
                             class="m-2 rounded-lg w-full bg-transparent border border-gray-800 text-sm text-[#E5E3E3] px-6 py-3 focus:outline-none focus:border-[#caa36b]" />
                         @error('subject')
                             <span style="color: #caa36b;">{{ $message }}</span>
